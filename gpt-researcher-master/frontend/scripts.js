@@ -1,153 +1,72 @@
-const GPTResearcher = (() => {
-    const init = () => {
-      // Not sure, but I think it would be better to add event handlers here instead of in the HTML
-      //document.getElementById("startResearch").addEventListener("click", startResearch);
-      document.getElementById("copyToClipboard").addEventListener("click", copyToClipboard);
+const GPTChatAssistant = (() => {
+  const init = () => {
+      document.getElementById("send-button").addEventListener("click", sendMessage);
+      document.getElementById("user-input").addEventListener("keypress", (event) => {
+          if (event.key === 'Enter') {
+              sendMessage();
+          }
+      });
+  }
 
-      updateState("initial");
-    }
+  const sendMessage = () => {
+      const userInput = document.getElementById('user-input');
+      const message = userInput.value;
+      if (!message) return;
 
-    const startResearch = () => {
-      document.getElementById("output").innerHTML = "";
-      document.getElementById("reportContainer").innerHTML = "";
-      updateState("in_progress")
-  
-      addAgentResponse({ output: "🤔 Thinking about research questions for the task..." });
-  
-      listenToSockEvents();
-    };
-  
-    const listenToSockEvents = () => {
+      appendMessage(message, 'user');
+      userInput.value = '';
+
+      // Simulate bot response
+      setTimeout(() => {
+          appendMessage('🤔 Thinking about your question...', 'bot');
+          startResearch(message);
+      }, 500);
+  };
+
+  const startResearch = (task) => {
       const { protocol, host, pathname } = window.location;
       const ws_uri = `${protocol === 'https:' ? 'wss:' : 'ws:'}//${host}${pathname}ws`;
-      const converter = new showdown.Converter();
       const socket = new WebSocket(ws_uri);
-  
+      const converter = new showdown.Converter();
+
+      socket.onopen = () => {
+          const requestData = {
+              task: task,
+              report_type: 'chat',
+              report_source: 'web',
+              agent: 'Chat Agent',
+          };
+          socket.send(`start ${JSON.stringify(requestData)}`);
+      };
+
       socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        if (data.type === 'logs') {
-          addAgentResponse(data);
-        } else if (data.type === 'report') {
-          writeReport(data, converter);
-        } else if (data.type === 'path') {
-          updateState("finished")
-          updateDownloadLink(data);
-        }
+          const data = JSON.parse(event.data);
+          if (data.type === 'logs' || data.type === 'report') {
+              const markdownOutput = converter.makeHtml(data.output);
+              appendMessage(markdownOutput, 'bot');
+          }
       };
-  
-      socket.onopen = (event) => {
-        const task = document.querySelector('input[name="task"]').value;
-        const report_type = document.querySelector('select[name="report_type"]').value;
-        const report_source = document.querySelector('select[name="report_source"]').value;
-        const agent = document.querySelector('input[name="agent"]:checked').value;
-  
-        const requestData = {
-          task: task,
-          report_type: report_type,
-          report_source: report_source,
-          agent: agent,
-        };
-  
-        socket.send(`start ${JSON.stringify(requestData)}`);
-      };
-    };
-  
-    const addAgentResponse = (data) => {
-      const output = document.getElementById("output");
-      output.innerHTML += '<div class="agent_response">' + data.output + '</div>';
-      output.scrollTop = output.scrollHeight;
-      output.style.display = "block";
-      updateScroll();
-    };
-  
-    const writeReport = (data, converter) => {
-      const reportContainer = document.getElementById("reportContainer");
-      const markdownOutput = converter.makeHtml(data.output);
-      reportContainer.innerHTML += markdownOutput;
-      updateScroll();
-    };
-  
-    const updateDownloadLink = (data) => {
-      const pdf_path = data.output.pdf;
-      const docx_path = data.output.docx;
-      document.getElementById("downloadLink").setAttribute("href", pdf_path);
-      document.getElementById("downloadLinkWord").setAttribute("href", docx_path);
-    };
-  
-    const updateScroll = () => {
-      window.scrollTo(0, document.body.scrollHeight);
-    };
-  
-    const copyToClipboard = () => {
-      const textarea = document.createElement('textarea');
-      textarea.id = 'temp_element';
-      textarea.style.height = 0;
-      document.body.appendChild(textarea);
-      textarea.value = document.getElementById('reportContainer').innerText;
-      const selector = document.querySelector('#temp_element');
-      selector.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-    };
+  };
 
-    const updateState = (state) => {
-      var status = "";
-      switch (state) {
-        case "in_progress":
-          status = "Research in progress..."
-          setReportActionsStatus("disabled");
-          break;
-        case "finished":
-          status = "Research finished!"
-          setReportActionsStatus("enabled");
-          break;
-        case "error":
-          status = "Research failed!"
-          setReportActionsStatus("disabled");
-          break;
-        case "initial":
-          status = ""
-          setReportActionsStatus("hidden");
-          break;
-        default:
-          setReportActionsStatus("disabled");
-      }
-      document.getElementById("status").innerHTML = status;
-      if (document.getElementById("status").innerHTML == "") {
-        document.getElementById("status").style.display = "none";
-      } else {
-        document.getElementById("status").style.display = "block";
-      }
-    }
+  const appendMessage = (message, sender) => {
+      const chatBox = document.getElementById('chat-box');
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', sender);
+      messageElement.innerHTML = message;
+      chatBox.appendChild(messageElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+  };
 
-    /**
-     * Shows or hides the download and copy buttons
-     * @param {str} status Kind of hacky. Takes "enabled", "disabled", or "hidden". "Hidden is same as disabled but also hides the div"
-     */
-    const setReportActionsStatus = (status) => {
-      const reportActions = document.getElementById("reportActions");
-      // Disable everything in reportActions until research is finished
+  document.addEventListener("DOMContentLoaded", init);
 
-      if (status == "enabled") {
-        reportActions.querySelectorAll("a").forEach((link) => {
-          link.classList.remove("disabled");
-          link.removeAttribute('onclick');
-          reportActions.style.display = "block";
-        });
-      } else {
-        reportActions.querySelectorAll("a").forEach((link) => {
-          link.classList.add("disabled");
-          link.setAttribute('onclick', "return false;");
-        });
-        if (status == "hidden") {
-          reportActions.style.display = "none";
-        }
-      }
-    }
+  // Adding default short note
+  window.onload = () => {
+      appendMessage('Hello! How can I assist you with your research today?', 'bot');
+  };
 
-    document.addEventListener("DOMContentLoaded", init);
-    return {
+  return {
+      sendMessage,
       startResearch,
-      copyToClipboard,
-    };
-  })();
+      appendMessage,
+  };
+})();

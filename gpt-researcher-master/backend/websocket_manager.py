@@ -1,12 +1,8 @@
-# connect any client to gpt-researcher using websocket
 import asyncio
-import datetime
-from typing import Dict, List
+import json
 
 from fastapi import WebSocket
-
 from backend.report_type import BasicReport, DetailedReport
-
 from gpt_researcher.utils.enum import ReportType
 
 
@@ -15,9 +11,9 @@ class WebSocketManager:
 
     def __init__(self):
         """Initialize the WebSocketManager class."""
-        self.active_connections: List[WebSocket] = []
-        self.sender_tasks: Dict[WebSocket, asyncio.Task] = {}
-        self.message_queues: Dict[WebSocket, asyncio.Queue] = {}
+        self.active_connections = []
+        self.sender_tasks = {}
+        self.message_queues = {}
 
     async def start_sender(self, websocket: WebSocket):
         """Start the sender task."""
@@ -40,8 +36,7 @@ class WebSocketManager:
         await websocket.accept()
         self.active_connections.append(websocket)
         self.message_queues[websocket] = asyncio.Queue()
-        self.sender_tasks[websocket] = asyncio.create_task(
-            self.start_sender(websocket))
+        self.sender_tasks[websocket] = asyncio.create_task(self.start_sender(websocket))
 
     async def disconnect(self, websocket: WebSocket):
         """Disconnect a websocket."""
@@ -60,21 +55,15 @@ class WebSocketManager:
 
 async def run_agent(task, report_type, report_source, websocket):
     """Run the agent."""
-    # measure time
-    start_time = datetime.datetime.now()
-    # add customized JSON config file path here
+    #start_time = datetime.datetime.now()
     config_path = ""
-    # Instead of running the agent directly run it through the different report type classes
+
     if report_type == ReportType.DetailedReport.value:
-        researcher = DetailedReport(query=task, report_type=report_type, report_source=report_source,
-                                    source_urls=None, config_path=config_path, websocket=websocket)
+        researcher = DetailedReport(query=task, report_type=report_type, report_source=report_source, source_urls=None, config_path=config_path, websocket=websocket)
     else:
-        researcher = BasicReport(query=task, report_type=report_type, report_source=report_source,
-                                 source_urls=None, config_path=config_path, websocket=websocket)
+        researcher = BasicReport(query=task, report_type=report_type, report_source=report_source, source_urls=None, config_path=config_path, websocket=websocket)
 
     report = await researcher.run()
-    # measure time
-    end_time = datetime.datetime.now()
-    await websocket.send_json({"type": "logs", "output": f"\nTotal run time: {end_time - start_time}\n"})
-
+    #end_time = datetime.datetime.now()
+    #await websocket.send_json({"type": "logs", "output": f"\nTotal run time: {end_time - start_time}\n"})
     return report

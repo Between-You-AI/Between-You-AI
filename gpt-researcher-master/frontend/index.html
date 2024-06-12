@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>GPT Researcher</title>
-    <meta name="description" content="A research assistant powered by GPT-4">
+    <title>GPT Chat Assistant</title>
+    <meta name="description" content="A chat assistant powered by GPT-4">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./static/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,133 +12,132 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/site/styles.css"/>
     <style>
-        .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .agent-name {
-            text-align: center;
+        .chat-box {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            height: 500px;
+            overflow-y: scroll;
         }
 
-        .agent-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .message {
+            margin: 10px 0;
         }
 
-        .agent-choices {
-            display: none;
+        .message.bot {
+            text-align: left;
         }
 
-        .btn-show {
-            display: none;
+        .message.user {
+            text-align: right;
+        }
+
+        .input-group {
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
-
-<section class="landing">
-    <div class="max-w-5xl mx-auto text-center">
-        <h1 class="text-4xl font-extrabold mx-auto lg:text-7xl">
-            Say Goodbye to <br>
-            <span
-                    style="background-image:linear-gradient(to right, #9867F0, #ED4E50); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hours
-                    of Research</span>
-        </h1>
-        <p class="max-w-5xl mx-auto text-gray-600 mt-8" style="font-size:20px">
-            Say Hello to GPT Researcher, your AI mate for rapid insights and comprehensive research. GPT Researcher
-            takes care of everything from accurate source gathering to organization of research results - all in one
-            platform designed to make your research process a breeze.
-        </p>
-        <a href="#form" class="btn btn-primary">Get Started</a>
-    </div>
-</section>
-
-<main class="container" id="form">
-    <div class="agent-item"><img src="/static/gptr-logo.png" class="avatar"
-                                                alt="Auto Agent"></div>
-    <form method="POST" class="mt-3" onsubmit="GPTResearcher.startResearch(); return false;">
-        <div class="form-group">
-            <label for="task" class="agent-question">What would you like me to research next?</label>
-            <input type="text" id="task" name="task" class="form-control" required>
-            <input type="radio" name="agent" id="autoAgent" value="Auto Agent" checked hidden>
+    <div class="chat-container">
+        <h1 class="text-center">GPT Chat Assistant</h1>
+        <div class="text-right mb-3">
+            <button id="clear-button" class="btn btn-secondary">Clear</button>
         </div>
-        <div class="form-group">
-            <div class="row">
-
-
+        <div id="chat-box" class="chat-box"></div>
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Type your message...">
+            <div class="input-group-append">
+                <button id="send-button" class="btn btn-primary">Send</button>
+                <button id="stop-button" class="btn btn-danger ml-2">Stop</button>
             </div>
-            <button type="button" id="btnShowAuto" class="btn btn-secondary mt-3 btn-show">Auto Agent</button>
-        </div>
-        <div class="form-group">
-            <label for="report_type" class="agent-question">What type of report would you like me to generate?</label>
-            <select name="report_type" class="form-control" required>
-                <option value="research_report">Summary - Short and fast (~2 min)</option>
-                <option value="detailed_report">Detailed - In depth and longer (~5 min)</option>
-                <option value="resource_report">Resource Report</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="report_source" class="agent-question">What sources would you like me to research from?</label>
-            <p class="text-left mt-0 pt-0" style="font-size: 0.7rem;">You can now do research on local documents as well. Please make sure to add the DOC_PATH env variable pointing to your documents folder.</p>
-            <select name="report_source" class="form-control" required>
-                <option value="web">The Web</option>
-                <option value="local">My Documents</option>
-            </select>
-        </div>
-        <input type="submit" value="Research" class="btn btn-primary button-padding">
-    </form>
-
-    <div class="margin-div">
-        <h2>Agent Output</h2>
-        <p class="mt-2 text-left" style="font-size: 0.8rem;">An agent tailored specifically to your task
-                        will be generated to provide the most precise and relevant research results.</p>
-        <div id="output"></div>
-    </div>
-    <div class="margin-div">
-        <h2>Research Report</h2>
-        <div id="reportContainer"></div>
-        <div id="reportActions">
-            <div class="alert alert-info" role="alert" id="status"></div>
-            <a id="copyToClipboard" onclick="GPTResearcher.copyToClipboard()" class="btn btn-secondary mt-3" style="margin-right: 10px;">Copy to clipboard</a>
-            <a id="downloadLink" href="#" class="btn btn-secondary mt-3" style="margin-right: 10px;" target="_blank">Download as PDF</a>
-            <a id="downloadLinkWord" href="#" class="btn btn-secondary mt-3" target="_blank">Download as Docx</a>
         </div>
     </div>
-</main>
 
-<footer>
-    <p>GPT Researcher &copy; 2024 | <a target="_blank" href="https://github.com/assafelovic/gpt-researcher">GitHub
-        Page</a></p>
-</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <script src="/site/scripts.js"></script>
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const stopButton = document.getElementById('stop-button');
+        const clearButton = document.getElementById('clear-button');
+        let socket;
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
-<script src="/site/scripts.js"></script>
-<script>
-    // const btnChoose = document.getElementById('btnChoose');
-    const btnShowAuto = document.getElementById('btnShowAuto');
-    const autoAgentDiv = document.getElementById('autoAgentDiv');
-    const agentChoices = document.getElementsByClassName('agent-choices');
+        const appendMessage = (message, sender) => {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.innerHTML = message;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
 
-    /**
-    btnChoose.addEventListener('click', function () {
-        btnShowAuto.style.display = 'inline-block';
-        btnChoose.style.display = 'none';
-        autoAgentDiv.style.display = 'none';
-        agentChoices[0].style.display = 'flex';
-    });
-    **/
+        const sendMessage = () => {
+            const message = userInput.value;
+            if (!message) return;
 
-    btnShowAuto.addEventListener('click', function () {
-        btnShowAuto.style.display = 'none';
-        btnChoose.style.display = 'inline-block';
-        autoAgentDiv.style.display = 'flex';
-        agentChoices[0].style.display = 'none';
-    });
-</script>
+            appendMessage(message, 'user');
+            userInput.value = '';
+            setTimeout(() => {
+                appendMessage('🤔 Thinking about your question...', 'bot');
+                startResearch(message);
+            }, 500);
+        };
+
+        const startResearch = (task) => {
+            const { protocol, host, pathname } = window.location;
+            const ws_uri = `${protocol === 'https:' ? 'wss:' : 'ws:'}//${host}${pathname}ws`;
+            socket = new WebSocket(ws_uri);
+            const converter = new showdown.Converter();
+
+            socket.onopen = () => {
+                const requestData = {
+                    task: task,
+                    report_type: 'chat',
+                    report_source: 'web',
+                    agent: 'Chat Agent',
+                };
+                socket.send(`start ${JSON.stringify(requestData)}`);
+            };
+
+            socket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                if (data.type === 'logs' || data.type === 'report') {
+                    const markdownOutput = converter.makeHtml(data.output);
+                    appendMessage(markdownOutput, 'bot');
+                }
+            };
+        };
+
+        const stopResearch = () => {
+            if (socket) {
+                socket.close();
+                appendMessage('⛔ Research stopped.', 'bot');
+            }
+        };
+
+        const clearChat = () => {
+            location.reload();
+        };
+
+        sendButton.addEventListener('click', sendMessage);
+        stopButton.addEventListener('click', stopResearch);
+        clearButton.addEventListener('click', clearChat);
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        window.onload = () => {
+            appendMessage('Hello! How can I assist you with your research today?', 'bot');
+        };
+    </script>
 </body>
 
 </html>
