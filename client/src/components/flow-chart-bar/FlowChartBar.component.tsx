@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { Box } from '@mui/material';
 
 import 'reactflow/dist/style.css';
-import ReactFlow, { Background, Controls, MiniMap, OnConnect, addEdge, useEdgesState, useNodesState } from 'reactflow';
+import ReactFlow, { Controls, MiniMap, OnConnect, addEdge, useEdgesState, useNodesState } from 'reactflow';
 
 import { initialNodes, nodeTypes } from "./nodes";
 import { initialEdges, edgeTypes } from "./edges";
