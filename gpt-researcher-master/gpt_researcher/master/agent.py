@@ -5,6 +5,8 @@ from gpt_researcher.config import Config
 from gpt_researcher.memory import Memory
 from gpt_researcher.utils.llm import create_chat_completion
 
+previous_queries = []
+
 class GPTResearcher:
     """GPT Researcher"""
 
@@ -25,9 +27,12 @@ class GPTResearcher:
         self.questions: list = []
         self.time_period: str = ""
         self.steps_to_perform: list = []
+        
 
     async def conduct_research(self):
-        response = await get_gpt_response(self.query, self.context, self.cfg, self.websocket)
+        previous_queries.append(self.query)
+        print(previous_queries)
+        response = await get_gpt_response(self.query, previous_queries, self.context, self.cfg, self.websocket)
         self.type = response.get('type', "")
         self.steps = response.get('steps', [])
         self.estimated_time = response.get('estimated_time', "")
@@ -41,11 +46,12 @@ class GPTResearcher:
 
         return response
 
-async def get_gpt_response(query, context, cfg, websocket=None):
+async def get_gpt_response(query, pqueires, context, cfg, websocket=None):
+    p = " ".join(pqueires)
     try:
         messages = [
-            {"role": "system", "content": "ask questions and after getting the input from user design the plan don't give example answers for questions avoid this in list {answer_type: string and also steps should be one worded}"},
-            {"role": "user", "content": f"{generate_response_prompt(query, context)}"}
+            {"role": "system", "content": "ask questions and after getting the input from user design the plan don't give example answers for questions avoid this in list If there is content in P make decision based on that while giving plan {answer_type: string and also steps should be one worded}"},
+            {"role": "user", "content": f"{generate_response_prompt(p, context)}"}
         ]
         response = await create_chat_completion(
             model=cfg.smart_llm_model,
