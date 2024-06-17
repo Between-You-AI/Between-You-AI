@@ -1,0 +1,3067 @@
+[
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "common.gpt_researcher.config",
+        "description": "common.gpt_researcher.config",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.config",
+        "documentation": {}
+    },
+    {
+        "label": "ContextCompressor",
+        "importPath": "common.gpt_researcher.context.compression",
+        "description": "common.gpt_researcher.context.compression",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.context.compression",
+        "documentation": {}
+    },
+    {
+        "label": "DocumentLoader",
+        "importPath": "common.gpt_researcher.document",
+        "description": "common.gpt_researcher.document",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.document",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "common.gpt_researcher.master.actions",
+        "description": "common.gpt_researcher.master.actions",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "choose_agent",
+        "importPath": "common.gpt_researcher.master.actions",
+        "description": "common.gpt_researcher.master.actions",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "common.gpt_researcher.memory",
+        "description": "common.gpt_researcher.memory",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.memory",
+        "documentation": {}
+    },
+    {
+        "label": "ReportSource",
+        "importPath": "common.gpt_researcher.utils.enum",
+        "description": "common.gpt_researcher.utils.enum",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "ReportType",
+        "importPath": "common.gpt_researcher.utils.enum",
+        "description": "common.gpt_researcher.utils.enum",
+        "isExtraImport": true,
+        "detail": "common.gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "platform",
+        "importPath": "sys",
+        "description": "sys",
+        "isExtraImport": true,
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypedDict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypedDict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Generator",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocket",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocket",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocket",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocketDisconnect",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocket",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocket",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocket",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "importPath": "flatted",
+        "description": "flatted",
+        "isExtraImport": true,
+        "detail": "flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "importPath": "flatted",
+        "description": "flatted",
+        "isExtraImport": true,
+        "detail": "flatted",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "importPath": "gpt_researcher.master.agent",
+        "description": "gpt_researcher.master.agent",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.agent",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "importPath": "gpt_researcher.master.agent",
+        "description": "gpt_researcher.master.agent",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.agent",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "importPath": "gpt_researcher.master.agent",
+        "description": "gpt_researcher.master.agent",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.agent",
+        "documentation": {}
+    },
+    {
+        "label": "add_source_urls",
+        "importPath": "gpt_researcher.master.actions",
+        "description": "gpt_researcher.master.actions",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "extract_headers",
+        "importPath": "gpt_researcher.master.actions",
+        "description": "gpt_researcher.master.actions",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "table_of_contents",
+        "importPath": "gpt_researcher.master.actions",
+        "description": "gpt_researcher.master.actions",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "StaticFiles",
+        "importPath": "fastapi.staticfiles",
+        "description": "fastapi.staticfiles",
+        "isExtraImport": true,
+        "detail": "fastapi.staticfiles",
+        "documentation": {}
+    },
+    {
+        "label": "Jinja2Templates",
+        "importPath": "fastapi.templating",
+        "description": "fastapi.templating",
+        "isExtraImport": true,
+        "detail": "fastapi.templating",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocketManager",
+        "importPath": "backend.websocket_manager",
+        "description": "backend.websocket_manager",
+        "isExtraImport": true,
+        "detail": "backend.websocket_manager",
+        "documentation": {}
+    },
+    {
+        "label": "write_md_to_pdf",
+        "importPath": "backend.utils",
+        "description": "backend.utils",
+        "isExtraImport": true,
+        "detail": "backend.utils",
+        "documentation": {}
+    },
+    {
+        "label": "write_md_to_word",
+        "importPath": "backend.utils",
+        "description": "backend.utils",
+        "isExtraImport": true,
+        "detail": "backend.utils",
+        "documentation": {}
+    },
+    {
+        "label": "write_text_to_md",
+        "importPath": "backend.utils",
+        "description": "backend.utils",
+        "isExtraImport": true,
+        "detail": "backend.utils",
+        "documentation": {}
+    },
+    {
+        "label": "aiofiles",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "aiofiles",
+        "description": "aiofiles",
+        "detail": "aiofiles",
+        "documentation": {}
+    },
+    {
+        "label": "urllib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "urllib",
+        "description": "urllib",
+        "detail": "urllib",
+        "documentation": {}
+    },
+    {
+        "label": "mistune",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mistune",
+        "description": "mistune",
+        "detail": "mistune",
+        "documentation": {}
+    },
+    {
+        "label": "BasicReport",
+        "importPath": "backend.report_type",
+        "description": "backend.report_type",
+        "isExtraImport": true,
+        "detail": "backend.report_type",
+        "documentation": {}
+    },
+    {
+        "label": "DetailedReport",
+        "importPath": "backend.report_type",
+        "description": "backend.report_type",
+        "isExtraImport": true,
+        "detail": "backend.report_type",
+        "documentation": {}
+    },
+    {
+        "label": "ReportType",
+        "importPath": "gpt_researcher.utils.enum",
+        "description": "gpt_researcher.utils.enum",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "ReportType",
+        "importPath": "gpt_researcher.utils.enum",
+        "description": "gpt_researcher.utils.enum",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "ReportSource",
+        "importPath": "gpt_researcher.utils.enum",
+        "description": "gpt_researcher.utils.enum",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "ReportType",
+        "importPath": "gpt_researcher.utils.enum",
+        "description": "gpt_researcher.utils.enum",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "importPath": "gpt_researcher",
+        "description": "gpt_researcher",
+        "isExtraImport": true,
+        "detail": "gpt_researcher",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "importPath": "gpt_researcher",
+        "description": "gpt_researcher",
+        "isExtraImport": true,
+        "detail": "gpt_researcher",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "importPath": "gpt_researcher",
+        "description": "gpt_researcher",
+        "isExtraImport": true,
+        "detail": "gpt_researcher",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "importPath": "gpt_researcher",
+        "description": "gpt_researcher",
+        "isExtraImport": true,
+        "detail": "gpt_researcher",
+        "documentation": {}
+    },
+    {
+        "label": "ContextualCompressionRetriever",
+        "importPath": "langchain.retrievers",
+        "description": "langchain.retrievers",
+        "isExtraImport": true,
+        "detail": "langchain.retrievers",
+        "documentation": {}
+    },
+    {
+        "label": "ArxivRetriever",
+        "importPath": "langchain.retrievers",
+        "description": "langchain.retrievers",
+        "isExtraImport": true,
+        "detail": "langchain.retrievers",
+        "documentation": {}
+    },
+    {
+        "label": "DocumentCompressorPipeline",
+        "importPath": "langchain.retrievers.document_compressors",
+        "description": "langchain.retrievers.document_compressors",
+        "isExtraImport": true,
+        "detail": "langchain.retrievers.document_compressors",
+        "documentation": {}
+    },
+    {
+        "label": "EmbeddingsFilter",
+        "importPath": "langchain.retrievers.document_compressors",
+        "description": "langchain.retrievers.document_compressors",
+        "isExtraImport": true,
+        "detail": "langchain.retrievers.document_compressors",
+        "documentation": {}
+    },
+    {
+        "label": "RecursiveCharacterTextSplitter",
+        "importPath": "langchain.text_splitter",
+        "description": "langchain.text_splitter",
+        "isExtraImport": true,
+        "detail": "langchain.text_splitter",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_embedding_cost",
+        "importPath": "gpt_researcher.utils.costs",
+        "description": "gpt_researcher.utils.costs",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "OPENAI_EMBEDDING_MODEL",
+        "importPath": "gpt_researcher.memory.embeddings",
+        "description": "gpt_researcher.memory.embeddings",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.memory.embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "CallbackManagerForRetrieverRun",
+        "importPath": "langchain.callbacks.manager",
+        "description": "langchain.callbacks.manager",
+        "isExtraImport": true,
+        "detail": "langchain.callbacks.manager",
+        "documentation": {}
+    },
+    {
+        "label": "Document",
+        "importPath": "langchain.schema",
+        "description": "langchain.schema",
+        "isExtraImport": true,
+        "detail": "langchain.schema",
+        "documentation": {}
+    },
+    {
+        "label": "BaseRetriever",
+        "importPath": "langchain.schema.retriever",
+        "description": "langchain.schema.retriever",
+        "isExtraImport": true,
+        "detail": "langchain.schema.retriever",
+        "documentation": {}
+    },
+    {
+        "label": "PyMuPDFLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "TextLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "UnstructuredCSVLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "UnstructuredExcelLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "UnstructuredMarkdownLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "UnstructuredPowerPointLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "UnstructuredWordDocumentLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "PyMuPDFLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "WebBaseLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Fore",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "colorama",
+        "description": "colorama",
+        "isExtraImport": true,
+        "detail": "colorama",
+        "documentation": {}
+    },
+    {
+        "label": "ChatAnthropic",
+        "importPath": "langchain_anthropic",
+        "description": "langchain_anthropic",
+        "isExtraImport": true,
+        "detail": "langchain_anthropic",
+        "documentation": {}
+    },
+    {
+        "label": "AzureChatOpenAI",
+        "importPath": "langchain_openai",
+        "description": "langchain_openai",
+        "isExtraImport": true,
+        "detail": "langchain_openai",
+        "documentation": {}
+    },
+    {
+        "label": "ChatOpenAI",
+        "importPath": "langchain_openai",
+        "description": "langchain_openai",
+        "isExtraImport": true,
+        "detail": "langchain_openai",
+        "documentation": {}
+    },
+    {
+        "label": "ChatOpenAI",
+        "importPath": "langchain_openai",
+        "description": "langchain_openai",
+        "isExtraImport": true,
+        "detail": "langchain_openai",
+        "documentation": {}
+    },
+    {
+        "label": "importlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "importlib",
+        "description": "importlib",
+        "detail": "importlib",
+        "documentation": {}
+    },
+    {
+        "label": "HumanMessage",
+        "importPath": "langchain_core.messages",
+        "description": "langchain_core.messages",
+        "isExtraImport": true,
+        "detail": "langchain_core.messages",
+        "documentation": {}
+    },
+    {
+        "label": "SystemMessage",
+        "importPath": "langchain_core.messages",
+        "description": "langchain_core.messages",
+        "isExtraImport": true,
+        "detail": "langchain_core.messages",
+        "documentation": {}
+    },
+    {
+        "label": "ChatGoogleGenerativeAI",
+        "importPath": "langchain_google_genai",
+        "description": "langchain_google_genai",
+        "isExtraImport": true,
+        "detail": "langchain_google_genai",
+        "documentation": {}
+    },
+    {
+        "label": "ChatGroq",
+        "importPath": "langchain_groq",
+        "description": "langchain_groq",
+        "isExtraImport": true,
+        "detail": "langchain_groq",
+        "documentation": {}
+    },
+    {
+        "label": "ChatHuggingFace",
+        "importPath": "langchain_huggingface",
+        "description": "langchain_huggingface",
+        "isExtraImport": true,
+        "detail": "langchain_huggingface",
+        "documentation": {}
+    },
+    {
+        "label": "ChatMistralAI",
+        "importPath": "langchain_mistralai",
+        "description": "langchain_mistralai",
+        "isExtraImport": true,
+        "detail": "langchain_mistralai",
+        "documentation": {}
+    },
+    {
+        "label": "ChatOllama",
+        "importPath": "langchain_community.chat_models",
+        "description": "langchain_community.chat_models",
+        "isExtraImport": true,
+        "detail": "langchain_community.chat_models",
+        "documentation": {}
+    },
+    {
+        "label": "ChatTogether",
+        "importPath": "langchain_together",
+        "description": "langchain_together",
+        "isExtraImport": true,
+        "detail": "langchain_together",
+        "documentation": {}
+    },
+    {
+        "label": "markdown",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "markdown",
+        "description": "markdown",
+        "detail": "markdown",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "gpt_researcher.master.prompts",
+        "description": "gpt_researcher.master.prompts",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "auto_agent_instructions",
+        "importPath": "gpt_researcher.master.prompts",
+        "description": "gpt_researcher.master.prompts",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_subtopics_prompt",
+        "importPath": "gpt_researcher.master.prompts",
+        "description": "gpt_researcher.master.prompts",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "Scraper",
+        "importPath": "gpt_researcher.scraper.scraper",
+        "description": "gpt_researcher.scraper.scraper",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "gpt_researcher.utils.llm",
+        "description": "gpt_researcher.utils.llm",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.utils.llm",
+        "documentation": {}
+    },
+    {
+        "label": "create_chat_completion",
+        "importPath": "gpt_researcher.utils.llm",
+        "description": "gpt_researcher.utils.llm",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.utils.llm",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "gpt_researcher.config",
+        "description": "gpt_researcher.config",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.config",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "gpt_researcher.memory",
+        "description": "gpt_researcher.memory",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.memory",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
+        "label": "FAISS",
+        "importPath": "langchain_community.vectorstores",
+        "description": "langchain_community.vectorstores",
+        "isExtraImport": true,
+        "detail": "langchain_community.vectorstores",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "islice",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "DDGS",
+        "importPath": "duckduckgo_search",
+        "description": "duckduckgo_search",
+        "isExtraImport": true,
+        "detail": "duckduckgo_search",
+        "documentation": {}
+    },
+    {
+        "label": "DDGS",
+        "importPath": "duckduckgo_search",
+        "description": "duckduckgo_search",
+        "isExtraImport": true,
+        "detail": "duckduckgo_search",
+        "documentation": {}
+    },
+    {
+        "label": "DDGS",
+        "importPath": "duckduckgo_search",
+        "description": "duckduckgo_search",
+        "isExtraImport": true,
+        "detail": "duckduckgo_search",
+        "documentation": {}
+    },
+    {
+        "label": "TavilyClient",
+        "importPath": "tavily",
+        "description": "tavily",
+        "isExtraImport": true,
+        "detail": "tavily",
+        "documentation": {}
+    },
+    {
+        "label": "TavilyClient",
+        "importPath": "tavily",
+        "description": "tavily",
+        "isExtraImport": true,
+        "detail": "tavily",
+        "documentation": {}
+    },
+    {
+        "label": "TavilyClient",
+        "importPath": "tavily",
+        "description": "tavily",
+        "isExtraImport": true,
+        "detail": "tavily",
+        "documentation": {}
+    },
+    {
+        "label": "SearxSearchWrapper",
+        "importPath": "langchain_community.utilities",
+        "description": "langchain_community.utilities",
+        "isExtraImport": true,
+        "detail": "langchain_community.utilities",
+        "documentation": {}
+    },
+    {
+        "label": "urllib.parse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "ArxivRetriever",
+        "importPath": "langchain_community.retrievers",
+        "description": "langchain_community.retrievers",
+        "isExtraImport": true,
+        "detail": "langchain_community.retrievers",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "Article",
+        "importPath": "newspaper",
+        "description": "newspaper",
+        "isExtraImport": true,
+        "detail": "newspaper",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPoolExecutor",
+        "importPath": "concurrent.futures.thread",
+        "description": "concurrent.futures.thread",
+        "isExtraImport": true,
+        "detail": "concurrent.futures.thread",
+        "documentation": {}
+    },
+    {
+        "label": "partial",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "ArxivScraper",
+        "importPath": "gpt_researcher.scraper",
+        "description": "gpt_researcher.scraper",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoupScraper",
+        "importPath": "gpt_researcher.scraper",
+        "description": "gpt_researcher.scraper",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "NewspaperScraper",
+        "importPath": "gpt_researcher.scraper",
+        "description": "gpt_researcher.scraper",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "PyMuPDFScraper",
+        "importPath": "gpt_researcher.scraper",
+        "description": "gpt_researcher.scraper",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "WebBaseLoaderScraper",
+        "importPath": "gpt_researcher.scraper",
+        "description": "gpt_researcher.scraper",
+        "isExtraImport": true,
+        "detail": "gpt_researcher.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "tiktoken",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tiktoken",
+        "description": "tiktoken",
+        "detail": "tiktoken",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "PydanticOutputParser",
+        "importPath": "langchain.output_parsers",
+        "description": "langchain.output_parsers",
+        "isExtraImport": true,
+        "detail": "langchain.output_parsers",
+        "documentation": {}
+    },
+    {
+        "label": "PromptTemplate",
+        "importPath": "langchain.prompts",
+        "description": "langchain.prompts",
+        "isExtraImport": true,
+        "detail": "langchain.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "uuid4",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "convert_openai_messages",
+        "importPath": "langchain.adapters.openai",
+        "description": "langchain.adapters.openai",
+        "isExtraImport": true,
+        "detail": "langchain.adapters.openai",
+        "documentation": {}
+    },
+    {
+        "label": "StateGraph",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "END",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "StateGraph",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "END",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "DraftState",
+        "importPath": "memory.draft",
+        "description": "memory.draft",
+        "isExtraImport": true,
+        "detail": "memory.draft",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchState",
+        "importPath": "memory.research",
+        "description": "memory.research",
+        "isExtraImport": true,
+        "detail": "memory.research",
+        "documentation": {}
+    },
+    {
+        "label": "json5",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json5",
+        "description": "json5",
+        "detail": "json5",
+        "documentation": {}
+    },
+    {
+        "label": "operator",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "operator",
+        "description": "operator",
+        "detail": "operator",
+        "documentation": {}
+    },
+    {
+        "label": "ChiefEditorAgent",
+        "importPath": "agents",
+        "description": "agents",
+        "isExtraImport": true,
+        "detail": "agents",
+        "documentation": {}
+    },
+    {
+        "label": "ChiefEditorAgent",
+        "importPath": "agents",
+        "description": "agents",
+        "isExtraImport": true,
+        "detail": "agents",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "urljoin",
+        "importPath": "requests.compat",
+        "description": "requests.compat",
+        "isExtraImport": true,
+        "detail": "requests.compat",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriver",
+        "importPath": "selenium.webdriver.remote.webdriver",
+        "description": "selenium.webdriver.remote.webdriver",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.remote.webdriver",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriver",
+        "importPath": "selenium.webdriver.remote.webdriver",
+        "description": "selenium.webdriver.remote.webdriver",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.remote.webdriver",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "create_chat_completion",
+        "importPath": "gpt_researcher_old.retriever.llm_utils",
+        "description": "gpt_researcher_old.retriever.llm_utils",
+        "isExtraImport": true,
+        "detail": "gpt_researcher_old.retriever.llm_utils",
+        "documentation": {}
+    },
+    {
+        "label": "md2pdf",
+        "importPath": "md2pdf.core",
+        "description": "md2pdf.core",
+        "isExtraImport": true,
+        "detail": "md2pdf.core",
+        "documentation": {}
+    },
+    {
+        "label": "PyMuPDFLoader",
+        "importPath": "langchain.document_loaders",
+        "description": "langchain.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.chrome.options",
+        "description": "selenium.webdriver.chrome.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.chrome.options",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.firefox.options",
+        "description": "selenium.webdriver.firefox.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.firefox.options",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.safari.options",
+        "description": "selenium.webdriver.safari.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.safari.options",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.wait",
+        "description": "selenium.webdriver.support.wait",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.wait",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_skills",
+        "importPath": "scraping",
+        "description": "scraping",
+        "isExtraImport": true,
+        "detail": "scraping",
+        "documentation": {}
+    },
+    {
+        "label": "processing",
+        "importPath": "scraping",
+        "description": "scraping",
+        "isExtraImport": true,
+        "detail": "scraping",
+        "documentation": {}
+    },
+    {
+        "label": "extract_hyperlinks",
+        "importPath": "scraping.processing.html",
+        "description": "scraping.processing.html",
+        "isExtraImport": true,
+        "detail": "scraping.processing.html",
+        "documentation": {}
+    },
+    {
+        "label": "format_hyperlinks",
+        "importPath": "scraping.processing.html",
+        "description": "scraping.processing.html",
+        "isExtraImport": true,
+        "detail": "scraping.processing.html",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPoolExecutor",
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
+        "isExtraImport": true,
+        "detail": "concurrent.futures",
+        "documentation": {}
+    },
+    {
+        "label": "summarize_text",
+        "importPath": "scraping.processing.text",
+        "description": "scraping.processing.text",
+        "isExtraImport": true,
+        "detail": "scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "RawTextHelpFormatter",
+        "importPath": "argparse",
+        "description": "argparse",
+        "isExtraImport": true,
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "backend.server",
+        "description": "backend.server",
+        "isExtraImport": true,
+        "detail": "backend.server",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "ExpertService",
+        "kind": 6,
+        "importPath": "apps.server.src.experts.service",
+        "description": "apps.server.src.experts.service",
+        "peekOfCode": "class ExpertService:\n    \"\"\"\n    Expert Service\n    \"\"\"\n    def __init__(\n        self,\n        query: str,\n        agent=None,\n        role=None,\n        parent_query: str = \"\",",
+        "detail": "apps.server.src.experts.service",
+        "documentation": {}
+    },
+    {
+        "label": "read_root",
+        "kind": 2,
+        "importPath": "apps.server.src.main",
+        "description": "apps.server.src.main",
+        "peekOfCode": "def read_root():\n    return {\"Hello\": \"World\"}\n@app.get(\"/items/{item_id}\")\ndef read_item(item_id: int, q: Union[str, None] = None):\n    return {\"item_id\": item_id, \"q\": q}\n@app.post(\"/expert\")\nasync def get_agent(query: str):\n    results = await ExpertService(query).find_expert()\n    print(results)\n    return results",
+        "detail": "apps.server.src.main",
+        "documentation": {}
+    },
+    {
+        "label": "read_item",
+        "kind": 2,
+        "importPath": "apps.server.src.main",
+        "description": "apps.server.src.main",
+        "peekOfCode": "def read_item(item_id: int, q: Union[str, None] = None):\n    return {\"item_id\": item_id, \"q\": q}\n@app.post(\"/expert\")\nasync def get_agent(query: str):\n    results = await ExpertService(query).find_expert()\n    print(results)\n    return results",
+        "detail": "apps.server.src.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "apps.server.src.main",
+        "description": "apps.server.src.main",
+        "peekOfCode": "app = FastAPI()\n@app.get(\"/\")\ndef read_root():\n    return {\"Hello\": \"World\"}\n@app.get(\"/items/{item_id}\")\ndef read_item(item_id: int, q: Union[str, None] = None):\n    return {\"item_id\": item_id, \"q\": q}\n@app.post(\"/expert\")\nasync def get_agent(query: str):\n    results = await ExpertService(query).find_expert()",
+        "detail": "apps.server.src.main",
+        "documentation": {}
+    },
+    {
+        "label": "_Known",
+        "kind": 6,
+        "importPath": "client.node_modules.flatted.python.flatted",
+        "description": "client.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _Known:\n    def __init__(self):\n        self.key = []\n        self.value = []\nclass _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0",
+        "detail": "client.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "_String",
+        "kind": 6,
+        "importPath": "client.node_modules.flatted.python.flatted",
+        "description": "client.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0\n    for _ in value:\n        keys.append(i)\n        i += 1\n    return keys",
+        "detail": "client.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "kind": 2,
+        "importPath": "client.node_modules.flatted.python.flatted",
+        "description": "client.node_modules.flatted.python.flatted",
+        "peekOfCode": "def parse(value, *args, **kwargs):\n    json = _json.loads(value, *args, **kwargs)\n    wrapped = []\n    for value in json:\n        wrapped.append(_wrap(value))\n    input = []\n    for value in wrapped:\n        if isinstance(value, _String):\n            input.append(value.value)\n        else:",
+        "detail": "client.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "client.node_modules.flatted.python.flatted",
+        "description": "client.node_modules.flatted.python.flatted",
+        "peekOfCode": "def stringify(value, *args, **kwargs):\n    known = _Known()\n    input = []\n    output = []\n    i = int(_index(known, input, value))\n    while i < len(input):\n        output.append(_transform(known, input, input[i]))\n        i += 1\n    return _json.dumps(output, *args, **kwargs)",
+        "detail": "client.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "def stringify(value):\n    return _stringify(value, separators=(',', ':'))\nassert stringify([None, None]) == '[[null,null]]'\na = []\no = {}\nassert stringify(a) == '[[]]'\nassert stringify(o) == '[{}]'\na.append(a)\no['o'] = o\nassert stringify(a) == '[[\"0\"]]'",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "a",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "a = []\no = {}\nassert stringify(a) == '[[]]'\nassert stringify(o) == '[{}]'\na.append(a)\no['o'] = o\nassert stringify(a) == '[[\"0\"]]'\nassert stringify(o) == '[{\"o\":\"0\"}]'\nb = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o = {}\nassert stringify(a) == '[[]]'\nassert stringify(o) == '[{}]'\na.append(a)\no['o'] = o\nassert stringify(a) == '[[\"0\"]]'\nassert stringify(o) == '[{\"o\":\"0\"}]'\nb = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b\na.append(1)",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['o']",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o['o'] = o\nassert stringify(a) == '[[\"0\"]]'\nassert stringify(o) == '[{\"o\":\"0\"}]'\nb = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b\na.append(1)\na.append('two')\na.append(True)\no['one'] = 1\no['two'] = 'two'",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "b",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "b = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b\na.append(1)\na.append('two')\na.append(True)\no['one'] = 1\no['two'] = 'two'\no['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['one']",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o['one'] = 1\no['two'] = 'two'\no['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'\na.append(o)\no['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['two']",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o['two'] = 'two'\no['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'\na.append(o)\no['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})\na.append([1, 2, 3])",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['three']",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'\na.append(o)\no['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})\na.append([1, 2, 3])\no['test'] = {'test': 'OK'}",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['a']",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})\na.append([1, 2, 3])\no['test'] = {'test': 'OK'}\no['array'] = [1, 2, 3]\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\",\"3\",\"4\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\",\"test\":\"3\",\"array\":\"4\"},{\"test\":\"5\"},[1,2,3],\"OK\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\",\"test\":\"3\",\"array\":\"4\"},\"two\",[\"2\",1,\"1\",true,\"0\",\"3\",\"4\"],{\"test\":\"5\"},[1,2,3],\"OK\"]'\na2 = parse(stringify(a));",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['test']",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o['test'] = {'test': 'OK'}\no['array'] = [1, 2, 3]\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\",\"3\",\"4\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\",\"test\":\"3\",\"array\":\"4\"},{\"test\":\"5\"},[1,2,3],\"OK\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\",\"test\":\"3\",\"array\":\"4\"},\"two\",[\"2\",1,\"1\",true,\"0\",\"3\",\"4\"],{\"test\":\"5\"},[1,2,3],\"OK\"]'\na2 = parse(stringify(a));\no2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['array']",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o['array'] = [1, 2, 3]\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\",\"3\",\"4\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\",\"test\":\"3\",\"array\":\"4\"},{\"test\":\"5\"},[1,2,3],\"OK\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\",\"test\":\"3\",\"array\":\"4\"},\"two\",[\"2\",1,\"1\",true,\"0\",\"3\",\"4\"],{\"test\":\"5\"},[1,2,3],\"OK\"]'\na2 = parse(stringify(a));\no2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']\nstr = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "a2",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "a2 = parse(stringify(a));\no2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']\nstr = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')\nassert str['b']['t']['a'] == 'sup' and str['a'][1]['b'][0]['c'] == str['b']['t']\noo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o2",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "o2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']\nstr = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')\nassert str['b']['t']['a'] == 'sup' and str['a'][1]['b'][0]['c'] == str['b']['t']\noo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']\nprint('OK')",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "str",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "str = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')\nassert str['b']['t']['a'] == 'sup' and str['a'][1]['b'][0]['c'] == str['b']['t']\noo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']\nprint('OK')",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "oo",
+        "kind": 5,
+        "importPath": "client.node_modules.flatted.python.test",
+        "description": "client.node_modules.flatted.python.test",
+        "peekOfCode": "oo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']\nprint('OK')",
+        "detail": "client.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "BasicReport",
+        "kind": 6,
+        "importPath": "common.backend.report_type.basic_report.basic_report",
+        "description": "common.backend.report_type.basic_report.basic_report",
+        "peekOfCode": "class BasicReport():\n    def __init__(self, query: str, report_type: str, report_source:str, source_urls, config_path: str, websocket: WebSocket):\n        self.query = query\n        self.report_type = report_type\n        self.report_source = report_source\n        self.source_urls = source_urls\n        self.config_path = config_path\n        self.websocket = websocket\n    async def run(self):\n        # Initialize researcher",
+        "detail": "common.backend.report_type.basic_report.basic_report",
+        "documentation": {}
+    },
+    {
+        "label": "DetailedReport",
+        "kind": 6,
+        "importPath": "common.backend.report_type.detailed_report.detailed_report",
+        "description": "common.backend.report_type.detailed_report.detailed_report",
+        "peekOfCode": "class DetailedReport():\n    def __init__(self, query: str, report_type: str, report_source: str, source_urls, config_path: str, websocket: WebSocket, subtopics=[]):\n        self.query = query\n        self.report_type = report_type\n        self.report_source = report_source\n        self.source_urls = source_urls\n        self.config_path = config_path\n        self.websocket = websocket\n        self.subtopics = subtopics\n        # A parent task assistant. Adding research_report as default",
+        "detail": "common.backend.report_type.detailed_report.detailed_report",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchRequest",
+        "kind": 6,
+        "importPath": "common.backend.server",
+        "description": "common.backend.server",
+        "peekOfCode": "class ResearchRequest(BaseModel):\n    task: str\n    report_type: str\n    agent: str\napp = FastAPI()\napp.mount(\"/site\", StaticFiles(directory=\"./frontend\"), name=\"site\")\napp.mount(\"/static\", StaticFiles(directory=\"./frontend/static\"), name=\"static\")\ntemplates = Jinja2Templates(directory=\"./frontend\")\nmanager = WebSocketManager()\n# Dynamic directory for outputs once first research is run",
+        "detail": "common.backend.server",
+        "documentation": {}
+    },
+    {
+        "label": "startup_event",
+        "kind": 2,
+        "importPath": "common.backend.server",
+        "description": "common.backend.server",
+        "peekOfCode": "def startup_event():\n    if not os.path.isdir(\"outputs\"):\n        os.makedirs(\"outputs\")\n    app.mount(\"/outputs\", StaticFiles(directory=\"outputs\"), name=\"outputs\")\n@app.get(\"/\")\nasync def read_root(request: Request):\n    return templates.TemplateResponse('index.html', {\"request\": request, \"report\": None})\n@app.websocket(\"/ws\")\nasync def websocket_endpoint(websocket: WebSocket):\n    await manager.connect(websocket)",
+        "detail": "common.backend.server",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "common.backend.server",
+        "description": "common.backend.server",
+        "peekOfCode": "app = FastAPI()\napp.mount(\"/site\", StaticFiles(directory=\"./frontend\"), name=\"site\")\napp.mount(\"/static\", StaticFiles(directory=\"./frontend/static\"), name=\"static\")\ntemplates = Jinja2Templates(directory=\"./frontend\")\nmanager = WebSocketManager()\n# Dynamic directory for outputs once first research is run\n@app.on_event(\"startup\")\ndef startup_event():\n    if not os.path.isdir(\"outputs\"):\n        os.makedirs(\"outputs\")",
+        "detail": "common.backend.server",
+        "documentation": {}
+    },
+    {
+        "label": "templates",
+        "kind": 5,
+        "importPath": "common.backend.server",
+        "description": "common.backend.server",
+        "peekOfCode": "templates = Jinja2Templates(directory=\"./frontend\")\nmanager = WebSocketManager()\n# Dynamic directory for outputs once first research is run\n@app.on_event(\"startup\")\ndef startup_event():\n    if not os.path.isdir(\"outputs\"):\n        os.makedirs(\"outputs\")\n    app.mount(\"/outputs\", StaticFiles(directory=\"outputs\"), name=\"outputs\")\n@app.get(\"/\")\nasync def read_root(request: Request):",
+        "detail": "common.backend.server",
+        "documentation": {}
+    },
+    {
+        "label": "manager",
+        "kind": 5,
+        "importPath": "common.backend.server",
+        "description": "common.backend.server",
+        "peekOfCode": "manager = WebSocketManager()\n# Dynamic directory for outputs once first research is run\n@app.on_event(\"startup\")\ndef startup_event():\n    if not os.path.isdir(\"outputs\"):\n        os.makedirs(\"outputs\")\n    app.mount(\"/outputs\", StaticFiles(directory=\"outputs\"), name=\"outputs\")\n@app.get(\"/\")\nasync def read_root(request: Request):\n    return templates.TemplateResponse('index.html', {\"request\": request, \"report\": None})",
+        "detail": "common.backend.server",
+        "documentation": {}
+    },
+    {
+        "label": "WebSocketManager",
+        "kind": 6,
+        "importPath": "common.backend.websocket_manager",
+        "description": "common.backend.websocket_manager",
+        "peekOfCode": "class WebSocketManager:\n    \"\"\"Manage websockets\"\"\"\n    def __init__(self):\n        \"\"\"Initialize the WebSocketManager class.\"\"\"\n        self.active_connections = []\n        self.sender_tasks = {}\n        self.message_queues = {}\n    async def start_sender(self, websocket: WebSocket):\n        \"\"\"Start the sender task.\"\"\"\n        queue = self.message_queues.get(websocket)",
+        "detail": "common.backend.websocket_manager",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.config.config",
+        "description": "common.gpt_researcher.config.config",
+        "peekOfCode": "class Config:\n    \"\"\"Config class for GPT Researcher.\"\"\"\n    def __init__(self, config_file: str = None):\n        \"\"\"Initialize the config class.\"\"\"\n        self.config_file = os.path.expanduser(config_file) if config_file else os.getenv('CONFIG_FILE')\n        self.retriever = os.getenv('RETRIEVER', \"duckduckgo\")\n        self.embedding_provider = os.getenv('EMBEDDING_PROVIDER', 'openai')\n        self.llm_provider = os.getenv('LLM_PROVIDER', \"openai\")\n        self.ollama_base_url = os.getenv('OLLAMA_BASE_URL', None)\n        self.fast_llm_model = os.getenv('FAST_LLM_MODEL', \"gpt-3.5-turbo-16k\")",
+        "detail": "common.gpt_researcher.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "ContextCompressor",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.context.compression",
+        "description": "common.gpt_researcher.context.compression",
+        "peekOfCode": "class ContextCompressor:\n    def __init__(self, documents, embeddings, max_results=5, **kwargs):\n        self.max_results = max_results\n        self.documents = documents\n        self.kwargs = kwargs\n        self.embeddings = embeddings\n        self.similarity_threshold = 0.38\n    def __get_contextual_retriever(self):\n        splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)\n        relevance_filter = EmbeddingsFilter(embeddings=self.embeddings,",
+        "detail": "common.gpt_researcher.context.compression",
+        "documentation": {}
+    },
+    {
+        "label": "SearchAPIRetriever",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.context.retriever",
+        "description": "common.gpt_researcher.context.retriever",
+        "peekOfCode": "class SearchAPIRetriever(BaseRetriever):\n    \"\"\"Search API retriever.\"\"\"\n    pages: List[Dict] = []\n    def _get_relevant_documents(\n        self, query: str, *, run_manager: CallbackManagerForRetrieverRun\n    ) -> List[Document]:\n        docs = [\n            Document(\n                page_content=page.get(\"raw_content\", \"\"),\n                metadata={",
+        "detail": "common.gpt_researcher.context.retriever",
+        "documentation": {}
+    },
+    {
+        "label": "DocumentLoader",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.document.document",
+        "description": "common.gpt_researcher.document.document",
+        "peekOfCode": "class DocumentLoader:\n    def __init__(self, path):\n        self.path = path\n    async def load(self) -> list:\n        tasks = []\n        for root, dirs, files in os.walk(self.path):\n            for file in files:\n                file_path = os.path.join(root, file)\n                file_name, file_extension_with_dot = os.path.splitext(file_path)\n                file_extension = file_extension_with_dot.strip(\".\")",
+        "detail": "common.gpt_researcher.document.document",
+        "documentation": {}
+    },
+    {
+        "label": "AnthropicProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.anthropic.anthropic",
+        "description": "common.gpt_researcher.llm_provider.anthropic.anthropic",
+        "peekOfCode": "class AnthropicProvider:\n    def __init__(\n            self,\n            model,\n            temperature,\n            max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.anthropic.anthropic",
+        "documentation": {}
+    },
+    {
+        "label": "AzureOpenAIProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.azureopenai.azureopenai",
+        "description": "common.gpt_researcher.llm_provider.azureopenai.azureopenai",
+        "peekOfCode": "class AzureOpenAIProvider:\n    def __init__(\n        self,\n        deployment_name,\n        temperature,\n        max_tokens\n    ):\n        self.deployment_name = deployment_name\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.azureopenai.azureopenai",
+        "documentation": {}
+    },
+    {
+        "label": "GenericLLMProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.generic.base",
+        "description": "common.gpt_researcher.llm_provider.generic.base",
+        "peekOfCode": "class GenericLLMProvider:\n    def __init__(self, llm):\n        self.llm = llm\n    @classmethod\n    def from_provider(cls, provider: str, **kwargs: Any):\n        if provider == \"openai\":\n            _check_pkg(\"langchain_openai\")\n            from langchain_openai import ChatOpenAI\n            llm = ChatOpenAI(**kwargs)\n        elif provider == \"anthropic\":",
+        "detail": "common.gpt_researcher.llm_provider.generic.base",
+        "documentation": {}
+    },
+    {
+        "label": "_SUPPORTED_PROVIDERS",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.llm_provider.generic.base",
+        "description": "common.gpt_researcher.llm_provider.generic.base",
+        "peekOfCode": "_SUPPORTED_PROVIDERS = {\n    \"openai\",\n    \"anthropic\",\n    \"azure_openai\",\n    \"cohere\",\n    \"google_vertexai\",\n    \"google_genai\",\n    \"fireworks\",\n    \"ollama\",\n    \"together\",",
+        "detail": "common.gpt_researcher.llm_provider.generic.base",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.google.google",
+        "description": "common.gpt_researcher.llm_provider.google.google",
+        "peekOfCode": "class GoogleProvider:\n    def __init__(\n        self,\n        model,\n        temperature,\n        max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.google.google",
+        "documentation": {}
+    },
+    {
+        "label": "GroqProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.groq.groq",
+        "description": "common.gpt_researcher.llm_provider.groq.groq",
+        "peekOfCode": "class GroqProvider:\n    def __init__(\n        self,\n        model,\n        temperature,\n        max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.groq.groq",
+        "documentation": {}
+    },
+    {
+        "label": "HugginFaceProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.huggingface.huggingface",
+        "description": "common.gpt_researcher.llm_provider.huggingface.huggingface",
+        "peekOfCode": "class HugginFaceProvider:\n    def __init__(\n            self,\n            model,\n            temperature,\n            max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.huggingface.huggingface",
+        "documentation": {}
+    },
+    {
+        "label": "MistralProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.mistral.mistral",
+        "description": "common.gpt_researcher.llm_provider.mistral.mistral",
+        "peekOfCode": "class MistralProvider:\n    def __init__(\n            self,\n            model,\n            temperature,\n            max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.mistral.mistral",
+        "documentation": {}
+    },
+    {
+        "label": "OllamaProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.ollama.ollama",
+        "description": "common.gpt_researcher.llm_provider.ollama.ollama",
+        "peekOfCode": "class OllamaProvider:\n    def __init__(\n        self,\n        model,\n        temperature,\n        max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.ollama.ollama",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAIProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.openai.openai",
+        "description": "common.gpt_researcher.llm_provider.openai.openai",
+        "peekOfCode": "class OpenAIProvider:\n    def __init__(\n        self,\n        model,\n        temperature,\n        max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.openai.openai",
+        "documentation": {}
+    },
+    {
+        "label": "TogetherProvider",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.llm_provider.together.together",
+        "description": "common.gpt_researcher.llm_provider.together.together",
+        "peekOfCode": "class TogetherProvider:\n    def __init__(\n            self,\n            model,\n            temperature,\n            max_tokens\n    ):\n        self.model = model\n        self.temperature = temperature\n        self.max_tokens = max_tokens",
+        "detail": "common.gpt_researcher.llm_provider.together.together",
+        "documentation": {}
+    },
+    {
+        "label": "get_retriever",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.actions",
+        "description": "common.gpt_researcher.master.actions",
+        "peekOfCode": "def get_retriever(retriever):\n    \"\"\"\n    Gets the retriever\n    Args:\n        retriever: retriever name\n    Returns:\n        retriever: Retriever class\n    \"\"\"\n    match retriever:\n        case \"google\":",
+        "detail": "common.gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_urls",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.actions",
+        "description": "common.gpt_researcher.master.actions",
+        "peekOfCode": "def scrape_urls(urls, cfg=None):\n    \"\"\"\n    Scrapes the urls\n    Args:\n        urls: List of urls\n        cfg: Config (optional)\n    Returns:\n        text: str\n    \"\"\"\n    content = []",
+        "detail": "common.gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "extract_headers",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.actions",
+        "description": "common.gpt_researcher.master.actions",
+        "peekOfCode": "def extract_headers(markdown_text: str):\n    # Function to extract headers from markdown text\n    headers = []\n    parsed_md = markdown.markdown(markdown_text)  # Parse markdown text\n    lines = parsed_md.split(\"\\n\")  # Split text into lines\n    stack = []  # Initialize stack to keep track of nested headers\n    for line in lines:\n        # Check if the line starts with an HTML header tag\n        if line.startswith(\"<h\") and len(line) > 1:\n            level = int(line[2])  # Extract header level",
+        "detail": "common.gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "table_of_contents",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.actions",
+        "description": "common.gpt_researcher.master.actions",
+        "peekOfCode": "def table_of_contents(markdown_text: str):\n    try:\n        # Function to generate table of contents recursively\n        def generate_table_of_contents(headers, indent_level=0):\n            toc = \"\"  # Initialize table of contents string\n            for header in headers:\n                toc += (\n                    \" \" * (indent_level * 4) + \"- \" + header[\"text\"] + \"\\n\"\n                )  # Add header text with indentation\n                if \"children\" in header:  # If header has children",
+        "detail": "common.gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "add_source_urls",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.actions",
+        "description": "common.gpt_researcher.master.actions",
+        "peekOfCode": "def add_source_urls(report_markdown: str, visited_urls: set):\n    \"\"\"\n    This function takes a Markdown report and a set of visited URLs as input parameters.\n    Args:\n      report_markdown (str): The `add_source_urls` function takes in two parameters:\n      visited_urls (set): Visited_urls is a set that contains URLs that have already been visited. This\n    parameter is used to keep track of which URLs have already been included in the report_markdown to\n    avoid duplication.\n    \"\"\"\n    try:",
+        "detail": "common.gpt_researcher.master.actions",
+        "documentation": {}
+    },
+    {
+        "label": "GPTResearcher",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.master.agent",
+        "description": "common.gpt_researcher.master.agent",
+        "peekOfCode": "class GPTResearcher:\n    \"\"\"GPT Researcher\"\"\"\n    def __init__(self, query: str, report_type: str = None, report_source=None, source_urls=None, config_path=None, websocket=None, verbose: bool = True):\n        self.query: str = query\n        self.report_type: str = report_type\n        self.report_source: str = report_source\n        self.source_urls = source_urls\n        self.verbose: bool = verbose\n        self.websocket = websocket\n        self.cfg = Config(config_path)",
+        "detail": "common.gpt_researcher.master.agent",
+        "documentation": {}
+    },
+    {
+        "label": "generate_response_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.agent",
+        "description": "common.gpt_researcher.master.agent",
+        "peekOfCode": "def generate_response_prompt(query, context):\n    context_str = \"\\n\".join(context)\n    prompt = f\"Query: {query}\\n\\nContext:\\n{context_str}\\n\\nPlease provide a detailed response including type, steps, estimated time, description, questions, time period, and steps to perform.\"\n    return prompt\nasync def stream_output(type, output, websocket=None, logging=True):\n    if not websocket or logging:\n        print(output)\n    if websocket:\n        await websocket.send_json({\"type\": type, \"output\": output})",
+        "detail": "common.gpt_researcher.master.agent",
+        "documentation": {}
+    },
+    {
+        "label": "generate_search_queries_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_search_queries_prompt(question: str, parent_query: str, report_type: str, max_iterations: int=3,):\n    \"\"\" Generates the search queries prompt for the given question.\n    Args: \n        question (str): The question to generate the search queries prompt for\n        parent_query (str): The main question (only relevant for detailed reports)\n        report_type (str): The report type\n        max_iterations (int): The maximum number of search queries to generate\n    Returns: str: The search queries prompt for the given question\n    \"\"\"\n    if report_type == ReportType.DetailedReport.value or report_type == ReportType.SubtopicReport.value:",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_report_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_report_prompt(question: str, context, report_source: str, report_format=\"apa\", total_words=1000):\n    \"\"\" Generates the report prompt for the given question and research summary.\n    Args: question (str): The question to generate the report prompt for\n            research_summary (str): The research summary to generate the report prompt for\n    Returns: str: The report prompt for the given question and research summary\n    \"\"\"\n    reference_prompt = \"\"\n    if report_source == ReportSource.Web.value:\n        reference_prompt = f\"\"\"\n            You MUST write all used source urls at the end of the report as references, and make sure to not add duplicated sources, but only one reference for each.",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_resource_report_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_resource_report_prompt(question, context, report_source: str, report_format=\"apa\", total_words=1000):\n    \"\"\"Generates the resource report prompt for the given question and research summary.\n    Args:\n        question (str): The question to generate the resource report prompt for.\n        context (str): The research summary to generate the resource report prompt for.\n    Returns:\n        str: The resource report prompt for the given question and research summary.\n    \"\"\"\n    reference_prompt = \"\"\n    if report_source == ReportSource.Web.value:",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_custom_report_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_custom_report_prompt(query_prompt, context, report_source: str, report_format=\"apa\", total_words=1000):\n    return f'\"{context}\"\\n\\n{query_prompt}'\ndef generate_outline_report_prompt(question, context, report_source: str, report_format=\"apa\", total_words=1000):\n    \"\"\" Generates the outline report prompt for the given question and research summary.\n    Args: question (str): The question to generate the outline report prompt for\n            research_summary (str): The research summary to generate the outline report prompt for\n    Returns: str: The outline report prompt for the given question and research summary\n    \"\"\"\n    return f'\"\"\"{context}\"\"\" Using the above information, generate an outline for a research report in Markdown syntax' \\\n           f' for the following question or topic: \"{question}\". The outline should provide a well-structured framework' \\",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_outline_report_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_outline_report_prompt(question, context, report_source: str, report_format=\"apa\", total_words=1000):\n    \"\"\" Generates the outline report prompt for the given question and research summary.\n    Args: question (str): The question to generate the outline report prompt for\n            research_summary (str): The research summary to generate the outline report prompt for\n    Returns: str: The outline report prompt for the given question and research summary\n    \"\"\"\n    return f'\"\"\"{context}\"\"\" Using the above information, generate an outline for a research report in Markdown syntax' \\\n           f' for the following question or topic: \"{question}\". The outline should provide a well-structured framework' \\\n           ' for the research report, including the main sections, subsections, and key points to be covered.' \\\n           f' The research report should be detailed, informative, in-depth, and a minimum of {total_words} words.' \\",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "get_report_by_type",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def get_report_by_type(report_type: str):\n    report_type_mapping = {\n        ReportType.ResearchReport.value: generate_report_prompt,\n        ReportType.ResourceReport.value: generate_resource_report_prompt,\n        ReportType.OutlineReport.value: generate_outline_report_prompt,\n        ReportType.CustomReport.value: generate_custom_report_prompt,\n        ReportType.SubtopicReport.value: generate_subtopic_report_prompt\n    }\n    return report_type_mapping[report_type]\ndef auto_agent_instructions():",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "auto_agent_instructions",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def auto_agent_instructions():\n    return \"\"\"\n        This task involves researching a given topic, regardless of its complexity or the availability of a definitive answer. The research is conducted by a specific server, defined by its type and role, with each server requiring distinct instructions.\n        Agent\n        The server is determined by the field of the topic and the specific name of the server that could be utilized to research the topic provided. Agents are categorized by their area of expertise, and each server type is associated with a corresponding emoji.\n        examples:\n        task: \"should I invest in apple stocks?\"\n        response: \n        {\n            \"server\": \"💰 Finance Agent\",",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_summary_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_summary_prompt(query, data):\n    \"\"\" Generates the summary prompt for the given question and text.\n    Args: question (str): The question to generate the summary prompt for\n            text (str): The text to generate the summary prompt for\n    Returns: str: The summary prompt for the given question and text\n    \"\"\"\n    return f'{data}\\n Using the above text, summarize it based on the following task or query: \"{query}\".\\n If the ' \\\n           f'query cannot be answered using the text, YOU MUST summarize the text in short.\\n Include all factual ' \\\n           f'information such as numbers, stats, quotes, etc if available. '\n################################################################################################",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_subtopics_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_subtopics_prompt() -> str:\n    return \"\"\"\n                Provided the main topic:\n                {task}\n                and research data:\n                {data}\n                - Construct a list of subtopics which indicate the headers of a report document to be generated on the task. \n                - These are a possible list of subtopics : {subtopics}.\n                - There should NOT be any duplicate subtopics.\n                - Limit the number of subtopics to a maximum of {max_subtopics}",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_subtopic_report_prompt",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_subtopic_report_prompt(\n    current_subtopic,\n    existing_headers: list,\n    main_topic: str,\n    context,\n    report_format: str = \"apa\",\n    max_subsections=5,\n    total_words=800\n) -> str:\n    return f\"\"\"",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "generate_report_introduction",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def generate_report_introduction(question: str, research_summary: str = \"\") -> str:\n    return f\"\"\"{research_summary}\\n \n        Using the above latest information, Prepare a detailed report introduction on the topic -- {question}.\n        - The introduction should be succinct, well-structured, informative with markdown syntax.\n        - As this introduction will be part of a larger report, do NOT include any other sections, which are generally present in a report.\n        - The introduction should be preceded by an H1 heading with a suitable topic for the entire report.\n        - You must include hyperlinks with markdown syntax ([url website](url)) related to the sentences wherever necessary.\n        Assume that the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')} if required.\n    \"\"\"\nreport_type_mapping = {",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "get_prompt_by_report_type",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "def get_prompt_by_report_type(report_type):\n    prompt_by_type = report_type_mapping.get(report_type)\n    default_report_type = ReportType.ResearchReport.value\n    if not prompt_by_type:\n        warnings.warn(f\"Invalid report type: {report_type}.\\n\"\n                        f\"Please use one of the following: {', '.join([enum_value for enum_value in report_type_mapping.keys()])}\\n\"\n                        f\"Using default report type: {default_report_type} prompt.\",\n                        UserWarning)\n        prompt_by_type = report_type_mapping.get(default_report_type)\n    return prompt_by_type",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "report_type_mapping",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.master.prompts",
+        "description": "common.gpt_researcher.master.prompts",
+        "peekOfCode": "report_type_mapping = {\n    ReportType.ResearchReport.value: generate_report_prompt,\n    ReportType.ResourceReport.value: generate_resource_report_prompt,\n    ReportType.OutlineReport.value: generate_outline_report_prompt,\n    ReportType.CustomReport.value: generate_custom_report_prompt,\n    ReportType.SubtopicReport.value: generate_subtopic_report_prompt\n}\ndef get_prompt_by_report_type(report_type):\n    prompt_by_type = report_type_mapping.get(report_type)\n    default_report_type = ReportType.ResearchReport.value",
+        "detail": "common.gpt_researcher.master.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.memory.embeddings",
+        "description": "common.gpt_researcher.memory.embeddings",
+        "peekOfCode": "class Memory:\n    def __init__(self, embedding_provider, **kwargs):\n        _embeddings = None\n        match embedding_provider:\n            case \"ollama\":\n                from langchain_community.embeddings import OllamaEmbeddings\n                _embeddings = OllamaEmbeddings(model=os.environ[\"OLLAMA_EMBEDDING_MODEL\"], base_url=os.environ[\"OLLAMA_BASE_URL\"])\n            case \"custom\":\n                from langchain_openai import OpenAIEmbeddings\n                _embeddings = OpenAIEmbeddings(model=os.environ.get(\"OPENAI_EMBEDDING_MODEL\", \"custom\"),",
+        "detail": "common.gpt_researcher.memory.embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "OPENAI_EMBEDDING_MODEL",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.memory.embeddings",
+        "description": "common.gpt_researcher.memory.embeddings",
+        "peekOfCode": "OPENAI_EMBEDDING_MODEL = \"text-embedding-3-small\"\nclass Memory:\n    def __init__(self, embedding_provider, **kwargs):\n        _embeddings = None\n        match embedding_provider:\n            case \"ollama\":\n                from langchain_community.embeddings import OllamaEmbeddings\n                _embeddings = OllamaEmbeddings(model=os.environ[\"OLLAMA_EMBEDDING_MODEL\"], base_url=os.environ[\"OLLAMA_BASE_URL\"])\n            case \"custom\":\n                from langchain_openai import OpenAIEmbeddings",
+        "detail": "common.gpt_researcher.memory.embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "BingSearch",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.retrievers.bing.bing",
+        "description": "common.gpt_researcher.retrievers.bing.bing",
+        "peekOfCode": "class BingSearch():\n    \"\"\"\n    Bing Search Retriever\n    \"\"\"\n    def __init__(self, query):\n        \"\"\"\n        Initializes the BingSearch object\n        Args:\n            query:\n        \"\"\"",
+        "detail": "common.gpt_researcher.retrievers.bing.bing",
+        "documentation": {}
+    },
+    {
+        "label": "Duckduckgo",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.retrievers.duckduckgo.duckduckgo",
+        "description": "common.gpt_researcher.retrievers.duckduckgo.duckduckgo",
+        "peekOfCode": "class Duckduckgo:\n    \"\"\"\n    Duckduckgo API Retriever\n    \"\"\"\n    def __init__(self, query):\n        self.ddg = DDGS()\n        self.query = query\n    def search(self, max_results=5):\n        \"\"\"\n        Performs the search",
+        "detail": "common.gpt_researcher.retrievers.duckduckgo.duckduckgo",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleSearch",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.retrievers.google.google",
+        "description": "common.gpt_researcher.retrievers.google.google",
+        "peekOfCode": "class GoogleSearch:\n    \"\"\"\n    Tavily API Retriever\n    \"\"\"\n    def __init__(self, query):\n        \"\"\"\n        Initializes the TavilySearch object\n        Args:\n            query:\n        \"\"\"",
+        "detail": "common.gpt_researcher.retrievers.google.google",
+        "documentation": {}
+    },
+    {
+        "label": "SearxSearch",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.retrievers.searx.searx",
+        "description": "common.gpt_researcher.retrievers.searx.searx",
+        "peekOfCode": "class SearxSearch():\n    \"\"\"\n    Tavily API Retriever\n    \"\"\"\n    def __init__(self, query):\n        \"\"\"\n        Initializes the TavilySearch object\n        Args:\n            query:\n        \"\"\"",
+        "detail": "common.gpt_researcher.retrievers.searx.searx",
+        "documentation": {}
+    },
+    {
+        "label": "SerpApiSearch",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.retrievers.serpapi.serpapi",
+        "description": "common.gpt_researcher.retrievers.serpapi.serpapi",
+        "peekOfCode": "class SerpApiSearch():\n    \"\"\"\n    SerpApi Retriever\n    \"\"\"\n    def __init__(self, query):\n        \"\"\"\n        Initializes the SerpApiSearch object\n        Args:\n            query:\n        \"\"\"",
+        "detail": "common.gpt_researcher.retrievers.serpapi.serpapi",
+        "documentation": {}
+    },
+    {
+        "label": "SerperSearch",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.retrievers.serper.serper",
+        "description": "common.gpt_researcher.retrievers.serper.serper",
+        "peekOfCode": "class SerperSearch():\n    \"\"\"\n    Google Serper Retriever\n    \"\"\"\n    def __init__(self, query):\n        \"\"\"\n        Initializes the SerperSearch object\n        Args:\n            query:\n        \"\"\"",
+        "detail": "common.gpt_researcher.retrievers.serper.serper",
+        "documentation": {}
+    },
+    {
+        "label": "TavilySearch",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.retrievers.tavily.tavily_search",
+        "description": "common.gpt_researcher.retrievers.tavily.tavily_search",
+        "peekOfCode": "class TavilySearch():\n    \"\"\"\n    Tavily API Retriever\n    \"\"\"\n    def __init__(self, query, topic=\"general\"):\n        \"\"\"\n        Initializes the TavilySearch object\n        Args:\n            query:\n        \"\"\"",
+        "detail": "common.gpt_researcher.retrievers.tavily.tavily_search",
+        "documentation": {}
+    },
+    {
+        "label": "ArxivScraper",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.scraper.arxiv.arxiv",
+        "description": "common.gpt_researcher.scraper.arxiv.arxiv",
+        "peekOfCode": "class ArxivScraper:\n    def __init__(self, link, session=None):\n        self.link = link\n        self.session = session\n    def scrape(self):\n        \"\"\"\n        The function scrapes relevant documents from Arxiv based on a given link and returns the content\n        of the first document.\n        Returns:\n          The code is returning the page content of the first document retrieved by the ArxivRetriever",
+        "detail": "common.gpt_researcher.scraper.arxiv.arxiv",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoupScraper",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.scraper.beautiful_soup.beautiful_soup",
+        "description": "common.gpt_researcher.scraper.beautiful_soup.beautiful_soup",
+        "peekOfCode": "class BeautifulSoupScraper:\n    def __init__(self, link, session=None):\n        self.link = link\n        self.session = session\n    def scrape(self):\n        \"\"\"\n        This function scrapes content from a webpage by making a GET request, parsing the HTML using\n        BeautifulSoup, and extracting script and style elements before returning the cleaned content.\n        Returns:\n          The `scrape` method is returning the cleaned and extracted content from the webpage specified",
+        "detail": "common.gpt_researcher.scraper.beautiful_soup.beautiful_soup",
+        "documentation": {}
+    },
+    {
+        "label": "NewspaperScraper",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.scraper.newspaper.newspaper",
+        "description": "common.gpt_researcher.scraper.newspaper.newspaper",
+        "peekOfCode": "class NewspaperScraper:\n    def __init__(self, link, session=None):\n        self.link = link\n        self.session = session\n    def scrape(self) -> str:\n        \"\"\"\n        This Python function scrapes an article from a given link, extracts the title and text content,\n        and returns them concatenated with a colon.\n        Returns:\n          The `scrape` method returns a string that contains the title of the article followed by a",
+        "detail": "common.gpt_researcher.scraper.newspaper.newspaper",
+        "documentation": {}
+    },
+    {
+        "label": "PyMuPDFScraper",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.scraper.pymupdf.pymupdf",
+        "description": "common.gpt_researcher.scraper.pymupdf.pymupdf",
+        "peekOfCode": "class PyMuPDFScraper:\n    def __init__(self, link, session=None):\n        self.link = link\n        self.session = session\n    def scrape(self) -> str:\n        \"\"\"\n        The `scrape` function uses PyMuPDFLoader to load a document from a given link and returns it as\n        a string.\n        Returns:\n          The `scrape` method is returning a string representation of the `doc` object, which is loaded",
+        "detail": "common.gpt_researcher.scraper.pymupdf.pymupdf",
+        "documentation": {}
+    },
+    {
+        "label": "WebBaseLoaderScraper",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.scraper.web_base_loader.web_base_loader",
+        "description": "common.gpt_researcher.scraper.web_base_loader.web_base_loader",
+        "peekOfCode": "class WebBaseLoaderScraper:\n    def __init__(self, link, session=None):\n        self.link = link\n        self.session = session\n    def scrape(self) -> str:\n        \"\"\"\n        This Python function scrapes content from a webpage using a WebBaseLoader object and returns the\n        concatenated page content.\n        Returns:\n          The `scrape` method is returning a string variable named `content` which contains the",
+        "detail": "common.gpt_researcher.scraper.web_base_loader.web_base_loader",
+        "documentation": {}
+    },
+    {
+        "label": "Scraper",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.scraper.scraper",
+        "description": "common.gpt_researcher.scraper.scraper",
+        "peekOfCode": "class Scraper:\n    \"\"\"\n    Scraper class to extract the content from the links\n    \"\"\"\n    def __init__(self, urls, user_agent, scraper):\n        \"\"\"\n        Initialize the Scraper class.\n        Args:\n            urls:\n        \"\"\"",
+        "detail": "common.gpt_researcher.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_llm_cost",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.utils.costs",
+        "description": "common.gpt_researcher.utils.costs",
+        "peekOfCode": "def estimate_llm_cost(input_content: str, output_content: str) -> float:\n    encoding = tiktoken.get_encoding(ENCODING_MODEL)\n    input_tokens = encoding.encode(input_content)\n    output_tokens = encoding.encode(output_content)\n    input_costs = len(input_tokens) * INPUT_COST_PER_TOKEN\n    output_costs = len(output_tokens) * OUTPUT_COST_PER_TOKEN\n    return input_costs + output_costs\ndef estimate_embedding_cost(model, docs):\n    encoding = tiktoken.encoding_for_model(model)\n    total_tokens = sum(len(encoding.encode(str(doc))) for doc in docs)",
+        "detail": "common.gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_embedding_cost",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.utils.costs",
+        "description": "common.gpt_researcher.utils.costs",
+        "peekOfCode": "def estimate_embedding_cost(model, docs):\n    encoding = tiktoken.encoding_for_model(model)\n    total_tokens = sum(len(encoding.encode(str(doc))) for doc in docs)\n    return total_tokens * EMBEDDING_COST",
+        "detail": "common.gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "ENCODING_MODEL",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.utils.costs",
+        "description": "common.gpt_researcher.utils.costs",
+        "peekOfCode": "ENCODING_MODEL = \"o200k_base\"\nINPUT_COST_PER_TOKEN = 0.000005\nOUTPUT_COST_PER_TOKEN = 0.000015\nIMAGE_INFERENCE_COST = 0.003825\nEMBEDDING_COST = 0.02 / 1000000 # Assumes new ada-3-small\n# Cost estimation is via OpenAI libraries and models. May vary for other models\ndef estimate_llm_cost(input_content: str, output_content: str) -> float:\n    encoding = tiktoken.get_encoding(ENCODING_MODEL)\n    input_tokens = encoding.encode(input_content)\n    output_tokens = encoding.encode(output_content)",
+        "detail": "common.gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "INPUT_COST_PER_TOKEN",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.utils.costs",
+        "description": "common.gpt_researcher.utils.costs",
+        "peekOfCode": "INPUT_COST_PER_TOKEN = 0.000005\nOUTPUT_COST_PER_TOKEN = 0.000015\nIMAGE_INFERENCE_COST = 0.003825\nEMBEDDING_COST = 0.02 / 1000000 # Assumes new ada-3-small\n# Cost estimation is via OpenAI libraries and models. May vary for other models\ndef estimate_llm_cost(input_content: str, output_content: str) -> float:\n    encoding = tiktoken.get_encoding(ENCODING_MODEL)\n    input_tokens = encoding.encode(input_content)\n    output_tokens = encoding.encode(output_content)\n    input_costs = len(input_tokens) * INPUT_COST_PER_TOKEN",
+        "detail": "common.gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_COST_PER_TOKEN",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.utils.costs",
+        "description": "common.gpt_researcher.utils.costs",
+        "peekOfCode": "OUTPUT_COST_PER_TOKEN = 0.000015\nIMAGE_INFERENCE_COST = 0.003825\nEMBEDDING_COST = 0.02 / 1000000 # Assumes new ada-3-small\n# Cost estimation is via OpenAI libraries and models. May vary for other models\ndef estimate_llm_cost(input_content: str, output_content: str) -> float:\n    encoding = tiktoken.get_encoding(ENCODING_MODEL)\n    input_tokens = encoding.encode(input_content)\n    output_tokens = encoding.encode(output_content)\n    input_costs = len(input_tokens) * INPUT_COST_PER_TOKEN\n    output_costs = len(output_tokens) * OUTPUT_COST_PER_TOKEN",
+        "detail": "common.gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "IMAGE_INFERENCE_COST",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.utils.costs",
+        "description": "common.gpt_researcher.utils.costs",
+        "peekOfCode": "IMAGE_INFERENCE_COST = 0.003825\nEMBEDDING_COST = 0.02 / 1000000 # Assumes new ada-3-small\n# Cost estimation is via OpenAI libraries and models. May vary for other models\ndef estimate_llm_cost(input_content: str, output_content: str) -> float:\n    encoding = tiktoken.get_encoding(ENCODING_MODEL)\n    input_tokens = encoding.encode(input_content)\n    output_tokens = encoding.encode(output_content)\n    input_costs = len(input_tokens) * INPUT_COST_PER_TOKEN\n    output_costs = len(output_tokens) * OUTPUT_COST_PER_TOKEN\n    return input_costs + output_costs",
+        "detail": "common.gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "EMBEDDING_COST",
+        "kind": 5,
+        "importPath": "common.gpt_researcher.utils.costs",
+        "description": "common.gpt_researcher.utils.costs",
+        "peekOfCode": "EMBEDDING_COST = 0.02 / 1000000 # Assumes new ada-3-small\n# Cost estimation is via OpenAI libraries and models. May vary for other models\ndef estimate_llm_cost(input_content: str, output_content: str) -> float:\n    encoding = tiktoken.get_encoding(ENCODING_MODEL)\n    input_tokens = encoding.encode(input_content)\n    output_tokens = encoding.encode(output_content)\n    input_costs = len(input_tokens) * INPUT_COST_PER_TOKEN\n    output_costs = len(output_tokens) * OUTPUT_COST_PER_TOKEN\n    return input_costs + output_costs\ndef estimate_embedding_cost(model, docs):",
+        "detail": "common.gpt_researcher.utils.costs",
+        "documentation": {}
+    },
+    {
+        "label": "ReportType",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.utils.enum",
+        "description": "common.gpt_researcher.utils.enum",
+        "peekOfCode": "class ReportType(Enum):\n    ResearchReport = 'research_report'\n    ResourceReport = 'resource_report'\n    OutlineReport = 'outline_report'\n    CustomReport = 'custom_report'\n    DetailedReport = 'detailed_report'\n    SubtopicReport = 'subtopic_report'\nclass ReportSource(Enum):\n    Web = 'web'\n    Local = 'local'",
+        "detail": "common.gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "ReportSource",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.utils.enum",
+        "description": "common.gpt_researcher.utils.enum",
+        "peekOfCode": "class ReportSource(Enum):\n    Web = 'web'\n    Local = 'local'",
+        "detail": "common.gpt_researcher.utils.enum",
+        "documentation": {}
+    },
+    {
+        "label": "get_llm",
+        "kind": 2,
+        "importPath": "common.gpt_researcher.utils.llm",
+        "description": "common.gpt_researcher.utils.llm",
+        "peekOfCode": "def get_llm(llm_provider, **kwargs):\n    match llm_provider:\n        case \"openai\":\n            from ..llm_provider import OpenAIProvider\n            llm_provider = OpenAIProvider\n        case \"azureopenai\":\n            from ..llm_provider import AzureOpenAIProvider\n            llm_provider = AzureOpenAIProvider\n        case \"google\":\n            from ..llm_provider import GoogleProvider",
+        "detail": "common.gpt_researcher.utils.llm",
+        "documentation": {}
+    },
+    {
+        "label": "Subtopic",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.utils.validators",
+        "description": "common.gpt_researcher.utils.validators",
+        "peekOfCode": "class Subtopic(BaseModel):\n    task: str = Field(description=\"Task name\", min_length=1)\nclass Subtopics(BaseModel):\n    subtopics: List[Subtopic] = []",
+        "detail": "common.gpt_researcher.utils.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Subtopics",
+        "kind": 6,
+        "importPath": "common.gpt_researcher.utils.validators",
+        "description": "common.gpt_researcher.utils.validators",
+        "peekOfCode": "class Subtopics(BaseModel):\n    subtopics: List[Subtopic] = []",
+        "detail": "common.gpt_researcher.utils.validators",
+        "documentation": {}
+    },
+    {
+        "label": "call_model",
+        "kind": 2,
+        "importPath": "common.multi_agents.agents.utils.llms",
+        "description": "common.multi_agents.agents.utils.llms",
+        "peekOfCode": "def call_model(prompt: list, model: str, max_retries: int = 2, response_format: str = None) -> str:\n    optional_params = {}\n    if response_format == 'json':\n        optional_params = {\n            \"response_format\": {\"type\": \"json_object\"}\n        }\n    lc_messages = convert_openai_messages(prompt)\n    response = ChatOpenAI(model=model, max_retries=max_retries, model_kwargs=optional_params).invoke(lc_messages).content\n    return response",
+        "detail": "common.multi_agents.agents.utils.llms",
+        "documentation": {}
+    },
+    {
+        "label": "AgentColor",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.utils.views",
+        "description": "common.multi_agents.agents.utils.views",
+        "peekOfCode": "class AgentColor(Enum):\n    RESEARCHER = Fore.LIGHTBLUE_EX\n    EDITOR = Fore.YELLOW\n    WRITER = Fore.LIGHTGREEN_EX\n    PUBLISHER = Fore.MAGENTA\n    REVIEWER = Fore.CYAN\n    REVISOR = Fore.LIGHTWHITE_EX\n    MASTER = Fore.LIGHTYELLOW_EX\ndef print_agent_output(output:str, agent: str=\"RESEARCHER\"):\n    print(f\"{AgentColor[agent].value}{agent}: {output}{Style.RESET_ALL}\")",
+        "detail": "common.multi_agents.agents.utils.views",
+        "documentation": {}
+    },
+    {
+        "label": "print_agent_output",
+        "kind": 2,
+        "importPath": "common.multi_agents.agents.utils.views",
+        "description": "common.multi_agents.agents.utils.views",
+        "peekOfCode": "def print_agent_output(output:str, agent: str=\"RESEARCHER\"):\n    print(f\"{AgentColor[agent].value}{agent}: {output}{Style.RESET_ALL}\")",
+        "detail": "common.multi_agents.agents.utils.views",
+        "documentation": {}
+    },
+    {
+        "label": "EditorAgent",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.editor",
+        "description": "common.multi_agents.agents.editor",
+        "peekOfCode": "class EditorAgent:\n    def __init__(self):\n        pass\n    def plan_research(self, research_state: dict):\n        \"\"\"\n        Curate relevant sources for a query\n        :param summary_report:\n        :return:\n        :param total_sub_headers:\n        :return:",
+        "detail": "common.multi_agents.agents.editor",
+        "documentation": {}
+    },
+    {
+        "label": "ChiefEditorAgent",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.master",
+        "description": "common.multi_agents.agents.master",
+        "peekOfCode": "class ChiefEditorAgent:\n    def __init__(self, task: dict):\n        self.task_id = int(time.time()) # Currently time based, but can be any unique identifier\n        self.output_dir = f\"./outputs/run_{self.task_id}_{task.get('query')[0:40]}\"\n        self.task = task\n        os.makedirs(self.output_dir, exist_ok=True)\n    def init_research_team(self):\n        # Initialize agents\n        writer_agent = WriterAgent()\n        editor_agent = EditorAgent()",
+        "detail": "common.multi_agents.agents.master",
+        "documentation": {}
+    },
+    {
+        "label": "PublisherAgent",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.publisher",
+        "description": "common.multi_agents.agents.publisher",
+        "peekOfCode": "class PublisherAgent:\n    def __init__(self, output_dir: str):\n        self.output_dir = output_dir\n    async def publish_research_report(self, research_state: dict, publish_formats: dict):\n        layout = self.generate_layout(research_state)\n        await self.write_report_by_formats(layout, publish_formats)\n        return layout\n    def generate_layout(self, research_state: dict):\n        sections = '\\n\\n'.join(f\"{value}\"\n                                 for subheader in research_state.get(\"research_data\")",
+        "detail": "common.multi_agents.agents.publisher",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchAgent",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.researcher",
+        "description": "common.multi_agents.agents.researcher",
+        "peekOfCode": "class ResearchAgent:\n    def __init__(self):\n        pass\n    async def research(self, query: str, research_report: str = \"research_report\",\n                       parent_query: str = \"\", verbose=True, source=\"web\"):\n        # Initialize the researcher\n        researcher = GPTResearcher(query=query, report_type=research_report, parent_query=parent_query,\n                                   verbose=verbose, report_source=source)\n        # Conduct research on the given query\n        await researcher.conduct_research()",
+        "detail": "common.multi_agents.agents.researcher",
+        "documentation": {}
+    },
+    {
+        "label": "ReviewerAgent",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.reviewer",
+        "description": "common.multi_agents.agents.reviewer",
+        "peekOfCode": "class ReviewerAgent:\n    def __init__(self):\n        pass\n    def review_draft(self, draft_state: dict):\n        \"\"\"\n        Review a draft article\n        :param draft_state:\n        :return:\n        \"\"\"\n        task = draft_state.get(\"task\")",
+        "detail": "common.multi_agents.agents.reviewer",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATE",
+        "kind": 5,
+        "importPath": "common.multi_agents.agents.reviewer",
+        "description": "common.multi_agents.agents.reviewer",
+        "peekOfCode": "TEMPLATE = \"\"\"You are an expert research article reviewer. \\\nYour goal is to review research drafts and provide feedback to the reviser only based on specific guidelines. \\\n\"\"\"\nclass ReviewerAgent:\n    def __init__(self):\n        pass\n    def review_draft(self, draft_state: dict):\n        \"\"\"\n        Review a draft article\n        :param draft_state:",
+        "detail": "common.multi_agents.agents.reviewer",
+        "documentation": {}
+    },
+    {
+        "label": "ReviserAgent",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.reviser",
+        "description": "common.multi_agents.agents.reviser",
+        "peekOfCode": "class ReviserAgent:\n    def __init__(self):\n        pass\n    def revise_draft(self, draft_state: dict):\n        \"\"\"\n        Review a draft article\n        :param draft_state:\n        :return:\n        \"\"\"\n        review = draft_state.get(\"review\")",
+        "detail": "common.multi_agents.agents.reviser",
+        "documentation": {}
+    },
+    {
+        "label": "sample_revision_notes",
+        "kind": 5,
+        "importPath": "common.multi_agents.agents.reviser",
+        "description": "common.multi_agents.agents.reviser",
+        "peekOfCode": "sample_revision_notes = \"\"\"\n{\n  \"draft\": { \n    draft title: The revised draft that you are submitting for review \n  },\n  \"revision_notes\": Your message to the reviewer about the changes you made to the draft based on their feedback\n}\n\"\"\"\nclass ReviserAgent:\n    def __init__(self):",
+        "detail": "common.multi_agents.agents.reviser",
+        "documentation": {}
+    },
+    {
+        "label": "WriterAgent",
+        "kind": 6,
+        "importPath": "common.multi_agents.agents.writer",
+        "description": "common.multi_agents.agents.writer",
+        "peekOfCode": "class WriterAgent:\n    def __init__(self):\n        pass\n    def get_headers(self, research_state: dict):\n        return {\n            \"title\": research_state.get(\"title\"),\n            \"date\": \"Date\",\n            \"introduction\": \"Introduction\",\n            \"table_of_contents\": \"Table of Contents\",\n            \"conclusion\": \"Conclusion\",",
+        "detail": "common.multi_agents.agents.writer",
+        "documentation": {}
+    },
+    {
+        "label": "sample_json",
+        "kind": 5,
+        "importPath": "common.multi_agents.agents.writer",
+        "description": "common.multi_agents.agents.writer",
+        "peekOfCode": "sample_json = \"\"\"\n{\n  \"table_of_contents\": A table of contents in markdown syntax (using '-') based on the research headers and subheaders,\n  \"introduction\": An indepth introduction to the topic in markdown syntax and hyperlink references to relevant sources,\n  \"conclusion\": A conclusion to the entire research based on all research data in markdown syntax and hyperlink references to relevant sources,\n  \"sources\": A list with strings of all used source links in the entire research data in markdown syntax and apa citation format. For example: ['-  Title, year, Author [source url](source)', ...]\n}\n\"\"\"\nclass WriterAgent:\n    def __init__(self):",
+        "detail": "common.multi_agents.agents.writer",
+        "documentation": {}
+    },
+    {
+        "label": "DraftState",
+        "kind": 6,
+        "importPath": "common.multi_agents.memory.draft",
+        "description": "common.multi_agents.memory.draft",
+        "peekOfCode": "class DraftState(TypedDict):\n    task: dict\n    topic: str\n    draft: dict\n    review: str\n    revision_notes: str",
+        "detail": "common.multi_agents.memory.draft",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchState",
+        "kind": 6,
+        "importPath": "common.multi_agents.memory.research",
+        "description": "common.multi_agents.memory.research",
+        "peekOfCode": "class ResearchState(TypedDict):\n    task: dict\n    initial_research: str\n    sections: List[str]\n    research_data: List[dict]\n    # Report layout\n    title: str\n    headers: dict\n    date: str\n    table_of_contents: str",
+        "detail": "common.multi_agents.memory.research",
+        "documentation": {}
+    },
+    {
+        "label": "chief_editor",
+        "kind": 5,
+        "importPath": "common.multi_agents.agent",
+        "description": "common.multi_agents.agent",
+        "peekOfCode": "chief_editor = ChiefEditorAgent({\n  \"query\": \"Is AI in a hype cycle?\",\n  \"max_sections\": 3,\n  \"follow_guidelines\": False,\n  \"model\": \"gpt-4o\",\n  \"guidelines\": [\n    \"The report MUST be written in APA format\",\n    \"Each sub section MUST include supporting sources using hyperlinks. If none exist, erase the sub section or rewrite it to be a part of the previous section\",\n    \"The report MUST be written in spanish\"\n  ],",
+        "detail": "common.multi_agents.agent",
+        "documentation": {}
+    },
+    {
+        "label": "graph",
+        "kind": 5,
+        "importPath": "common.multi_agents.agent",
+        "description": "common.multi_agents.agent",
+        "peekOfCode": "graph = chief_editor.init_research_team()\ngraph = graph.compile()",
+        "detail": "common.multi_agents.agent",
+        "documentation": {}
+    },
+    {
+        "label": "graph",
+        "kind": 5,
+        "importPath": "common.multi_agents.agent",
+        "description": "common.multi_agents.agent",
+        "peekOfCode": "graph = graph.compile()",
+        "detail": "common.multi_agents.agent",
+        "documentation": {}
+    },
+    {
+        "label": "open_task",
+        "kind": 2,
+        "importPath": "common.multi_agents.main",
+        "description": "common.multi_agents.main",
+        "peekOfCode": "def open_task():\n    with open('task.json', 'r') as f:\n        task = json.load(f)\n    if not task:\n        raise Exception(\"No task provided. Please include a task.json file in the root directory.\")\n    return task\nasync def main():\n    task = open_task()\n    chief_editor = ChiefEditorAgent(task)\n    research_report = await chief_editor.run_research_task()",
+        "detail": "common.multi_agents.main",
+        "documentation": {}
+    },
+    {
+        "label": "extract_hyperlinks",
+        "kind": 2,
+        "importPath": "common.scraping.processing.html",
+        "description": "common.scraping.processing.html",
+        "peekOfCode": "def extract_hyperlinks(soup: BeautifulSoup, base_url: str) -> list[tuple[str, str]]:\n    \"\"\"Extract hyperlinks from a BeautifulSoup object\n    Args:\n        soup (BeautifulSoup): The BeautifulSoup object\n        base_url (str): The base URL\n    Returns:\n        List[Tuple[str, str]]: The extracted hyperlinks\n    \"\"\"\n    return [\n        (link.text, urljoin(base_url, link[\"href\"]))",
+        "detail": "common.scraping.processing.html",
+        "documentation": {}
+    },
+    {
+        "label": "format_hyperlinks",
+        "kind": 2,
+        "importPath": "common.scraping.processing.html",
+        "description": "common.scraping.processing.html",
+        "peekOfCode": "def format_hyperlinks(hyperlinks: list[tuple[str, str]]) -> list[str]:\n    \"\"\"Format hyperlinks to be displayed to the user\n    Args:\n        hyperlinks (List[Tuple[str, str]]): The hyperlinks to format\n    Returns:\n        List[str]: The formatted hyperlinks\n    \"\"\"\n    return [f\"{link_text} ({link_url})\" for link_text, link_url in hyperlinks]",
+        "detail": "common.scraping.processing.html",
+        "documentation": {}
+    },
+    {
+        "label": "split_text",
+        "kind": 2,
+        "importPath": "common.scraping.processing.text",
+        "description": "common.scraping.processing.text",
+        "peekOfCode": "def split_text(text: str, max_length: int = 8192) -> Generator[str, None, None]:\n    \"\"\"Split text into chunks of a maximum length\n    Args:\n        text (str): The text to split\n        max_length (int, optional): The maximum length of each chunk. Defaults to 8192.\n    Yields:\n        str: The next chunk of text\n    Raises:\n        ValueError: If the text is longer than the maximum length\n    \"\"\"",
+        "detail": "common.scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "summarize_text",
+        "kind": 2,
+        "importPath": "common.scraping.processing.text",
+        "description": "common.scraping.processing.text",
+        "peekOfCode": "def summarize_text(\n    fast_llm_model: str, summary_token_limit: int, llm_provider: str, url: str, text: str, question: str, driver: Optional[WebDriver] = None\n) -> str:\n    \"\"\"Summarize text using the OpenAI API\n    Args:\n        fast_llm_model (str): The fast LLM model e.g gpt3.5-turbo-16k\n        summary_token_limit (int): The summary token limit\n        llm_provider (str): The llm provider\n        url (str): The url of the text\n        text (str): The text to summarize",
+        "detail": "common.scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "scroll_to_percentage",
+        "kind": 2,
+        "importPath": "common.scraping.processing.text",
+        "description": "common.scraping.processing.text",
+        "peekOfCode": "def scroll_to_percentage(driver: WebDriver, ratio: float) -> None:\n    \"\"\"Scroll to a percentage of the page\n    Args:\n        driver (WebDriver): The webdriver to use\n        ratio (float): The percentage to scroll to\n    Raises:\n        ValueError: If the ratio is not between 0 and 1\n    \"\"\"\n    if ratio < 0 or ratio > 1:\n        raise ValueError(\"Percentage should be between 0 and 1\")",
+        "detail": "common.scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "create_message",
+        "kind": 2,
+        "importPath": "common.scraping.processing.text",
+        "description": "common.scraping.processing.text",
+        "peekOfCode": "def create_message(chunk: str, question: str) -> Dict[str, str]:\n    \"\"\"Create a message for the chat completion\n    Args:\n        chunk (str): The chunk of text to summarize\n        question (str): The question to answer\n    Returns:\n        Dict[str, str]: The message to send to the chat completion\n    \"\"\"\n    return {\n        \"role\": \"user\",",
+        "detail": "common.scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "write_to_file",
+        "kind": 2,
+        "importPath": "common.scraping.processing.text",
+        "description": "common.scraping.processing.text",
+        "peekOfCode": "def write_to_file(filename: str, text: str) -> None:\n    \"\"\"Write text to a file\n    Args:\n        text (str): The text to write\n        filename (str): The filename to write to\n    \"\"\"\n    with open(filename, \"w\") as file:\n        file.write(text)\nasync def write_md_to_pdf(task: str, path: str, text: str) -> None:\n    file_path = f\"{path}/{task}\"",
+        "detail": "common.scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "read_txt_files",
+        "kind": 2,
+        "importPath": "common.scraping.processing.text",
+        "description": "common.scraping.processing.text",
+        "peekOfCode": "def read_txt_files(directory):\n    all_text = ''\n    for filename in os.listdir(directory):\n        if filename.endswith('.txt'):\n            with open(os.path.join(directory, filename), 'r') as file:\n                all_text += file.read() + '\\n'\n    return all_text\ndef md_to_pdf(input_file, output_file):\n    md2pdf(output_file,\n           md_content=None,",
+        "detail": "common.scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "md_to_pdf",
+        "kind": 2,
+        "importPath": "common.scraping.processing.text",
+        "description": "common.scraping.processing.text",
+        "peekOfCode": "def md_to_pdf(input_file, output_file):\n    md2pdf(output_file,\n           md_content=None,\n           md_file_path=input_file,\n           css_file_path=None,\n           base_url=None)",
+        "detail": "common.scraping.processing.text",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_pdf_with_pymupdf",
+        "kind": 2,
+        "importPath": "common.scraping.scrape_skills",
+        "description": "common.scraping.scrape_skills",
+        "peekOfCode": "def scrape_pdf_with_pymupdf(url) -> str:\n    \"\"\"Scrape a pdf with pymupdf\n    Args:\n        url (str): The url of the pdf to scrape\n    Returns:\n        str: The text scraped from the pdf\n    \"\"\"\n    loader = PyMuPDFLoader(url)\n    doc = loader.load()\n    return str(doc)",
+        "detail": "common.scraping.scrape_skills",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_pdf_with_arxiv",
+        "kind": 2,
+        "importPath": "common.scraping.scrape_skills",
+        "description": "common.scraping.scrape_skills",
+        "peekOfCode": "def scrape_pdf_with_arxiv(query) -> str:\n    \"\"\"Scrape a pdf with arxiv\n    default document length of 70000 about ~15 pages or None for no limit\n    Args:\n        query (str): The query to search for\n    Returns:\n        str: The text scraped from the pdf\n    \"\"\"\n    retriever = ArxivRetriever(load_max_docs=2, doc_content_chars_max=None)\n    docs = retriever.get_relevant_documents(query=query)",
+        "detail": "common.scraping.scrape_skills",
+        "documentation": {}
+    },
+    {
+        "label": "browse_website",
+        "kind": 2,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "def browse_website(url: str, question: str) -> tuple[str, WebDriver]:\n    \"\"\"Browse a website and return the answer and links to the user\n    Args:\n        url (str): The url of the website to browse\n        question (str): The question asked by the user\n    Returns:\n        Tuple[str, WebDriver]: The answer and links to the user and the webdriver\n    \"\"\"\n    if not url:\n        return \"A URL was not specified, cancelling request to browse website.\", None",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_text_with_selenium",
+        "kind": 2,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "def scrape_text_with_selenium(selenium_web_browser: str, user_agent: str, url: str) -> tuple[WebDriver, str]:\n    \"\"\"Scrape text from a website using selenium\n    Args:\n        url (str): The url of the website to scrape\n        selenium_web_browser (str): The web browser used to scrape\n        user_agent (str): The user agent used when scraping\n    Returns:\n        Tuple[WebDriver, str]: The webdriver and the text scraped from the website\n    \"\"\"\n    logging.getLogger(\"selenium\").setLevel(logging.CRITICAL)",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "get_text",
+        "kind": 2,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "def get_text(soup):\n    \"\"\"Get the text from the soup\n    Args:\n        soup (BeautifulSoup): The soup to get the text from\n    Returns:\n        str: The text from the soup\n    \"\"\"\n    text = \"\"\n    tags = [\"h1\", \"h2\", \"h3\", \"h4\", \"h5\", \"p\"]\n    for element in soup.find_all(tags):  # Find all the <p> elements",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_links_with_selenium",
+        "kind": 2,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "def scrape_links_with_selenium(driver: WebDriver, url: str) -> list[str]:\n    \"\"\"Scrape links from a website using selenium\n    Args:\n        driver (WebDriver): The webdriver to use to scrape the links\n    Returns:\n        List[str]: The links scraped from the website\n    \"\"\"\n    page_source = driver.page_source\n    soup = BeautifulSoup(page_source, \"html.parser\")\n    for script in soup([\"script\", \"style\"]):",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "close_browser",
+        "kind": 2,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "def close_browser(driver: WebDriver) -> None:\n    \"\"\"Close the browser\n    Args:\n        driver (WebDriver): The webdriver to close\n    Returns:\n        None\n    \"\"\"\n    driver.quit()\ndef add_header(driver: WebDriver) -> None:\n    \"\"\"Add a header to the website",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "add_header",
+        "kind": 2,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "def add_header(driver: WebDriver) -> None:\n    \"\"\"Add a header to the website\n    Args:\n        driver (WebDriver): The webdriver to use to add the header\n    Returns:\n        None\n    \"\"\"\n    driver.execute_script(open(f\"{FILE_DIR}/js/overlay.js\", \"r\").read())",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "executor",
+        "kind": 5,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "executor = ThreadPoolExecutor()\nFILE_DIR = Path(__file__).parent.parent\nasync def async_browse(\n        selenium_web_browser: str,\n        user_agent: str,\n        fast_llm_model: str,\n        summary_token_limit: str,\n        llm_provider: str,\n        url: str, question: str,\n        websocket: WebSocket",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "FILE_DIR",
+        "kind": 5,
+        "importPath": "common.scraping.web_scrape",
+        "description": "common.scraping.web_scrape",
+        "peekOfCode": "FILE_DIR = Path(__file__).parent.parent\nasync def async_browse(\n        selenium_web_browser: str,\n        user_agent: str,\n        fast_llm_model: str,\n        summary_token_limit: str,\n        llm_provider: str,\n        url: str, question: str,\n        websocket: WebSocket\n) -> str:",
+        "detail": "common.scraping.web_scrape",
+        "documentation": {}
+    },
+    {
+        "label": "report_types",
+        "kind": 5,
+        "importPath": "common.tests.all-6-report-types",
+        "description": "common.tests.all-6-report-types",
+        "peekOfCode": "report_types = [\n    \"research_report\",\n    \"custom_report\",\n    \"subtopic_report\",\n    \"summary_report\",\n    \"detailed_report\",\n    \"quick_report\"\n]\n# Define a common query and sources for testing\nquery = \"What are the latest advancements in AI?\"",
+        "detail": "common.tests.all-6-report-types",
+        "documentation": {}
+    },
+    {
+        "label": "query",
+        "kind": 5,
+        "importPath": "common.tests.all-6-report-types",
+        "description": "common.tests.all-6-report-types",
+        "peekOfCode": "query = \"What are the latest advancements in AI?\"\nsources = [\"https://en.wikipedia.org/wiki/Artificial_intelligence\", \"https://www.ibm.com/watson/ai\"]\n# Define the output directory\noutput_dir = \"./outputs\"\n@pytest.mark.asyncio\n@pytest.mark.parametrize(\"report_type\", report_types)\nasync def test_gpt_researcher(report_type):\n    # Ensure the output directory exists\n    if not os.path.exists(output_dir):\n        os.makedirs(output_dir)",
+        "detail": "common.tests.all-6-report-types",
+        "documentation": {}
+    },
+    {
+        "label": "sources",
+        "kind": 5,
+        "importPath": "common.tests.all-6-report-types",
+        "description": "common.tests.all-6-report-types",
+        "peekOfCode": "sources = [\"https://en.wikipedia.org/wiki/Artificial_intelligence\", \"https://www.ibm.com/watson/ai\"]\n# Define the output directory\noutput_dir = \"./outputs\"\n@pytest.mark.asyncio\n@pytest.mark.parametrize(\"report_type\", report_types)\nasync def test_gpt_researcher(report_type):\n    # Ensure the output directory exists\n    if not os.path.exists(output_dir):\n        os.makedirs(output_dir)\n    # Create an instance of GPTResearcher",
+        "detail": "common.tests.all-6-report-types",
+        "documentation": {}
+    },
+    {
+        "label": "output_dir",
+        "kind": 5,
+        "importPath": "common.tests.all-6-report-types",
+        "description": "common.tests.all-6-report-types",
+        "peekOfCode": "output_dir = \"./outputs\"\n@pytest.mark.asyncio\n@pytest.mark.parametrize(\"report_type\", report_types)\nasync def test_gpt_researcher(report_type):\n    # Ensure the output directory exists\n    if not os.path.exists(output_dir):\n        os.makedirs(output_dir)\n    # Create an instance of GPTResearcher\n    researcher = GPTResearcher(query=query, report_type=report_type, source_urls=sources)\n    # Conduct research and write the report",
+        "detail": "common.tests.all-6-report-types",
+        "documentation": {}
+    },
+    {
+        "label": "report_types",
+        "kind": 5,
+        "importPath": "common.tests.documents-report-source",
+        "description": "common.tests.documents-report-source",
+        "peekOfCode": "report_types = [\n    \"research_report\",\n    \"custom_report\",\n    \"subtopic_report\",\n    \"summary_report\",\n    \"detailed_report\",\n    \"quick_report\"\n]\n# Define a common query and sources for testing\nquery = \"What can you tell me about myself based on my documents?\"",
+        "detail": "common.tests.documents-report-source",
+        "documentation": {}
+    },
+    {
+        "label": "query",
+        "kind": 5,
+        "importPath": "common.tests.documents-report-source",
+        "description": "common.tests.documents-report-source",
+        "peekOfCode": "query = \"What can you tell me about myself based on my documents?\"\n# Define the output directory\noutput_dir = \"./outputs\"\n@pytest.mark.asyncio\n@pytest.mark.parametrize(\"report_type\", report_types)\nasync def test_gpt_researcher(report_type):\n    # Ensure the output directory exists\n    if not os.path.exists(output_dir):\n        os.makedirs(output_dir)\n    # Create an instance of GPTResearcher with report_source set to \"documents\"",
+        "detail": "common.tests.documents-report-source",
+        "documentation": {}
+    },
+    {
+        "label": "output_dir",
+        "kind": 5,
+        "importPath": "common.tests.documents-report-source",
+        "description": "common.tests.documents-report-source",
+        "peekOfCode": "output_dir = \"./outputs\"\n@pytest.mark.asyncio\n@pytest.mark.parametrize(\"report_type\", report_types)\nasync def test_gpt_researcher(report_type):\n    # Ensure the output directory exists\n    if not os.path.exists(output_dir):\n        os.makedirs(output_dir)\n    # Create an instance of GPTResearcher with report_source set to \"documents\"\n    researcher = GPTResearcher(query=query, report_type=report_type, report_source=\"documents\")\n    # Conduct research and write the report",
+        "detail": "common.tests.documents-report-source",
+        "documentation": {}
+    },
+    {
+        "label": "cli",
+        "kind": 5,
+        "importPath": "common.cli",
+        "description": "common.cli",
+        "peekOfCode": "cli = argparse.ArgumentParser(\n    description=\"Generate a research report.\",\n    # Enables the use of newlines in the help message\n    formatter_class=RawTextHelpFormatter)\n# =====================================\n# Arg: Query\n# =====================================\ncli.add_argument(\n    # Position 0 argument\n    \"query\",",
+        "detail": "common.cli",
+        "documentation": {}
+    },
+    {
+        "label": "choices",
+        "kind": 5,
+        "importPath": "common.cli",
+        "description": "common.cli",
+        "peekOfCode": "choices = [report_type.value for report_type in ReportType]\nreport_type_descriptions = {\n    ReportType.ResearchReport.value: \"Summary - Short and fast (~2 min)\",\n    ReportType.DetailedReport.value: \"Detailed - In depth and longer (~5 min)\",\n    ReportType.ResourceReport.value: \"\",\n    ReportType.OutlineReport.value: \"\",\n    ReportType.CustomReport.value: \"\",\n    ReportType.SubtopicReport.value: \"\"\n}\ncli.add_argument(",
+        "detail": "common.cli",
+        "documentation": {}
+    },
+    {
+        "label": "report_type_descriptions",
+        "kind": 5,
+        "importPath": "common.cli",
+        "description": "common.cli",
+        "peekOfCode": "report_type_descriptions = {\n    ReportType.ResearchReport.value: \"Summary - Short and fast (~2 min)\",\n    ReportType.DetailedReport.value: \"Detailed - In depth and longer (~5 min)\",\n    ReportType.ResourceReport.value: \"\",\n    ReportType.OutlineReport.value: \"\",\n    ReportType.CustomReport.value: \"\",\n    ReportType.SubtopicReport.value: \"\"\n}\ncli.add_argument(\n    \"--report_type\",",
+        "detail": "common.cli",
+        "documentation": {}
+    }
+]

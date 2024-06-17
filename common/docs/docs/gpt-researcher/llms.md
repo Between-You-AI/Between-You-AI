@@ -22,7 +22,7 @@ LLM_PROVIDER="openai"
 # set the custom OpenAI API url
 OPENAI_BASE_URL="http://localhost:1234/v1"
 # set the custom OpenAI API key
-OPENAI_API_KEY="Your Key"
+OPENAI_API_KEY="sk-proj-iXNcqatsMuM3v2AdKtZuT3BlbkFJqhsdqIP3ZMqa6PY3Dijp"
 
 # specify the custom OpenAI API llm model  
 FAST_LLM_MODEL="gpt-3.5-turbo-16k"
