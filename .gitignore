@@ -4,3 +4,4 @@
 **/node_modules/
 **/.next/
 **/*.d.ts
+poetry.lock
