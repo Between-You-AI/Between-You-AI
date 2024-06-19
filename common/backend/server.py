@@ -69,13 +69,6 @@ async def websocket_endpoint(websocket: WebSocket):
                 report_source = json_data.get("report_source")
                 if task and report_type:
                     report = await manager.start_streaming(task, report_type, report_source, websocket)
-                    # Saving report as pdf
-                    pdf_path = await write_md_to_pdf(report, filename)
-                    # Saving report as docx
-                    docx_path = await write_md_to_word(report, filename)
-                    # Returning the path of saved report files
-                    md_path = await write_text_to_md(report, filename)
-                    await websocket.send_json({"type": "path", "output": {"pdf": pdf_path, "docx": docx_path, "md": md_path}})
                 else:
                     print("Error: not enough parameters provided.")
 

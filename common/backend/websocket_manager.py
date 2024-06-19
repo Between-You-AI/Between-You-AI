@@ -59,7 +59,8 @@ async def run_agent(task, report_type, report_source, websocket):
     config_path = ""
 
     if report_type == ReportType.DetailedReport.value:
-        researcher = DetailedReport(query=task, report_type=report_type, report_source=report_source, source_urls=None, config_path=config_path, websocket=websocket)
+        pass
+        # researcher = DetailedReport(query=task, report_type=report_type, report_source=report_source, source_urls=None, config_path=config_path, websocket=websocket)
     else:
         researcher = BasicReport(query=task, report_type=report_type, report_source=report_source, source_urls=None, config_path=config_path, websocket=websocket)
 

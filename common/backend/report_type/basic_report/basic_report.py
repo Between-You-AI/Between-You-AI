@@ -18,6 +18,6 @@ class BasicReport():
         await researcher.conduct_research()
         
         # and generate report        
-        report = await researcher.write_report()
+        #report = await researcher.write_report()
         
-        return report
+        return
