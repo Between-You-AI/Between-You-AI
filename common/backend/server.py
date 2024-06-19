@@ -4,15 +4,19 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from backend.websocket_manager import WebSocketManager
 from backend.utils import write_md_to_pdf, write_md_to_word, write_text_to_md
+from gpt_researcher.master.agent import GPTResearcher
 import time
 import json
 import os
 
-
+class ResearchQuery(BaseModel):
+    query: str
+    
 class ResearchRequest(BaseModel):
     task: str
     report_type: str
     agent: str
+
 
 
 app = FastAPI()
@@ -35,6 +39,20 @@ def startup_event():
 @app.get("/")
 async def read_root(request: Request):
     return templates.TemplateResponse('index.html', {"request": request, "report": None})
+
+@app.post("/research-openai")
+async def research_openai(request: ResearchQuery):
+    researcher = GPTResearcher(request)
+    research = await researcher.researcher_openai()
+    print(research)
+    return research
+
+@app.post("/research-bard")
+async def research_bard(request: ResearchQuery):
+    researcher = GPTResearcher(request)
+    research = await researcher.researcher_bard()
+    print(research)
+    return research
 
 
 @app.websocket("/ws")

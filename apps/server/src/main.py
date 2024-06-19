@@ -8,7 +8,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 
 from typing import Union
 from fastapi import FastAPI
-from .experts.service import ExpertService
+from experts.service import ExpertService
+from common.gpt_researcher.master.agent import GPTResearcher
 
 app = FastAPI()
 
@@ -27,3 +28,15 @@ async def get_agent(query: str):
     results = await ExpertService(query).find_expert()
     print(results)
     return results
+
+@app.post("/research-openai")
+async def research_openai(query: str):
+    research = await GPTResearcher().researcher_openai()
+    print(research)
+    return research
+
+@app.post("/research-bard")
+async def research_bard():
+    research = await GPTResearcher().researcher_bard()
+    print(research)
+    return research
