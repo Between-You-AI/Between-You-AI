@@ -9,7 +9,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 from typing import Union
 from fastapi import FastAPI
 from experts.service import ExpertService
-from common.gpt_researcher.master.agent import GPTResearcher
 
 app = FastAPI()
 
