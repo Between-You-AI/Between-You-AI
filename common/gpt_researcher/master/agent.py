@@ -33,7 +33,7 @@ class GPTResearcher:
     async def conduct_research(self):
         previous_queries.append(self.query)
         print("Previous Queries:", previous_queries)
-        response = await get_gpt_response(self.query, previous_queries, self.context, self.cfg, self.websocket)
+        response = await get_gpt_response(previous_queries, self.context, self.cfg)
         self.type = response.get('type', "")
         self.steps = response.get('steps', [])
         self.estimated_time = response.get('estimated_time', "")
@@ -67,7 +67,7 @@ class GPTResearcher:
         
         return suggestions
 
-async def get_gpt_response(query, pqueries, context, cfg, websocket=None):
+async def get_gpt_response(pqueries, context, cfg):
     p = " ".join(pqueries)
     try:
         messages = [
@@ -80,7 +80,6 @@ async def get_gpt_response(query, pqueries, context, cfg, websocket=None):
             temperature=0.7,
             llm_provider=cfg.llm_provider,
             stream=True,
-            websocket=websocket,
             max_tokens=cfg.smart_token_limit,
             llm_kwargs=cfg.llm_kwargs
         )

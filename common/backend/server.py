@@ -57,6 +57,13 @@ async def get_agent(request: ResearchRequest):
     return results
 
 
+@app.post("/chat")
+async def get_chat():
+    results =  await GPTResearcher("bike").conduct_research() # Need to pass the values from frontend
+    print(results)
+    return results
+    
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await manager.connect(websocket)
