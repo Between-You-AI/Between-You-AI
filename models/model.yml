@@ -1,0 +1,67 @@
+Task:
+  id: number
+  name: string
+  Objective: ObjectiveId
+
+  duration: string
+  budget: string
+  isMilestone: Boolean
+
+  SubTasks: Task[]
+  nextTask: Task
+  prevTask: Task
+
+  TaskType: TaskTypeId
+  Estimates: EstimatesId
+  
+  AchievedAt: Date
+  CreatedAt: Date
+  UpdatedAt: Date 
+
+TaskUpdate:
+  id: number
+  isLatest: Boolean
+
+  createdAt: Date
+
+  status: StatusType
+
+  Task: Number
+  Qualifier: # Perc (Success subtasks)
+
+Objective:
+  id: number
+  statement: string
+  clarity: number # Percentage (number of questions responded to - even if they skip)
+  
+  TaskId: number
+
+TaskType:
+  id: number
+  name: string
+  iconImage: string
+  # Decision Type - A & B
+  # InApp Task
+  # OffApp Task
+  # Action Task - (something to be done)
+  # Question Type Task
+  # Document Submission Task (Object)
+  # Object Collection (Gathering)
+  # Information Sharing
+
+Estimates:
+  id: number
+  days: number
+  date: string
+  budget: string
+
+
+
+Task (Milestone)
+  |       
+  |
+  Sub Task -> Progress (Yes / No)
+
+  AA --  
+  |    |    |
+  A    B    C
