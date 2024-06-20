@@ -5,3 +5,7 @@
 **/.vscode/
 .vscode/
 **/package-lock.json
+**/*:Zone.Identifier
+**/*:Zone.Identifier*
+**/outputs/
+**/.DS_Store

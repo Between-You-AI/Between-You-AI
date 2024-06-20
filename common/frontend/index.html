@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GPT Chat Assistant</title>
+    <meta name="description" content="A chat assistant powered by GPT-4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./static/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/site/styles.css"/>
+    <style>
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .chat-box {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            height: 500px;
+            overflow-y: scroll;
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+
+        .message.bot {
+            text-align: left;
+        }
+
+        .message.user {
+            text-align: right;
+        }
+
+        .input-group {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <h1 class="text-center">GPT Chat Assistant</h1>
+        <div class="text-right mb-3">
+            <button id="clear-button" class="btn btn-secondary">Clear</button>
+        </div>
+        <div id="chat-box" class="chat-box"></div>
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Type your message...">
+            <div class="input-group-append">
+                <button id="send-button" class="btn btn-primary">Send</button>
+                <button id="stop-button" class="btn btn-danger ml-2">Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <script src="/site/scripts.js"></script>
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const stopButton = document.getElementById('stop-button');
+        const clearButton = document.getElementById('clear-button');
+        let socket;
+
+        const appendMessage = (message, sender) => {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.innerHTML = message;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
+
+        const sendMessage = () => {
+            const message = userInput.value;
+            if (!message) return;
+
+            appendMessage(message, 'user');
+            userInput.value = '';
+            setTimeout(() => {
+                appendMessage('🤔 Thinking about your question...', 'bot');
+                startResearch(message);
+            }, 500);
+        };
+
+        const startResearch = (task) => {
+            const { protocol, host, pathname } = window.location;
+            const ws_uri = `${protocol === 'https:' ? 'wss:' : 'ws:'}//${host}${pathname}ws`;
+            socket = new WebSocket(ws_uri);
+            const converter = new showdown.Converter();
+
+            socket.onopen = () => {
+                const requestData = {
+                    task: task,
+                    report_type: 'chat',
+                    report_source: 'web',
+                    agent: 'Chat Agent',
+                };
+                socket.send(`start ${JSON.stringify(requestData)}`);
+            };
+
+            socket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                if (data.type === 'logs' || data.type === 'report') {
+                    const markdownOutput = converter.makeHtml(data.output);
+                    appendMessage(markdownOutput, 'bot');
+                }
+            };
+        };
+
+        const stopResearch = () => {
+            if (socket) {
+                socket.close();
+                appendMessage('⛔ Research stopped.', 'bot');
+            }
+        };
+
+        const clearChat = () => {
+            location.reload();
+        };
+
+        sendButton.addEventListener('click', sendMessage);
+        stopButton.addEventListener('click', stopResearch);
+        clearButton.addEventListener('click', clearChat);
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        window.onload = () => {
+            appendMessage('Hello! How can I assist you with your research today?', 'bot');
+        };
+    </script>
+</body>
+
+</html>
