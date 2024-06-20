@@ -3,21 +3,45 @@ Task:
   name: string
   Objective: ObjectiveId
 
-  duration: string
-  budget: string
-  isMilestone: Boolean
+  Milestone?: MilestoneId
+  taskLevel: number # What level of task is the task associated (Parent is 1, subsequently)
+  ParentTask: TaskId # Backend
 
+  #  order: number => get it from GPT and assign next and prev over the backend 
   SubTasks: Task[]
   nextTask: Task
   prevTask: Task
 
-  TaskType: TaskTypeId
+  #  Generate Once
+  TaskTypes: TaskType [] # Generated from GPT
+  TaskType: TaskType
   Estimates: EstimatesId
   
+  QuestionTasks: QuestionTask []
+
   AchievedAt: Date
   CreatedAt: Date
-  UpdatedAt: Date 
+  UpdatedAt: Date
 
+QuestionTask: # Better name needed
+  question: string
+  answer: string | number | any
+  QuestionType: string => OptionBased, input based question
+  relatedData (input based question):
+    input_text: string
+    validation: string
+  relatedData (option-based): 
+    options: []
+    other: string
+  
+
+# GPT makes the milestone
+Milestone:
+  id: number
+  name: string
+  TasksToComplete: Task[]
+
+# Progress
 TaskUpdate:
   id: number
   isLatest: Boolean
@@ -29,15 +53,14 @@ TaskUpdate:
   Task: Number
   Qualifier: # Perc (Success subtasks)
 
+
 Objective:
-  id: number
   statement: string
   clarity: number # Percentage (number of questions responded to - even if they skip)
   
   TaskId: number
 
 TaskType:
-  id: number
   name: string
   iconImage: string
   # Decision Type - A & B
@@ -50,7 +73,6 @@ TaskType:
   # Information Sharing
 
 Estimates:
-  id: number
   days: number
   date: string
   budget: string
