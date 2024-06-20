@@ -5,7 +5,7 @@ import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
-import theme from '@/core/themes/light.theme';
+import theme from '@/themes/light.theme';
 
 
 // This implementation is from emotion-js

@@ -6,6 +6,8 @@ import ReactFlow, { Controls, MiniMap, OnConnect, addEdge, useEdgesState, useNod
 
 import { initialNodes, nodeTypes } from "./nodes";
 import { initialEdges, edgeTypes } from "./edges";
+import TitleBar from '../common/widget-toolbox.component';
+import BaseWidget from '../common/base-widget.component';
 
 const FlowChartBar: React.FC = () => {
 
@@ -17,7 +19,7 @@ const FlowChartBar: React.FC = () => {
   );
 
   return (
-    <Box sx={{ width: "100%", height:"100%", padding: 2 }}>
+    <BaseWidget widget_name='Flowchart' >
       <ReactFlow
         nodes={nodes}
         nodeTypes={nodeTypes}
@@ -31,7 +33,7 @@ const FlowChartBar: React.FC = () => {
         <MiniMap />
         <Controls />
       </ReactFlow>
-    </Box>
+    </BaseWidget>
   );
 };
 
