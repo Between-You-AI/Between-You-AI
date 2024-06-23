@@ -59,7 +59,7 @@ class ExpertService:
         
     async def find_expert(self):
         result = await choose_agent(query=self.query, cfg=self.cfg)
-        print(result)
+        #print(result)
         return result
 
     # async def conduct_research(self):

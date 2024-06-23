@@ -51,6 +51,7 @@
             <button id="clear-button" class="btn btn-secondary">Clear</button>
         </div>
         <div id="chat-box" class="chat-box"></div>
+        <div id="question-container" class="input-group"></div>
         <div class="input-group">
             <input type="text" id="user-input" class="form-control" placeholder="Type your message...">
             <div class="input-group-append">
@@ -68,6 +69,7 @@
         const sendButton = document.getElementById('send-button');
         const stopButton = document.getElementById('stop-button');
         const clearButton = document.getElementById('clear-button');
+        const questionContainer = document.getElementById('question-container');
         let socket;
 
         const appendMessage = (message, sender) => {
@@ -111,8 +113,48 @@
                 if (data.type === 'logs' || data.type === 'report') {
                     const markdownOutput = converter.makeHtml(data.output);
                     appendMessage(markdownOutput, 'bot');
+                } else if (data.type === 'questions') {
+                    displayQuestions(data.output.questions);
+                } else if (data.type === 'response') {
+                    displayResponse(data.output);
                 }
             };
+        };
+
+        const displayQuestions = (questions) => {
+            questionContainer.innerHTML = '';
+            questions.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.classList.add('form-group');
+                questionElement.innerHTML = `
+                    <label for="question-${index}">${question}</label>
+                    <input type="text" class="form-control" id="question-${index}" placeholder="Your answer">
+                `;
+                questionContainer.appendChild(questionElement);
+            });
+
+            const submitButton = document.createElement('button');
+            submitButton.classList.add('btn', 'btn-primary');
+            submitButton.textContent = 'Submit Answers';
+            submitButton.onclick = submitAnswers;
+            questionContainer.appendChild(submitButton);
+        };
+
+        const submitAnswers = () => {
+            const answers = Array.from(document.querySelectorAll('#question-container input'))
+                .map(input => input.value);
+            socket.send(`answers ${JSON.stringify(answers)}`);
+        };
+
+        const displayResponse = (response) => {
+            let formattedResponse = `<strong>Tasks:</strong><br>${JSON.stringify(response.tasks, null, 2)}<br>`;
+            formattedResponse += `<strong>Objectives:</strong><br>${JSON.stringify(response.objectives, null, 2)}<br>`;
+            formattedResponse += `<strong>Task Updates:</strong><br>${JSON.stringify(response.task_updates, null, 2)}<br>`;
+            formattedResponse += `<strong>Task Types:</strong><br>${JSON.stringify(response.task_types, null, 2)}<br>`;
+            formattedResponse += `<strong>Milestones:</strong><br>${JSON.stringify(response.milestones, null, 2)}<br>`;
+            formattedResponse += `<strong>Estimates:</strong><br>${JSON.stringify(response.estimates, null, 2)}<br>`;
+            formattedResponse += `<strong>Questions:</strong><br>${JSON.stringify(response.questions, null, 2)}<br>`;
+            appendMessage(formattedResponse, 'bot');
         };
 
         const stopResearch = () => {

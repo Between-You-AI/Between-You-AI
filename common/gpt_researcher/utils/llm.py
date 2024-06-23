@@ -9,6 +9,7 @@ from colorama import Fore, Style
 from fastapi import WebSocket
 from langchain.output_parsers import PydanticOutputParser
 from langchain.prompts import PromptTemplate
+from typing import Optional, Dict, Any, List
 
 from gpt_researcher.master.prompts import auto_agent_instructions, generate_subtopics_prompt
 from .costs import estimate_llm_cost
@@ -53,7 +54,7 @@ def get_llm(llm_provider, **kwargs):
 
 
 async def create_chat_completion(
-        messages: list,  # type: ignore
+        messages: List[Dict[str, str]],  # type: ignore
         model: Optional[str] = None,
         temperature: float = 1.0,
         max_tokens: Optional[int] = None,

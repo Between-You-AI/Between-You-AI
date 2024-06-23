@@ -1,12 +1,76 @@
 import asyncio
 import json
+from datetime import datetime
+from typing import List, Optional, Union
 
+from pydantic import BaseModel
 from gpt_researcher.config import Config
 from gpt_researcher.memory import Memory
 from gpt_researcher.utils.llm import create_chat_completion
 from gpt_researcher.researcher.research import GoogleBard
+from experts.service import ExpertService
 
 previous_queries = []
+questions = []
+class Task(BaseModel):
+    id: int
+    name: str
+    objective_id: int
+    task_level: int
+    parent_task: int
+    sub_tasks: Optional[List['Task']] = []
+    next_task: Optional['Task'] = None
+    prev_task: Optional['Task'] = None
+    task_types: Optional[List['TaskType']] = []
+    task_type: Optional[List['TaskType']] = None
+    estimates_id: Optional[int] = None
+    question_tasks: Optional[List['QuestionTask']] = []
+    milestone_id: Optional[int] = None
+    achieved_at: Optional[datetime] = None
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+class QuestionTask(BaseModel):
+    question: str
+    answer: Union[str, int, float, None]
+    question_type: str
+    related_data: dict
+
+class Milestone(BaseModel):
+    id: int
+    name: str
+    tasks_to_complete: Optional[List[Task]] = []
+
+class TaskUpdate(BaseModel):
+    id: int
+    is_latest: bool
+    created_at: datetime
+    status: str
+    task_id: int
+    qualifier: float
+
+class Objective(BaseModel):
+    statement: str
+    clarity: float
+    task_id: int
+
+class TaskType(BaseModel):
+    name: str
+    icon_image: str
+
+class Estimates(BaseModel):
+    days: int
+    date: str
+    budget: str
+
+class GPTResponse(BaseModel):
+    tasks: List[Task] = []
+    objectives: List[Objective] = []
+    task_updates: List[TaskUpdate] = []
+    task_types: List[TaskType] = []
+    milestones: List[Milestone] = []
+    estimates: List[Estimates] = []
+    questions: List[QuestionTask] = []
 
 class GPTResearcher:
     """GPT Researcher"""
@@ -19,145 +83,122 @@ class GPTResearcher:
         self.verbose: bool = verbose
         self.websocket = websocket
         self.cfg = Config(config_path)
+        self.agent = None
         self.context = []
         self.memory = Memory(self.cfg.embedding_provider)
         self.type: str = ""
-        self.steps: list = []
-        self.estimated_time: str = ""
-        self.desc: str = ""
-        self.questions: list = []
-        self.time_period: str = ""
-        self.steps_to_perform: list = []
-        self.answers: dict = {}
-
+        
     async def conduct_research(self):
         previous_queries.append(self.query)
         print("Previous Queries:", previous_queries)
-        response = await get_gpt_response(previous_queries, self.context, self.cfg)
-        self.type = response.get('type', "")
-        self.steps = response.get('steps', [])
-        self.estimated_time = response.get('estimated_time', "")
-        self.desc = response.get('desc', "")
-        self.questions = response.get('questions', [])
-        self.time_period = response.get('time_period', "")
-        self.steps_to_perform = response.get('steps_to_perform', [])
-        filtered_response = {
-            "questions": self.questions
-        }
-
-        if self.verbose:
-            await stream_output("logs", f"Generated questions: {self.questions}", self.websocket)
-            await stream_output("questions", filtered_response, self.websocket)
-
-        return filtered_response
+        self.agent = await ExpertService(self.query,self.cfg).find_expert()
+        response = await self.get_gpt_response(previous_queries, self.context)
+        questions.append(response)
+        print(questions)
+        return response
     
     async def researcher_openai(self):
-        await get_suggestions(self.cfg)
+        return await self.get_suggestions()
     
     async def researcher_bard(self):
-        await GoogleBard().generate(summary_prompt())
-        
-    async def receive_answers(self, answers):
-        self.answers = answers
-        suggestions = await get_suggestions(self.answers, self.cfg, self.websocket)
-        
-        if self.verbose:
-            await stream_output("logs", f"Generated suggestions: {suggestions}", self.websocket)
-            await stream_output("suggestions", suggestions, self.websocket)
-        
-        return suggestions
-
-async def get_gpt_response(pqueries, context, cfg):
-    p = " ".join(pqueries)
-    try:
+        return await GoogleBard().generate(self.summary_prompt())
+    
+    async def get_gpt_response(self, pqueries, context):
         messages = [
-            {"role": "system", "content": "ask questions and after getting the input from user design the plan don't give example answers for questions avoid this in list If there is content in P make decision based on that while giving plan {answer_type: string and also steps should be one worded}"},
-            {"role": "user", "content": f"{generate_response_prompt(p, context)}"}
+            {"role": "system", "content": self.auto_questions()},
+            {"role": "user", "content": self.generate_response_prompt(pqueries, context)}
         ]
-        response = await create_chat_completion(
-            model=cfg.smart_llm_model,
-            messages=messages,
-            temperature=0.7,
-            llm_provider=cfg.llm_provider,
-            stream=True,
-            max_tokens=cfg.smart_token_limit,
-            llm_kwargs=cfg.llm_kwargs
-        )
+        try:
+            response = await create_chat_completion(
+                model=self.cfg.smart_llm_model,
+                messages=messages,
+                temperature=0.7,
+                llm_provider=self.cfg.llm_provider,
+                stream=True,
+                max_tokens=self.cfg.smart_token_limit,
+                llm_kwargs=self.cfg.llm_kwargs
+            )
+            response_data = json.loads(response)
+            return response_data["QuestionTask"]
+        except json.JSONDecodeError as e:
+            print(f"JSON decoding error: {e} - Response received: '{response}'")
+            return {}
+        except Exception as e:
+            print(f"Error during GPT communication: {e}")
+            return {}
+        
+    async def get_suggestions(self):
+        try:
+            messages = [
+                {"role": "system", "content": "Provide Deep Research."},
+                {"role": "user", "content": self.summary_prompt()}
+            ]
+            response = await create_chat_completion(
+                model=self.cfg.smart_llm_model,
+                messages=messages,
+                temperature=0.7,
+                llm_provider=self.cfg.llm_provider,
+                stream=True,
+                max_tokens=self.cfg.smart_token_limit,
+                llm_kwargs=self.cfg.llm_kwargs
+            )
+            response_data = json.loads(response)
+            
+            return response_data
+        except Exception as e:
+            print(f"Error in get_suggestions: {e}")
+            return
 
-        response_dict = json.loads(response)
-        return response_dict
-    except Exception as e:
-        print(f"Error in get_gpt_response: {e}")
-        return {}
+    def generate_response_prompt(self, query, context):
+        context_str = "\n".join(context)
+        prompt = f"Query: {query}\n\nContext:\n{context_str}\n\n. You are a Expert - {self.agent[0]}, Provide a detailed response including tasks, objectives, task updates, task types, milestones, and estimates."
+        return prompt
 
+    def summary_prompt(self):
+        return f"You are a Expert - {self.agent[0]}. Detailed Research based on the User Conversation - {previous_queries} and {self.query}"
+    
+    def auto_questions(self):
+        return """
+            Your task is to generate questions based on user query to get more details from User
+            examples:
+            task: "should I invest in apple stocks?"
+            response: 
+            {
+                "QuestionTask":[ {
+                    "question": "Why do you want to invest in Apple?",
+                    "answer": "string",
+                    "QuestionType": "input based",
+                    "relatedData": {
+                    "input_text": "Please provide your reason for wanting to invest in Apple.",
+                    "validation": "required"
+                    }, {
+                    "question": "How much are you planning to invest in Apple?",
+                    "answer": "number",
+                    "QuestionType": "input based",
+                    "relatedData": {
+                    "input_text": "Please enter the amount you are planning to invest in Apple.",
+                    "validation": "required|min:1"
+                    },{
+                    "question": "What is your investment horizon?",
+                    "answer": "string",
+                    "QuestionType": "option based",
+                    "relatedData": {
+                    "options": ["Short-term (less than 1 year)", "Medium-term (1-5 years)", "Long-term (more than 5 years)"],
+                    "other": "Please select one of the options that best describes your investment horizon."
+                    },{
+                    "question": "What is your risk tolerance?",
+                    "answer": "string",
+                    "QuestionType": "option based",
+                    "relatedData": {
+                    "options": ["Low", "Moderate", "High"],
+                    "other": "Please select your risk tolerance level."
+                    }
+                ]
+            }
+        """
 
-async def get_suggestions(cfg):
-    try:
-        messages = [
-            {"role": "system", "content": "Provide suggestions based on user answers"},
-            {"role": "user", "content": summary_prompt()}
-        ]
-        response = await create_chat_completion(
-            model=cfg.smart_llm_model,
-            messages=messages,
-            temperature=0.7,
-            llm_provider=cfg.llm_provider,
-            stream=True,
-            max_tokens=cfg.smart_token_limit,
-            llm_kwargs=cfg.llm_kwargs
-        )
-
-        response_dict = json.loads(response)
-        return response_dict
-    except Exception as e:
-        print(f"Error in get_suggestions: {e}")
-        return {}
-
-def generate_response_prompt(query, context):
-    context_str = "\n".join(context)
-    prompt = f"Query: {query}\n\nContext:\n{context_str}\n\nPlease provide a detailed response including type, steps, estimated time, description, questions (use this prompt to generate questions- {basic_prompt()}), time period, and steps to perform."
-    return prompt
-
-def summary_prompt():
-    return f"Detailed Research based on the User Conversation -  {previous_queries}"
-
-
-def basic_prompt():
-    return """Objective: Identify the optimal questions to refine and define the objective: {initial query}, to create an efficient and effective step-by-step action plan, significantly increasing the likelihood of sustained action towards the objective.
-
-Context: Defining an objective while considering situational and circumstantial elements is crucial. This ensures efforts are focused, relevant, and aligned with the user's unique context, maximizing success.
-
-Task Breakdown:
-
-STEP 1: Collaborate with an expert Project Manager and an expert Behavioral Psychologist to determine the top questions for better defining elements of the objective.
-
-STEP 2: Create a list of questions, ordered by significance and efficiency in defining and refining the objective.
-
-Considerations for Determining the Top Questions:
-
-What, Why, When, Where, Who, How
-Additional Considerations:
-
-Specificity of the objective: Clearly articulate the desired outcome.
-Measurability of the objective: Define success metrics.
-Achievability of the objective: Ensure realism and attainability.
-Relevance of the objective: Align with broader goals.
-Deadline of the objective: Set a clear completion date.
-Timeline of the objective: Outline start date and duration.
-Milestones of the objective: Identify key progress checkpoints.
-Resources available: Specify necessary resources.
-Constraints of the objective: Identify potential obstacles.
-Accountability: Assign responsibility and oversight.
-Unique elements about the user: Consider factors impacting progress.
-Innovation and risk tolerance: Assess skills, risk tolerance, and willingness to try new methods.
-Rules:
-
-Limit the question list to 10 questions.
-Do not include an opening or closing summary.
-Never provide links."""
-
-async def stream_output(type, output, websocket=None, logging=True):
-    if not websocket or logging:
-        print(output)
-    if websocket:
-        await websocket.send_json({"type": type, "output": output})
+    async def stream_output(self, type, output, websocket=None, logging=True):
+        if logging:
+            print(output)
+        if websocket:
+            await websocket.send_json({"type": type, "output": output})
