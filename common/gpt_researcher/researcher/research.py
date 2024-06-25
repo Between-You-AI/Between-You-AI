@@ -3,7 +3,7 @@ import os
 
 class GoogleBard:
     def __init__(self):
-        self.api_key = "AIzaSyBHSOlL7Ic2fFQeE_JXnIyu2xsTlyZevOw"
+        self.api_key = ""
         self.api_url = "https://api.bard.google.com/v1/generate"
 
     def generate(self, prompt):
