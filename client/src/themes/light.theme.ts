@@ -1,60 +1,72 @@
-import { createTheme } from '@mui/material/styles';
+import {createTheme} from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
+    mode: "light",
     primary: {
-      main: '#fca311',
+      main: "#007BFF", // Blue
     },
     secondary: {
-      main: '#14213d',
-    },
-    background: {
-      default: '#f4f6f8',
+      main: "#0056b3", // Dark Blue
     },
     text: {
-      primary: '#000000',
+      primary: "#000000", // Black
+      secondary: "#343a40", // Dark Gray
     },
-  },  
+    background: {
+      default: "#FFFFFF", // White
+      paper: "#f8f9fa", // Light Gray
+    },
+    success: {
+      main: "#28a745", // Green
+    },
+    error: {
+      main: "#dc3545", // Red
+    },
+    warning: {
+      main: "#ffc107", // Yellow
+    },
+  },
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
-    h4: {
-      fontWeight: 700,
+    fontFamily: "Outfit, Arial, sans-serif",
+    h1: {
+      fontFamily: "Merriweather, serif",
     },
-    h6: {
-      fontWeight: 500,
+    h2: {
+      fontFamily: "Merriweather, serif",
     },
-    body1: {
-      fontWeight: 400,
+    h3: {
+      fontFamily: "Merriweather, serif",
     },
     button: {
-      textTransform: 'none',
+      textTransform: "none",
     },
   },
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          borderRadius: 8,
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          borderRadius: 16,
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          padding: '16px',
-          borderRadius: '16px',
-        },
-      },
-    },
+    // MuiButton: {
+    //   styleOverrides: {
+    //     root: {
+    //       textTransform: "none",
+    //       borderRadius: 8,
+    //     },
+    //   },
+    // },
+    // MuiCard: {
+    //   styleOverrides: {
+    //     root: {
+    //       borderRadius: 16,
+    //       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+    //     },
+    //   },
+    // },
+    // MuiPaper: {
+    //   styleOverrides: {
+    //     root: {
+    //       padding: "16px",
+    //       borderRadius: "16px",
+    //     },
+    //   },
+    // },
   },
 });
 

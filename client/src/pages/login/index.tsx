@@ -1,75 +1,117 @@
-import React, { useEffect } from 'react';
-import { Box, Button, Container, TextField, Typography } from '@mui/material';
-import { yupResolver } from '@hookform/resolvers/yup';
+import React, {useEffect} from "react";
+import {yupResolver} from "@hookform/resolvers/yup";
+import {LoginDto, loginSchema} from "@core";
+import {AxiosError} from "axios";
+import {useForm} from "react-hook-form";
+import {useMutation} from "@tanstack/react-query";
+import {useAuthContext} from "../../../hoc/auth-context/use-auth-context";
+
 import {
-  loginApi,
-  LoginDto,
-  LoginResponse,
-  loginSchema,
-} from '@core';
-import { AxiosError } from 'axios';
-import { useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../../../hoc/auth-context/use-auth-context';
+  Container,
+  TextField,
+  Button,
+  Typography,
+  Box,
+  Link,
+} from "@mui/material";
+import {
+  Google as GoogleIcon,
+  Microsoft as MicrosoftIcon,
+} from "@mui/icons-material";
+import {useRouter} from "next/router";
 
 const LoginPage = () => {
-  const { register, handleSubmit, formState } = useForm<LoginDto>({
+  const router = useRouter();
+  const {register, handleSubmit, formState} = useForm<LoginDto>({
     resolver: yupResolver(loginSchema),
   });
-  const navigate = useNavigate();
-  const { login } = useAuthContext();
+  // const navigate = useNavigate();
+  // const { login } = useAuthContext();
 
-  const loginMutation = useMutation<LoginResponse, AxiosError, LoginDto>(
-    loginApi
-  );
+  // const loginMutation = useMutation<LoginResponse, AxiosError, LoginDto>(
+  //   loginApi
+  // );
 
   const onSubmit = (loginDto: LoginDto) => {
-    loginMutation.mutate(loginDto, {
-      onSuccess: (loginResponse) => {
-        login(loginResponse);
-        navigate('/');
-      },
-    });
+    console.log(loginDto);
+    router.push("/dashboard");
+    // loginMutation.mutate(loginDto, {
+    //   onSuccess: (loginResponse) => {
+    //     login(loginResponse);
+    //     navigate('/');
+    //   },
+    // });
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container maxWidth="xs">
       <Box
         component="form"
-        onSubmit={handleSubmit(onSubmit)}
-        bgcolor="white"
-        borderRadius="8px"
-        boxShadow={3}
-        p={4}
-        mt={8}
         display="flex"
+        onSubmit={handleSubmit(onSubmit)}
         flexDirection="column"
+        justifyContent="center"
         alignItems="center"
+        minHeight="100vh"
       >
-        <Typography component="h1" variant="h5">
-          Sign in
+        <Typography variant="h4" component="h1" gutterBottom>
+          Log In to You & AI
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Enter your email and password below
         </Typography>
         <TextField
+          label="Email address"
           variant="outlined"
           margin="normal"
+          fullWidth
+          {...register("email")}
           required
+        />
+        <TextField
+          label="Password"
+          type="password"
+          variant="outlined"
+          margin="normal"
           fullWidth
           id="passCode"
-          label="Enter Passcode"
-          autoComplete="passCode"
-          autoFocus
-          {...register('passCode')}
+          {...register("passCode")}
           error={!!formState.errors.passCode}
         />
+        <Link href="#" variant="body2" sx={{alignSelf: "flex-end"}}>
+          Forgot password?
+        </Link>
         <Button
           type="submit"
-          fullWidth
           variant="contained"
           color="primary"
-          style={{ marginTop: '16px' }}
+          fullWidth
+          sx={{mt: 2}}
         >
-          Login
+          Log In
+        </Button>
+        <Typography variant="body2" sx={{mt: 2}}>
+          Don&apos;t have an account? <Link href="#">Sign up</Link>
+        </Typography>
+        <Typography variant="body2" sx={{mt: 2}}>
+          OR
+        </Typography>
+        <Button
+          onClick={() => router.push("/dashboard")}
+          variant="outlined"
+          startIcon={<GoogleIcon />}
+          fullWidth
+          sx={{mt: 1}}
+        >
+          Sign in with Google
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<MicrosoftIcon />}
+          fullWidth
+          sx={{mt: 1}}
+        >
+          Sign in with Teams
         </Button>
       </Box>
     </Container>
