@@ -81,12 +81,13 @@ class GPTResearcher:
         self.type: str = ""
         
     async def conduct_research(self):
-        previous_queries.append(self.query)
-        print("Previous Queries:", previous_queries)
-        if self.agent == None:
+        #previous_queries.append(self.query)
+        #print("Previous Queries:", previous_queries)
+        if self.agent == []:
             self.agent = await ExpertService(self.query,self.cfg).find_expert()
-        response = await self.get_gpt_response(previous_queries, self.context)
-        #await self.get_objective()
+        response = await self.get_gpt_response(self.query, self.context)
+        print(await self.get_objective())
+        await self.get_estimate()
         return response
     
     async def researcher_openai(self):
@@ -157,6 +158,27 @@ class GPTResearcher:
         except json.JSONDecodeError as e:
             print(f"JSON decoding error: {e} - Response received: '{response}'")
             return {}
+        
+    async def get_estimate(self):
+        try:
+            messages = [
+                {"role": "system", "content": self.estimates_prompt()},
+                {"role": "user", "content": self.get_estimate_p()}
+            ]
+            response = await create_chat_completion(
+                model=self.cfg.smart_llm_model,
+                messages=messages,
+                temperature=0.7,
+                llm_provider=self.cfg.llm_provider,
+                stream=True,
+                max_tokens=self.cfg.smart_token_limit,
+                llm_kwargs=self.cfg.llm_kwargs
+            )
+            response_data = json.loads(response)
+            return response_data["estimates"]
+        except json.JSONDecodeError as e:
+            print(f"JSON decoding error: {e} - Response received: '{response}'")
+            return {}
 
     def generate_response_prompt(self, query, context):
         context_str = "\n".join(context)
@@ -164,10 +186,16 @@ class GPTResearcher:
         return prompt
     
     def get_objective_p(self):
-        prompt = f"Query : {previous_queries}\n\n.You are a Expert - {self.agent[0]}.Generate the Objective based on the User Query. And after getting the answers you can refine it as well. In the output the clarity is based on user query and answers rate the clarity out of 100."
+        prompt = f"Query : {self.query}\n\n.You are a Expert - {self.agent[0]}.Generate the Objective based on the User Query. And after getting the answers you can refine it as well. In the output the clarity is based on user query and answers rate the clarity out of 100."
         return prompt
+    
+    def get_estimate_p(self):
+        prompt = f"Query : {self.query}\n\n.You are a Expert - {self.agent[0]}. Generate the Estimates based on the User Querys."
+        return prompt
+    
+    
     def summary_prompt(self):
-        return f"You are a Expert - {self.agent[0]}. Detailed Research based on the User Conversation - {previous_queries} and {self.query}"
+        return f"You are a Expert - {self.agent[0]}. Detailed Research based on the User Conversation - {self.query}"
     
     def auto_questions(self):
         return """
@@ -215,26 +243,45 @@ class GPTResearcher:
         In the output the clarity is based on user query and answers rate the clarity out of 100.
         examples:
         task : "should I invest in apple stocks?"
-        response :
         {
-            "Objective" : [ {
+            "Objective" : {
                 "statement" : "buying a apple stocks",
                 "clarity" : 20  
             }   
-            ]
         }
         task : "Buy a House"
-        response :
         {
-            "Objective" : [ {
+            "Objective" : {
                 "statement" : "Purchasing a House",
                 "clarity" : 5
             }   
-            ]
         }
         """
         
-    
+    def estimates_prompt(self):
+        return """
+        Your Task is to generate the Estimate based on the User Query. And after getting the answers you can update it as well not give multiple estimates dont assume.
+        Budget will be given by user so use it.
+        examples:
+        task : "should I invest 2000 in apple stocks?"
+        response from you:
+        {
+            "estimates" : {
+                "days" : 1,
+                "budget" : 2000  
+            }   
+        }
+        task : "Buy a House with 200000"
+        response from you:
+        {
+            "estimates" : {
+                "days" : 200,
+                "budget" : 200000
+                
+            }   
+        }
+        """
+
     async def stream_output(self, type, output, websocket=None, logging=True):
         if logging:
             print(output)
