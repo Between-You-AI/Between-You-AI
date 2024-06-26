@@ -83,7 +83,7 @@ class GPTResearcher:
     async def conduct_research(self):
         #previous_queries.append(self.query)
         #print("Previous Queries:", previous_queries)
-        if self.agent == []:
+        if self.agent == None:
             self.agent = await ExpertService(self.query,self.cfg).find_expert()
         response = await self.get_gpt_response(self.query, self.context)
         print(await self.get_objective())
@@ -102,6 +102,8 @@ class GPTResearcher:
             {"role": "user", "content": self.generate_response_prompt(pqueries, context)}
         ]
         try:
+            if self.agent==None:
+                self.agent = await ExpertService(self.query,self.cfg).find_expert()
             response = await create_chat_completion(
                 model=self.cfg.smart_llm_model,
                 messages=messages,
@@ -119,6 +121,8 @@ class GPTResearcher:
         
     async def get_suggestions(self):
         try:
+            if self.agent==None:
+                self.agent = await ExpertService(self.query,self.cfg).find_expert()
             messages = [
                 {"role": "system", "content": "Provide Deep Research."},
                 {"role": "user", "content": self.summary_prompt()}
@@ -140,6 +144,8 @@ class GPTResearcher:
     
     async def get_objective(self):
         try:
+            if self.agent==None:
+                self.agent = await ExpertService(self.query,self.cfg).find_expert()
             messages = [
                 {"role": "system", "content": self.objective_prompt()},
                 {"role": "user", "content": self.get_objective_p() }
@@ -161,6 +167,8 @@ class GPTResearcher:
         
     async def get_estimate(self):
         try:
+            if self.agent==None:
+                self.agent = await ExpertService(self.query,self.cfg).find_expert()
             messages = [
                 {"role": "system", "content": self.estimates_prompt()},
                 {"role": "user", "content": self.get_estimate_p()}
