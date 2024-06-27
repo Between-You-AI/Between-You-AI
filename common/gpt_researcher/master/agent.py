@@ -10,6 +10,7 @@ from gpt_researcher.utils.llm import create_chat_completion
 from gpt_researcher.researcher.research import GoogleBard
 from experts.service import ExpertService
 
+
 previous_queries = []
 
 class Goal(BaseModel):
@@ -412,17 +413,19 @@ class GPTResearcher:
         In the output the clarity is based on user query and answers rate the clarity out of 100.
         examples:
         task : "should I invest in apple stocks?"
-        {
+        {   
             "Objective" : {
-                "statement" : "buying a apple stocks",
-                "clarity" : 20  
+                "title": "buying apple stocks",
+                "description": "complete some matter in description",
+                "clarity": 20
             }   
         }
         task : "Buy a House"
         {
-            "Objective" : {
-                "statement" : "Purchasing a House",
-                "clarity" : 5
+           "Objective" : {
+                "title": "Purchasing a House",
+                "description": "complete some matter in description", 
+                "clarity": 1
             }   
         }
         """

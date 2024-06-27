@@ -6,19 +6,23 @@ class User(BaseModel):
     id: int
     email: str
     password: str
-
+    
 class Objective(BaseModel):
-    id: str
+    id: int
     title: str
     description: str
     clarity: int
-    completion_date: datetime
     created_at: datetime
-    Owner: User #Backend
-    Collaborators: List[User] # backend
-    Permissions: List["UserPermission"] # backend
-    Phases: List["Phase"]
-
+    owner: User
+    collaborators: List[User] = []
+    permissions: List[str] = []
+    phases: List[str] = []
+    completion_date: datetime = None
+    class Config:
+        json_encoders = {
+            datetime: lambda v: v.isoformat()
+        }
+    
 class UserPermission(BaseModel):
     id: int
     User: User

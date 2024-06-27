@@ -17,6 +17,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from .utils.websocket_manager import WebSocketManager
 from common.gpt_researcher.master.agent import GPTResearcher
 from common.experts.service import ExpertService
+from .objectives.objective_service import ObjectiveService
 
 
 previous_queries = ["Task - "]
@@ -52,6 +53,8 @@ async def get_chat(request: ResearchRequest):
 @app.post("/objective")
 async def get_obj(request: ResearchRequest):
     results = await GPTResearcher(request).get_objective()
+    title = results.get("title")
+    description = results.get("description")
     return results
 @app.post("/estimates")
 async def get_obj(request: ResearchRequest):
