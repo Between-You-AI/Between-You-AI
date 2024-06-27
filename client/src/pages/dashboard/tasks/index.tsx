@@ -8,9 +8,10 @@ import TaskList from "@/widgets/task-list/task_list.component";
 import FlowChartBar from "@/widgets/flow-chart-bar/FlowChartBar.component";
 import MiddleComponent from "@/components/middle-component/middle-component";
 import {Provider} from "@/utils/Providers";
-import DashboardLayout from "./layout";
+import DashboardLayout from "../layout";
+import DashboardTabs from "./dashboard-tabs.component";
 
-const MiniDrawer = () => {
+const TaskComponent = () => {
   const [open, setOpen] = React.useState(false);
   const [isInitialStage, setInitialStage] = React.useState(false);
 
@@ -28,11 +29,9 @@ const MiniDrawer = () => {
 
   return (
     <DashboardLayout>
-      {!isInitialStage && (
         <Box sx={{flex: "0 0 25%", padding: 1, overflowY: "auto"}}>
           <TaskList />
         </Box>
-      )}
       <Box
         sx={{
           flex: isInitialStage ? "1 1 100%" : "1 1 50%",
@@ -40,15 +39,13 @@ const MiniDrawer = () => {
           height: "100vh",
         }}
       >
-        <MiddleComponent />
+        <DashboardTabs />
       </Box>
-      {!isInitialStage && (
         <Box sx={{flex: "0 0 25%", padding: 1, overflowY: "auto"}}>
           <FlowChartBar />
         </Box>
-      )}
     </DashboardLayout>
   );
 };
 
-export default MiniDrawer;
+export default TaskComponent;

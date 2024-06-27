@@ -1,60 +1,89 @@
-import { createTheme } from '@mui/material/styles';
+import {createTheme} from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
+    mode: "light",
     primary: {
-      main: '#fca311',
+      main: "#007BFF", // Blue
     },
     secondary: {
-      main: '#14213d',
-    },
-    background: {
-      default: '#f4f6f8',
+      main: "#0056b3", // Dark Blue
     },
     text: {
-      primary: '#000000',
+      primary: "#000000", // Black
+      secondary: "#343a40", // Dark Gray
     },
-  },  
-  typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
-    h4: {
-      fontWeight: 700,
+    background: {
+      default: "#FFFFFF", // White
+      paper: "#f8f9fa", // Light Gray
     },
-    h6: {
-      fontWeight: 500,
+    success: {
+      main: "#28a745", // Green
     },
-    body1: {
-      fontWeight: 400,
+    error: {
+      main: "#dc3545", // Red
     },
-    button: {
-      textTransform: 'none',
+    warning: {
+      main: "#ffc107", // Yellow
     },
   },
+  typography: {
+    fontFamily: "Outfit, Arial, sans-serif",
+    h1: {
+      fontFamily: "Merriweather, serif",
+    },
+    h2: {
+      fontFamily: "Merriweather, serif",
+    },
+    h3: {
+      fontFamily: "Merriweather, serif",
+    },
+    button: {
+      textTransform: "none",
+    },
+  },
+
   components: {
-    MuiButton: {
+    MuiCssBaseline: {
       styleOverrides: {
-        root: {
-          textTransform: 'none',
-          borderRadius: 8,
+        "@global": {
+          "*::-webkit-scrollbar": {
+            width: "5px",
+          },
+          "*::-webkit-scrollbar-track": {
+            background: "#E4EFEF",
+          },
+          "*::-webkit-scrollbar-thumb": {
+            background: "#1D388F61",
+            borderRadius: "2px",
+          },
         },
       },
     },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          borderRadius: 16,
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          padding: '16px',
-          borderRadius: '16px',
-        },
-      },
-    },
+    // MuiButton: {
+    //   styleOverrides: {
+    //     root: {
+    //       textTransform: "none",
+    //       borderRadius: 8,
+    //     },
+    //   },
+    // },
+    // MuiCard: {
+    //   styleOverrides: {
+    //     root: {
+    //       borderRadius: 16,
+    //       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+    //     },
+    //   },
+    // },
+    // MuiPaper: {
+    //   styleOverrides: {
+    //     root: {
+    //       padding: "16px",
+    //       borderRadius: "16px",
+    //     },
+    //   },
+    // },
   },
 });
 

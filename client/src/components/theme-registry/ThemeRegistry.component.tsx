@@ -6,6 +6,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
 import theme from '@/themes/light.theme';
+import darkTheme from '@/themes/dark.theme';
 
 
 // This implementation is from emotion-js

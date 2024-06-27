@@ -26,7 +26,7 @@ class OpenAIProvider:
 
         """
         try:
-            api_key = os.environ["OPENAI_API_KEY"]
+            api_key = "sk-proj-iXNcqatsMuM3v2AdKtZuT3BlbkFJqhsdqIP3ZMqa6PY3Dijp"
         except KeyError:
             raise Exception(
                 "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")

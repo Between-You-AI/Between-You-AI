@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import "./globals.css";
 import ThemeRegistry from "@/components/theme-registry/ThemeRegistry.component";
-import { Provider } from "@/utils/Providers";
-
+import {Provider} from "@/utils/Providers";
 
 export const metadata: Metadata = {
   title: "Between You & AI",
@@ -16,12 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeRegistry >
-        <body>
-          <Provider >
-            {children}
-          </Provider>
-        </body>
+      <ThemeRegistry>
+        {/* <Provider> */}
+          <body>{children}</body>
+        {/* </Provider> */}
       </ThemeRegistry>
     </html>
   );
