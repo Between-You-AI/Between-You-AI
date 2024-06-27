@@ -2,6 +2,10 @@ import json
 import sys
 import os
 
+from pydantic import BaseModel
+
+
+
 # Add the commons directory to the sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../common')))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../apps')))
@@ -10,9 +14,16 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 import time
 from typing import Union
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from experts.service import ExpertService
 from .utils.websocket_manager import WebSocketManager
+from common.gpt_researcher.master.agent import GPTResearcher
+from common.experts.service import ExpertService
 
+
+previous_queries = ["Task - "]
+class ResearchRequest(BaseModel):
+    task: str
+    
+    
 app = FastAPI()
 
 manager = WebSocketManager()
@@ -32,19 +43,40 @@ async def get_agent(query: str):
     print(results)
     return results
 
+@app.post("/chat")
+async def get_chat(request: ResearchRequest):
+    results =  await GPTResearcher(request).conduct_research() # Need to pass the values from frontend
+    print(results)
+    return results
+
+@app.post("/objective")
+async def get_obj(request: ResearchRequest):
+    results = await GPTResearcher(request).get_objective()
+    return results
+@app.post("/estimates")
+async def get_obj(request: ResearchRequest):
+    results = await GPTResearcher(request).get_estimate()
+    return results
+
+# @app.post("/objectives")
+# async def get_obj(request: ResearchRequest):
+#     results = await GPTResearcher(request).get_objectives()
+#     return results
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await manager.connect(websocket)
     try:
         while True:
             data = await websocket.receive_text()
-            print(data)
-            websocket.sender_tasks = [{type: 'tasks', data: {'status': 'working'}}]
             if data.startswith("start"):
                 json_data = json.loads(data[6:])
                 task = json_data.get("task")
+                print(previous_queries[0])
+                previous_queries[0]+=" "+task
+                task = previous_queries[0]
                 report_type = json_data.get("report_type")
-                filename = f"task_{int(time.time())}_{task}"
+                #filename = f"task_{int(time.time())}_{task}"
                 report_source = json_data.get("report_source")
                 if task and report_type:
                     report = await manager.start_streaming(task, report_type, report_source, websocket)

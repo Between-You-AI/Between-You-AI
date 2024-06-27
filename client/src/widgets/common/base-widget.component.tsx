@@ -6,27 +6,28 @@ import TitleBar from "./widget-toolbox.component";
 interface BaseWidgetProps {
   children: ReactNode;
   widget_name: string;
+  width: number | string;
 }
 
-const BaseWidget: FC<BaseWidgetProps> = ({children, widget_name}) => {
+const BaseWidget: FC<BaseWidgetProps> = ({children, widget_name, width}) => {
   return (
     <Box
       sx={{
-        width: "300px",
+        width: width,
         height: "100%",
         overflowY: "hidden",
         display: "flex",
         flexDirection: "column",
       }}
     >
-       <TitleBar widget_name={widget_name} />
+      <TitleBar widget_name={widget_name} />
       <Box
         sx={{
           width: "100%",
           flexGrow: 1,
           padding: 0,
-          alignItems: 'center',
-          overflowY: 'scroll'
+          alignItems: "center",
+          overflowY: "scroll",
         }}
       >
         {children}

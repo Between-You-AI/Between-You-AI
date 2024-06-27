@@ -106,6 +106,7 @@ Objectives:
   id: string
   title: string
   description: The primary goal or purpose of the action plan.
+  clarity: number
   completion_date: DateTime
   created_at: Date
   Owner: User
@@ -169,3 +170,9 @@ ActivityType:
   # Document Submission Task (Object)
   # Object Collection (Gathering)
   # Information Sharing
+
+Objective: 
+
+ExpertAgent:
+  name: string
+  prompt: string

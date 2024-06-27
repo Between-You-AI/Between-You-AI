@@ -41,29 +41,8 @@ const TaskList = () => {
   };
 
   return (
-    <BaseWidget widget_name="Tasks">
-      <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "16px",
-          }}
-        >
-          <Typography variant="h6" noWrap>
-            <Box component="span" sx={{display: "flex", alignItems: "center"}}>
-              <Box component="span" sx={{mr: 1}}>
-                <IconButton>
-                  <CircularProgressWithIcon />
-                </IconButton>
-              </Box>
-              Objective
-            </Box>
-          </Typography>
-        </Box>
-      </Box>
-      <Divider />
+    <BaseWidget widget_name="Tasks" width={'240px'}>
+
       <List>
         <ListItem button onClick={handleProjectsClick}>
           <ListItemText primary="Objectives" />

@@ -6,6 +6,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import {CircularProgressWithIcon} from "@/widgets/task-list/circular-progress-bar.component";
+import {Box} from "@mui/material";
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -20,6 +22,11 @@ const CustomAppBar = styled(MuiAppBar, {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
+  height: "60px", // Adjust the height here
+  backgroundColor: "rgba(255, 255, 255, 0.8)", // Light transparent background
+  color: "black",
+  boxShadow: "none", // Remove the shadow
+  backdropFilter: "blur(10px)", // Optional: add blur effect
   ...(open && {
     marginLeft: 240,
     width: `calc(100% - 240px)`,
@@ -38,7 +45,6 @@ const CustomAppBarComponent: React.FC<AppBarProps> = ({
     <CustomAppBar position="fixed" open={open}>
       <Toolbar>
         <IconButton
-          color="inherit"
           aria-label="open drawer"
           onClick={handleDrawerOpen}
           edge="start"
@@ -46,8 +52,16 @@ const CustomAppBarComponent: React.FC<AppBarProps> = ({
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          Mini variant drawer
+
+        <Typography variant="h6" noWrap>
+          <Box component="span" sx={{display: "flex", alignItems: "center"}}>
+            <Box component="span" sx={{mr: 1}}>
+              <IconButton>
+                <CircularProgressWithIcon value={50} />
+              </IconButton>
+            </Box>
+            Objective
+          </Box>
         </Typography>
       </Toolbar>
     </CustomAppBar>

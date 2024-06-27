@@ -91,6 +91,7 @@
         };
 
         const startResearch = (task) => {
+            //@ !- Important
             const { protocol, host, pathname } = window.location;
             const ws_uri = `${protocol === 'https:' ? 'wss:' : 'ws:'}//${host}${pathname}ws`;
             socket = new WebSocket(ws_uri);

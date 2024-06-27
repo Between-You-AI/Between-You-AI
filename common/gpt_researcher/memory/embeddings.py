@@ -13,7 +13,7 @@ class Memory:
             case "custom":
                 from langchain_openai import OpenAIEmbeddings
                 _embeddings = OpenAIEmbeddings(model=os.environ.get("OPENAI_EMBEDDING_MODEL", "custom"),
-                                                   openai_api_key=os.environ.get("OPENAI_API_KEY", "custom"), 
+                                                   openai_api_key="sk-proj-iXNcqatsMuM3v2AdKtZuT3BlbkFJqhsdqIP3ZMqa6PY3Dijp", 
                                                    openai_api_base=os.environ.get("OPENAI_BASE_URL", "http://localhost:1234/v1"), #default for lmstudio
                                                    check_embedding_ctx_length=False) #quick fix for lmstudio
             case "openai":

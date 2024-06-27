@@ -28,7 +28,7 @@ const TitleBar = ({widget_name = "Title"}) => {
   return (
     <Toolbar variant="dense" style={{minHeight: "40px"}}>
       <Typography variant="body1" style={{flexGrow: 1}}>
-        {widget_name}
+        {/* {widget_name} */}
       </Typography>
       <Box display="flex">
         <IconButton size="small">

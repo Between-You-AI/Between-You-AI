@@ -78,7 +78,6 @@ const CustomDrawerComponent: React.FC<DrawerProps> = ({
           {theme.direction === "rtl" ? <ChevronRight /> : <ChevronLeft />}
         </IconButton>
       </DrawerHeader>
-      <Divider />
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem key={text} disablePadding sx={{display: "block"}}>

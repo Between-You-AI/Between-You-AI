@@ -1,8 +1,42 @@
-import React from "react";
-import {Box, CircularProgress} from "@mui/material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+import React, {FC} from "react";
+import {
+  Box,
+  CircularProgress,
+  CircularProgressProps,
+  styled,
+} from "@mui/material";
 
-export const CircularProgressWithIcon = () => {
+import {Done, Visibility} from "@mui/icons-material";
+import {OverridableComponent} from "@mui/material/OverridableComponent";
+
+interface ProgressBarIconProps extends CircularProgressProps {
+  isVisibleIcon?: boolean;
+  isIconVisible?: boolean;
+}
+
+const CustomCircularProgress = styled(CircularProgress)(() => ({
+  color: "#308fe8",
+  "& .MuiCircularProgress-circle": {
+    strokeLinecap: "round",
+    strokeDasharray: "80px, 200px",
+    strokeDashoffset: "2px",
+  },
+  // "& .MuiCircularProgress-circle": {
+  //   color: "#e0e0e0",
+  // }
+  // "& .MuiCircularProgress-svg": {
+  //   color: "#e0e0e0", // Unfilled part color
+  // },
+  // "& .MuiCircularProgress-circleDeterminate": {
+  //   color: "#e0e0e0",
+  // }
+}));
+
+export const CircularProgressWithIcon: FC<ProgressBarIconProps> = ({
+  isVisibleIcon = true,
+  isIconVisible = true,
+  ...circularProgressProps
+}) => {
   return (
     <Box
       sx={{
@@ -10,11 +44,9 @@ export const CircularProgressWithIcon = () => {
         display: "inline-flex",
       }}
     >
-      <CircularProgress
+      <CustomCircularProgress
         variant="determinate"
-        value={75} // Change this value to control the progress percentage
-        size={40} // Adjust size as needed
-        thickness={4}
+        {...circularProgressProps}
       />
       <Box
         sx={{
@@ -28,12 +60,23 @@ export const CircularProgressWithIcon = () => {
           justifyContent: "center",
         }}
       >
-        <VisibilityIcon
-          sx={{
-            fontSize: 24, // Adjust the size of the icon as needed
-            color: "black", // Adjust the color of the icon as needed
-          }}
-        />
+        {!isIconVisible ? (
+          <></>
+        ) : isVisibleIcon ? (
+          <Visibility
+            sx={{
+              fontSize: 20, // Adjust the size of the icon as needed
+              color: "black", // Adjust the color of the icon as needed
+            }}
+          />
+        ) : (
+          <Done
+            sx={{
+              fontSize: 20, // Adjust the size of the icon as needed
+              color: "black", // Adjust the color of the icon as needed
+            }}
+          />
+        )}
       </Box>
     </Box>
   );
