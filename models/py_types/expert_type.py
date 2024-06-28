@@ -1,6 +1,6 @@
-from pydantic import BaseModel
-
+from typing import List, Optional, Union, Literal
+from pydantic import BaseModel, ConfigDict, Field
 
 class Expert(BaseModel):
-    name: str
-    quote: str
+    agent: str
+    description: str
