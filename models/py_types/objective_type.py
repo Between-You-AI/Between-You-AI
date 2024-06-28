@@ -1,7 +1,6 @@
 from typing import List, Optional, Union, Literal
 from pydantic import BaseModel, ConfigDict, Field
 
-
 class FetchGPTObjectivePlan(BaseModel):
     title: str
     description: str

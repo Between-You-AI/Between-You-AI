@@ -2,8 +2,18 @@ import React from 'react'
 import { List, ListItem, ListItemText, Collapse } from '@mui/material'
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import BaseWidget from '../common/base-widget.component'
+import { useRouter } from 'next/router'
+import { getObjective } from 'core/queries/objective.query'
 
 const TaskList = () => {
+  const router = useRouter()
+
+  const taskId = router.query.taskId as unknown as string
+  console.log('🚀 ~ TaskComponent ~ taskId:', taskId)
+
+  const { data, error } = getObjective(taskId?.toString())
+  console.log('🚀 ~ TaskComponent ~ data:', data)
+
   const [openProjects, setOpenProjects] = React.useState(true)
   const [openTasks, setOpenTasks] = React.useState(true)
   const [darkMode, setDarkMode] = React.useState(false)

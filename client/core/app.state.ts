@@ -1,12 +1,16 @@
-import { LargeNumberLike } from "crypto";
-
-interface AppState {
-  activeObjectiveId: number;
+export interface AppState {
+  activeObjectiveId: number | null
+  ActiveObjectiveState?: ActiveObjectiveState
 }
 
-
-interface ActiveObjectiveState {
-  activePhaseId: number;
-  activeTaskId: number;
-  activeActivityId: number;
+export interface ActiveObjectiveState {
+  activePhaseId: number
+  activeTaskId: number
+  activeActivityId: number
 }
+
+export const initalAppState: AppState = {
+  activeObjectiveId: null
+}
+
+export const AppStateKey = 'APP_STATE'
