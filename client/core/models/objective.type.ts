@@ -1,5 +1,6 @@
 export interface User {
   id: number;
+  name: string;
   email: string;
   password: string;
 }
@@ -76,7 +77,7 @@ export interface Objective {
   completion_date: Date;
   created_at: Date;
   Owner: User;
-  Collaborators: User[];
-  Permissions: UserPermission[];
-  Phases: Phase[];
+  Collaborators?: User[];
+  Permissions?: UserPermission[];
+  Phases?: Phase[];
 }

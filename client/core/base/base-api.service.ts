@@ -1,85 +1,73 @@
 import axios, {Axios, AxiosError, AxiosResponse} from "axios";
-import {API_CONFIG} from "./api.config";
+import {axiosInstance} from "./api.config";
+import {json} from "stream/consumers";
 
 const DEFAULT_VALUE_FOR_ERROR_RESPONSE = {data: {message: ""}, status: 0};
 
 export class APIService {
-  axiosClient: Axios;
-  static instance: APIService;
-
-  constructor() {
-    this.axiosClient = axios.create(API_CONFIG);
-    // this.configureInterceptors();
-  }
-
-  static getInstance = () => {
-    if (!this.instance) {
-      this.instance = new APIService();
-    }
-    return this.instance;
-  };
-
-  errorHandler = async (error: AxiosError) => {
+  static errorHandler = async (error: AxiosError) => {
     const {response} = error;
     const {data, status} = response || DEFAULT_VALUE_FOR_ERROR_RESPONSE;
     const message = data;
     return {data: null, status, statusText: message};
   };
 
-  successHandler = (response: AxiosResponse) => {
+  static successHandler = (response: AxiosResponse) => {
     const {status, statusText, headers} = response;
     return {data: response.data, status, statusText, headers};
   };
 
   // configureInterceptors = () => {
-  //   this.axiosClient.interceptors.response.use(
+  //   axiosInstance.interceptors.response.use(
   //     (response: AxiosResponse) => this.successHandler(response),
   //     (error: AxiosError) => this.errorHandler(error)
   //   );
-  //   this.axiosClient.interceptors.request.use((request) => request);
+  //   axiosInstance.interceptors.request.use((request) => request);
   // };
 
-  updateAuthToken = (token: string) => {
-    this.axiosClient.defaults.headers.common.Authorization = `${token}`;
+  static updateAuthToken = (token: string) => {
+    axiosInstance.defaults.headers.common.Authorization = `${token}`;
   };
 
-  get = async (url: string) => {
-    const res = await this.axiosClient
+  static jsonParser = (data: string) => JSON.parse(data);
+
+  static get = async (url: string) => {
+    const res = await axiosInstance
       .get(url)
       .then((response: AxiosResponse) => response);
     return res;
   };
 
-  delete = async (url: string) => {
-    const res = await this.axiosClient
+  static delete = async (url: string) => {
+    const res = await axiosInstance
       .delete(url)
       .then((response: AxiosResponse) => response);
     return res;
   };
 
-  post = async (url: string, payload: any, config?: any) => {
+  static post = async (url: string, payload: any, config?: any) => {
     let res;
     if (config) {
-      res = await this.axiosClient
+      res = await axiosInstance
         .post(url, payload, config)
         .then((response: AxiosResponse) => response);
     } else {
-      res = await this.axiosClient
+      res = await axiosInstance
         .post(url, payload)
         .then((response: AxiosResponse) => response);
     }
     return res;
   };
 
-  put = async (url: string, payload: any) => {
-    const res = await this.axiosClient
+  static put = async (url: string, payload: any) => {
+    const res = await axiosInstance
       .put(url, payload)
       .then((response: AxiosResponse) => response);
     return res;
   };
 
-  patch = async (url: string, payload: any) => {
-    const res = await this.axiosClient
+  static patch = async (url: string, payload: any) => {
+    const res = await axiosInstance
       .patch(url, payload)
       .then((response: AxiosResponse) => response);
     return res;

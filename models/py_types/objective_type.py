@@ -1,9 +1,26 @@
 from typing import List, Optional, Union, Literal
 from pydantic import BaseModel, Field
-from datetime import datetime
+import datetime
+
+
+class FetchGPTObjectivePlan(BaseModel):
+    title: str
+    description: str
+    phase_name: str
+    phase_description: str
+    step_name: str
+    step_description: str
+    task_name: str
+    task_description: str
+    activity_name: str
+    activity_description: str
+    activity_duration: int
+    activity_cost: float
+
 
 class User(BaseModel):
     id: int
+    name: str
     email: str
     password: str
     
@@ -13,16 +30,12 @@ class Objective(BaseModel):
     description: str
     clarity: int
     created_at: datetime
-    owner: User
-    collaborators: List[User] = []
-    permissions: List[str] = []
-    phases: List[str] = []
-    completion_date: datetime = None
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
-    
+    Owner: User #Backend
+    Collaborators: Optional[List[User]] # backend
+    Permissions: Optional[List["UserPermission"]] # backend
+    Phases: Optional[List["Phase"]]
+    completion_date: datetime
+
 class UserPermission(BaseModel):
     id: int
     User: User

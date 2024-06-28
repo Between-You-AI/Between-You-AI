@@ -1,6 +1,10 @@
 import {AxiosRequestConfig} from "axios";
 
-export const API_CONFIG: AxiosRequestConfig = {
-  baseURL: "localhost:8000/",
-  responseType: "json",
-};
+import axios from "axios";
+
+export const axiosInstance = axios.create({
+  baseURL: "http://localhost:8000", // Your backend URL
+  headers: {
+    "Content-Type": "application/json",
+  },
+});

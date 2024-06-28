@@ -1,34 +1,38 @@
 # objective_service.py
-from datetime import datetime
 from pydantic import BaseModel
 from common.gpt_researcher.master.agent import GPTResearcher
+from datetime import date
+import string
 from models.py_types.objective_type import Objective, User
+import typing
+import uuid
+
+newUser = User(id = 1, name = 'Vardhman Hundia', email= 'vardhmanhundia@gmail.com', password='123')
 
 class ObjectiveService:
-    async def get_objective_plan(self, task: str, user_name: str, user_id: int, user_email: str, user_password: str) -> str:
-        # Create a query for objectives
-        res = await GPTResearcher(task).get_objective()
-        title = res.get("title")
-        description = res.get("description")
-        id = 1
-        created_at = datetime.now()
-        owner = User(id=user_id, name=user_name, email=user_email, password=user_password)
-        collaborators = []  # Replace with actual list of User instances if available
-        permissions = []  # Replace with actual list of permissions if available
-        phases = []  # Replace with actual list of phases if available
-        completion_date = datetime.now()  # Assuming you have a completion date, else set to None
+  @staticmethod
+  async def create_objective_plan(task_query: str):
+    res = await GPTResearcher(task_query).get_objective()
+    title = res.get("title")
+    description = res.get("description")
+    id = uuid.uuid4()
+    
+    
+    finalresult = Objective(id = id, title = title, description = description, clarity = 30, completion_date = date.today(), created_at = date.today(), Owner = newUser, Collaborators=[], Permissions=[], Phases=[]) 
+    return finalresult
+    
+  @staticmethod
+  async def get_objective_plan(ObjectiveId: string) -> Objective:
+    # create a query for objectives
 
-        final_result = Objective(
-            id=id,
-            title=title,
-            description=description,
-            clarity=10,  # Assuming clarity is an int, set it to 10 or any other default value
-            created_at=created_at,
-            owner=owner,
-            collaborators=collaborators,
-            permissions=permissions,
-            phases=phases,
-            completion_date=completion_date
-        )
-        
-        return final_result
+    
+    finalresult = Objective(id = ObjectiveId, title = 'Buy a house', description = 'Buy a $15,000 house', clarity = 30, completion_date = date.today(), created_at = date.today(), Owner = newUser, Collaborators=[], Permissions=[], Phases=[]) 
+    print(finalresult)   
+    return finalresult
+  
+  @staticmethod
+  def get_all_objectives():
+    obj1 = ObjectiveService.get_objective_plan(ObjectiveId='1')
+    obj2 = ObjectiveService.get_objective_plan(ObjectiveId='2')
+    
+    return [obj1, obj2]

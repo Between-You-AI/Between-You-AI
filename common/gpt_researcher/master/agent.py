@@ -195,15 +195,9 @@ class GPTResearcher:
             "Phases" : [{
                 name: Name of the phase1;
                 description: Provide some Description for the phase1;
-                PhaseBefore: if anything need to be done before phase1;
-                PhaseAfter: if anything need to be done after phase1;
-                duration: how much time does it take (Integer);
             },{
-            name: Name of the phase2;
+                name: Name of the phase2;
                 description: Provide some Description for the phase2;
-                PhaseBefore: if anything need to be done before phase1;
-                PhaseAfter: if anything need to be done after phase1;
-                duration: how much time does it take (Integer);
             },   
         }
         task : "should I invest in apple stocks?"
@@ -211,15 +205,9 @@ class GPTResearcher:
             "Phases" : [{
                 name: Name of the phase1;
                 description: Provide some Description for the phase1;
-                PhaseBefore: if anything need to be done before phase1;
-                PhaseAfter: if anything need to be done after phase1;
-                duration: how much time does it take (Integer);
             },{
             name: Name of the phase2;
                 description: Provide some Description for the phase2;
-                PhaseBefore: if anything need to be done before phase1;
-                PhaseAfter: if anything need to be done after phase1;
-                duration: how much time does it take (Integer);
             },   
         }
         """
