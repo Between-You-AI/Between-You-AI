@@ -3,20 +3,20 @@ from pydantic import BaseModel, Field
 
 T = TypeVar('T')
 
-class AnswerPrefixOrSuffix(BaseModel, Generic[T]):
-    defaultValue: T
-    options: List[T]
+class AnswerPrefixOrSuffix(BaseModel):
+    defaultValue: str
+    options: List[str]
 
-class Answer(BaseModel, Generic[T]):
+class Answer(BaseModel):
     AnswerTypeCode: str  # We will handle the AnswerTypes separately
-    prefix: Optional[AnswerPrefixOrSuffix[T]] = None
-    suffix: Optional[AnswerPrefixOrSuffix[T]] = None
-    options: Optional[List[T]] = None
+    prefix: Optional[List[str]] = None
+    suffix: Optional[List[str]] = None
+    options: Optional[List[str]] = None
     validation: Optional[str] = None
 
-class QuestionTask(BaseModel, Generic[T]):
+class QuestionTask(BaseModel):
     question: str
-    Answer: Answer[T]
+    Answer: Answer
 
 # Since Python doesn't have a direct equivalent of TypeScript's `typeof`, 
 # we can define AnswerTypes as a class with class variables.
