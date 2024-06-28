@@ -13,130 +13,6 @@ from experts.service import ExpertService
 
 previous_queries = []
 
-class Goal(BaseModel):
-    objective: str
-    phases: List['Phase']
-
-class Task(BaseModel):
-    id: int
-    name: str
-    objective_id: int
-    user_id: int
-    milestone_id: Optional[int] = None
-    task_level: int  # What level of task is the task associated with (Parent is 1, subsequently)
-    parent_task: Optional[int] = None  # Backend
-    sub_tasks: List['Task'] = []
-    next_task: Optional['Task'] = None
-    prev_task: Optional['Task'] = None
-    task_types: List['TaskType'] = []
-    task_type: Optional['TaskType'] = None
-    estimates_id: Optional[int] = None
-    question_tasks: List['QuestionTask'] = []
-    achieved_at: Optional[datetime] = None
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-
-class QuestionTask(BaseModel):
-    question: str
-    answer: Union[str, int, float, None]
-    answer_type_code: str
-    prefix: Optional[dict] = None  # Example: {"value": "dollar", "options": ["INR", ...]}
-    suffix: Optional[str] = None
-    options: Optional[List[str]] = None
-    input_type: Optional[str] = None
-    validation: Optional[str] = None
-
-class Milestone(BaseModel):
-    id: int
-    name: str
-    tasks_to_complete: List[Task] = []
-
-class TaskUpdate(BaseModel):
-    id: int
-    is_latest: bool
-    created_at: datetime
-    status: str  # StatusType
-    task_id: int
-    qualifier: float  # Percentage of success in subtasks
-
-class Objective(BaseModel):
-    statement: str
-    clarity: float  # Percentage (number of questions responded to - even if they skip)
-    task_id: int
-
-class TaskType(BaseModel):
-    name: str
-    icon_image: str
-
-class Estimates(BaseModel):
-    days: int
-    date: str
-    budget: str
-
-class Expert(BaseModel):
-    role: str
-    prompt: str
-
-class UserPermission(BaseModel):
-    # Define the fields for UserPermission
-    pass
-
-class ObjectiveUpdates(BaseModel):
-    objective: Objective
-
-class Objectives(BaseModel):
-    id: int
-    title: str
-    description: str  # The primary goal or purpose of the action plan.
-    completion_date: datetime
-    created_at: datetime
-    owner: int  # User ID
-    collaborators: List[int]  # List of User IDs
-    permissions: List[UserPermission] = []
-    phases: List['Phase'] = []
-
-class Phase(BaseModel):
-    name: str
-    description: str
-    phase_before: Optional[int] = None  # Phase ID
-    phase_after: Optional[int] = None  # Phase ID
-    duration: int
-    start_time: datetime
-    end_time: datetime
-    steps: List['Step'] = []
-
-class Step(BaseModel):
-    name: str
-    description: str
-    assigned_to: int  # User ID
-    assigned_by: int  # User ID
-    duration: int
-    start_time: datetime
-    end_time: datetime
-    order: int
-    before: Optional[int] = None  # Step ID
-    after: Optional[int] = None  # Step ID
-    tasks: List[Task] = []
-
-class Activity(BaseModel):
-    name: str
-    description: str
-    assigned_to: int  # User ID
-    activity_type: str
-    cost: float
-    duration: int
-    assigned_by: int  # User ID
-    start_date: datetime
-    completion_date: datetime
-    order: int
-    dependency: Optional[dict] = None  # Example: {"activity": Activity ID, "type": "FIFO"}
-
-class ActivityType(BaseModel):
-    name: str
-    icon_image: str
-    # Additional fields for ActivityType
-
-
 class GPTResearcher:
     """GPT Researcher"""
 
@@ -185,17 +61,7 @@ class GPTResearcher:
                 llm_kwargs=self.cfg.llm_kwargs
             )
             response_data = json.loads(response)
-            questions_list = [QuestionTask(
-                                question=q["question"],
-                                answer=q["answer"],
-                                answer_type_code=q["answer_type_code"],
-                                prefix=q.get("related_data", {}).get("prefix"),
-                                suffix=q.get("related_data", {}).get("suffix"),
-                                options=q.get("related_data", {}).get("options"),
-                                input_type=q.get("related_data", {}).get("input_text"),
-                                validation=q.get("related_data", {}).get("validation")
-                            ) for q in response_data["QuestionTask"]]
-            print(questions_list)
+            #print(questions_list)
             return response_data["QuestionTask"]
         except json.JSONDecodeError as e:
             print(f"JSON decoding error: {e} - Response received: '{response}'")
@@ -292,6 +158,72 @@ class GPTResearcher:
         except json.JSONDecodeError as e:
             print(f"JSON decoding error: {e} - Response received: '{response}'")
             return {}
+        
+    async def get_phases(self):
+        try:
+            if self.agent==None:
+                self.agent = await ExpertService(self.query,self.cfg).find_expert()
+            messages = [
+                {"role": "system", "content": self.phases_prompt()},
+                {"role": "user", "content": self.phases_p()}
+            ]
+            response = await create_chat_completion(
+                model=self.cfg.smart_llm_model,
+                messages=messages,
+                temperature=0.7,
+                llm_provider=self.cfg.llm_provider,
+                stream=True,
+                max_tokens=self.cfg.smart_token_limit,
+                llm_kwargs=self.cfg.llm_kwargs
+            )
+            response_data = json.loads(response)
+            return response_data["Phases"]
+        except Exception as e:
+            print(f"Error in get_suggestions: {e}")
+            return
+
+    def phases_p(self):
+        prompt = f"Query : {self.query}\n\n.You are a Expert - {self.agent[0]}.Generate the Phases based on the User Query."
+        return prompt
+        
+    def phases_prompt(self):
+        return """
+        Your Task is to generate the Phases of the Task based on the User Query. And after getting the answers you can refine it as well.
+        examples:
+        task : "should I invest in apple stocks?"
+        {   
+            "Phases" : [{
+                name: Name of the phase1;
+                description: Provide some Description for the phase1;
+                PhaseBefore: if anything need to be done before phase1;
+                PhaseAfter: if anything need to be done after phase1;
+                duration: how much time does it take (Integer);
+            },{
+            name: Name of the phase2;
+                description: Provide some Description for the phase2;
+                PhaseBefore: if anything need to be done before phase1;
+                PhaseAfter: if anything need to be done after phase1;
+                duration: how much time does it take (Integer);
+            },   
+        }
+        task : "should I invest in apple stocks?"
+        {   
+            "Phases" : [{
+                name: Name of the phase1;
+                description: Provide some Description for the phase1;
+                PhaseBefore: if anything need to be done before phase1;
+                PhaseAfter: if anything need to be done after phase1;
+                duration: how much time does it take (Integer);
+            },{
+            name: Name of the phase2;
+                description: Provide some Description for the phase2;
+                PhaseBefore: if anything need to be done before phase1;
+                PhaseAfter: if anything need to be done after phase1;
+                duration: how much time does it take (Integer);
+            },   
+        }
+        """
+
 
     def generate_response_prompt(self, query, context):
         context_str = "\n".join(context)
@@ -327,7 +259,9 @@ class GPTResearcher:
                     {
                         "question": "Why do you want to invest in Apple?",
                         "answer": "string",
-                        "answer_type_code": "input based",
+                        "answer_type_code": "TEXT" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
+                        "prefix": Answer Prefix if there is anything defaultValue or options list,
+                        "suffix": Answer Suffix if there is anything defaultValue or options list,
                         "related_data": {
                             "input_text": "Please provide your reason for wanting to invest in Apple.",
                             "validation": "required"
@@ -336,7 +270,9 @@ class GPTResearcher:
                     {
                         "question": "How much are you planning to invest in Apple?",
                         "answer": "number",
-                        "answer_type_code": "input based",
+                        "answer_type_code": "INT" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
+                        "prefix": Answer Prefix if there is anything defaultValue or options list,
+                        "suffix": Answer Suffix if there is anything defaultValue or options list,
                         "related_data": {
                             "input_text": "Please enter the amount you are planning to invest in Apple.",
                             "validation": "required|min:1"
@@ -345,7 +281,9 @@ class GPTResearcher:
                     {
                         "question": "What is your investment horizon?",
                         "answer": "string",
-                        "answer_type_code": "option based",
+                        "answer_type_code": "MULTI_CHOICE" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
+                        "prefix": Answer Prefix if there is anything defaultValue or options list,
+                        "suffix": Answer Suffix if there is anything defaultValue or options list,
                         "related_data": {
                             "options": ["Short-term (less than 1 year)", "Medium-term (1-5 years)", "Long-term (more than 5 years)"],
                             "other": "Please select one of the options that best describes your investment horizon."
@@ -354,7 +292,9 @@ class GPTResearcher:
                     {
                         "question": "What is your risk tolerance?",
                         "answer": "string",
-                        "answer_type_code": "option based",
+                        "answer_type_code": "MULTI_CHOICE" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
+                        "prefix": Answer Prefix if there is anything defaultValue or options list,
+                        "suffix": Answer Suffix if there is anything defaultValue or options list,
                         "related_data": {
                             "options": ["Low", "Moderate", "High"],
                             "other": "Please select your risk tolerance level."
@@ -389,6 +329,8 @@ class GPTResearcher:
                         "question": "What type of property are you looking for?",
                         "answer": "string",
                         "answer_type_code": "option based",
+                        "prefix": Answer Prefix if there is anything defaultValue or options list,
+                        "suffix": Answer Suffix if there is anything defaultValue or options list,
                         "related_data": {
                             "options": ["Condo", "Single Family Home", "Townhouse", "Multi-Family Home"],
                             "other": "Please select the type of property you are interested in."
@@ -398,6 +340,8 @@ class GPTResearcher:
                         "question": "What is your timeline for purchasing?",
                         "answer": "string",
                         "answer_type_code": "option based",
+                        "prefix": Answer Prefix if there is anything defaultValue or options list,
+                        "suffix": Answer Suffix if there is anything defaultValue or options list,
                         "related_data": {
                             "options": ["Immediately", "Within 6 months", "Within 1 year", "More than 1 year"],
                             "other": "Please select your purchasing timeline."

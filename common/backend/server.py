@@ -10,59 +10,57 @@ import time
 import json
 import os
 
+previous_queries = ["Task - "]
 class ResearchRequest(BaseModel):
     task: str
-
-
-
+    
+    
 app = FastAPI()
-
-app.mount("/site", StaticFiles(directory="./frontend"), name="site")
-app.mount("/static", StaticFiles(directory="./frontend/static"), name="static")
-
-templates = Jinja2Templates(directory="./frontend")
 
 manager = WebSocketManager()
 
-
-# Dynamic directory for outputs once first research is run
-@app.on_event("startup")
-def startup_event():
-    if not os.path.isdir("outputs"):
-        os.makedirs("outputs")
-    app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
-
 @app.get("/")
-async def read_root(request: Request):
-    return templates.TemplateResponse('index.html', {"request": request, "report": None})
+def read_root():
+    return {"Hello": "World"}
 
-@app.post("/research-openai")
-async def research_openai(request: ResearchRequest):
-    researcher = GPTResearcher(request)
-    research = await researcher.researcher_openai()
-    print(research)
-    return research
 
-@app.post("/research-bard")
-async def research_bard(request: ResearchRequest):
-    researcher = GPTResearcher(request)
-    research = await researcher.researcher_bard()
-    print(research)
-    return research
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
 
 @app.post("/expert")
-async def get_agent(request: ResearchRequest):
-    results = await ExpertService(request).find_expert()
+async def get_agent(query: str):
+    results = await ExpertService(query).find_expert()
     print(results)
     return results
-
 
 @app.post("/chat")
-async def get_chat():
-    results =  await GPTResearcher("bike").conduct_research() # Need to pass the values from frontend
+async def get_chat(request: ResearchRequest):
+    results =  await GPTResearcher(request).conduct_research() # Need to pass the values from frontend
     print(results)
     return results
-    
+
+@app.post("/objective")
+async def get_obj(request: ResearchRequest):
+    results = await GPTResearcher(request).get_objective()
+    title = results.get("title")
+    description = results.get("description")
+    return results
+@app.post("/estimates")
+async def get_obj(request: ResearchRequest):
+    results = await GPTResearcher(request).get_estimate()
+    return results
+
+@app.post("/phases")
+async def get_phasess(request: ResearchRequest):
+    results = await GPTResearcher(request).get_phases()
+    return results
+
+
+# @app.post("/objectives")
+# async def get_obj(request: ResearchRequest):
+#     results = await GPTResearcher(request).get_objectives()
+#     return results
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
@@ -73,8 +71,11 @@ async def websocket_endpoint(websocket: WebSocket):
             if data.startswith("start"):
                 json_data = json.loads(data[6:])
                 task = json_data.get("task")
+                print(previous_queries[0])
+                previous_queries[0]+=" "+task
+                task = previous_queries[0]
                 report_type = json_data.get("report_type")
-                filename = f"task_{int(time.time())}_{task}"
+                #filename = f"task_{int(time.time())}_{task}"
                 report_source = json_data.get("report_source")
                 if task and report_type:
                     report = await manager.start_streaming(task, report_type, report_source, websocket)
@@ -83,4 +84,3 @@ async def websocket_endpoint(websocket: WebSocket):
 
     except WebSocketDisconnect:
         await manager.disconnect(websocket)
-

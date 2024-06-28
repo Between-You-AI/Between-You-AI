@@ -61,6 +61,12 @@ async def get_obj(request: ResearchRequest):
     results = await GPTResearcher(request).get_estimate()
     return results
 
+@app.post("/phases")
+async def get_phasess(request: ResearchRequest):
+    results = await GPTResearcher(request).get_phases()
+    return results
+
+
 # @app.post("/objectives")
 # async def get_obj(request: ResearchRequest):
 #     results = await GPTResearcher(request).get_objectives()
