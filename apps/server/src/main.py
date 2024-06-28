@@ -22,7 +22,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .objectives.router import router as ObjectiveRouter
 from .experts.router import router as ExpertRouter
-
+from .questions.router import router as QuestionsRouter
 previous_queries = ["Task - "]
 class ResearchRequest(BaseModel):
     task: str
@@ -77,6 +77,7 @@ async def get_phasess(request: ResearchRequest):
 
 app.include_router(ObjectiveRouter, prefix='/objectives', tags=['objectives'])
 app.include_router(ExpertRouter, prefix='/experts')
+app.include_router(QuestionsRouter, prefix='/questions')
 # @app.post("/objectives")
 # async def get_obj(request: ResearchRequest):
 #     results = await GPTResearcher(request).get_objectives()
