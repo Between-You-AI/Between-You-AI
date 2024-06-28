@@ -344,7 +344,7 @@ class GPTResearcher:
         {   
             "Objective" : {
                 "title": "buying apple stocks",
-                "description": "complete some matter in description",
+                "description": "To buy Apple stocks, choose a brokerage, create and fund your account, search for 'AAPL', and place a market or limit order for the desired number of shares",
                 "clarity": 20
             }   
         }
@@ -352,7 +352,7 @@ class GPTResearcher:
         {
            "Objective" : {
                 "title": "Purchasing a House",
-                "description": "complete some matter in description", 
+                "description": "Description on how to buy House", 
                 "clarity": 1
             }   
         }
