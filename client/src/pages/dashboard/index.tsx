@@ -12,7 +12,7 @@ import DashboardLayout from "./layout";
 
 const MiniDrawer = () => {
   const [open, setOpen] = React.useState(false);
-  const [isInitialStage, setInitialStage] = React.useState(false);
+  const [isInitialStage, setInitialStage] = React.useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);

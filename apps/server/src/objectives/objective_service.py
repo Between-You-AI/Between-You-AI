@@ -1,18 +1,23 @@
-import datetime
+from datetime import date
 import string
 from models.py_types.objective_type import Objective, User
+import typing
 
 
 class ObjectiveService:
-  def get_objective_plan(task: string, User: User):
+  @staticmethod
+  def get_objective_plan(ObjectiveId: string) -> Objective:
     # create a query for objectives
-    title, description = func()
-    id = 1
-    created_at =  datetime.date
-    owner = User
-    Collaborators = []
-    Permissions = []
-    Phases = PhaseService.get_phases(title, description)
-    finalresult = Objective()    
-    return finalresult.model_dump_json(indent=4)
+    newUser = User(id = ObjectiveId, name = 'Vardhman Hundia', email= 'vardhmanhundia@gmail.com', password='123')
+    finalresult = Objective(id = ObjectiveId, title = 'Buy a House', description = 'I want to buy a fully functioning house at Evnaston', clarity = 30, completion_date = date.today(), created_at = date.today(), Owner = newUser, Collaborators=[], Permissions=[], Phases=[]) 
+    print(finalresult)   
+    return finalresult
+  
+  @staticmethod
+  def get_all_objectives():
+    obj1 = ObjectiveService.get_objective_plan(ObjectiveId='1')
+    obj2 = ObjectiveService.get_objective_plan(ObjectiveId='2')
+    
+    return [obj1, obj2]
+    
     

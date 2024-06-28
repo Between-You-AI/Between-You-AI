@@ -4,6 +4,7 @@ from datetime import datetime
 
 class User(BaseModel):
     id: int
+    name: str
     email: str
     password: str
 
@@ -15,9 +16,9 @@ class Objective(BaseModel):
     completion_date: datetime
     created_at: datetime
     Owner: User #Backend
-    Collaborators: List[User] # backend
-    Permissions: List["UserPermission"] # backend
-    Phases: List["Phase"]
+    Collaborators: Optional[List[User]] # backend
+    Permissions: Optional[List["UserPermission"]] # backend
+    Phases: Optional[List["Phase"]]
 
 class UserPermission(BaseModel):
     id: int

@@ -8,6 +8,7 @@ from pydantic import BaseModel
 
 # Add the commons directory to the sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../common')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../models')))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../apps')))
 
 
@@ -17,6 +18,9 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from .utils.websocket_manager import WebSocketManager
 from common.gpt_researcher.master.agent import GPTResearcher
 from common.experts.service import ExpertService
+from fastapi.middleware.cors import CORSMiddleware
+
+from .objectives.router import router as ObjectiveRouter
 
 
 previous_queries = ["Task - "]
@@ -25,6 +29,11 @@ class ResearchRequest(BaseModel):
     
     
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Adjust as needed
+)
 
 manager = WebSocketManager()
 
@@ -57,6 +66,8 @@ async def get_obj(request: ResearchRequest):
 async def get_obj(request: ResearchRequest):
     results = await GPTResearcher(request).get_estimate()
     return results
+
+app.include_router(ObjectiveRouter, prefix='/objectives', tags=['objectives'])
 
 # @app.post("/objectives")
 # async def get_obj(request: ResearchRequest):

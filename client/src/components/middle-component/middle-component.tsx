@@ -22,8 +22,6 @@ interface InitialGoalDTO {
 }
 
 const MiddleComponent = () => {
-  const { sendMessage } = useWebSocket('ws://localhost:8000/ws');
-  
   const {
     register,
     handleSubmit,
@@ -35,7 +33,6 @@ const MiddleComponent = () => {
 
   const onSubmitHandler = (data: InitialGoalDTO) => {
     console.log({data});
-    sendMessage(data)
     reset();
   };
 
@@ -67,7 +64,7 @@ const MiddleComponent = () => {
             variant="outlined"
             defaultValue=""
             multiline
-            {...register('goal')}
+            {...register("goal")}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">

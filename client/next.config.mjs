@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  async redirects() {
+    return [
+      // Basic redirect
+      {
+        source: '/',
+        destination: '/login',
+        permanent: true
+      },
+    ]
+  }
+}
 
-export default nextConfig;
+export default nextConfig
