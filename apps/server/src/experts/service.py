@@ -9,7 +9,10 @@ from common.gpt_researcher.master.actions import *
 from common.gpt_researcher.memory import Memory
 from common.gpt_researcher.utils.enum import ReportSource, ReportType
 from common.gpt_researcher.master.actions import choose_agent
+from models.py_types.expert_type import Expert
 
+agent = ""
+description = ""
 class ExpertService:
     """
     Expert Service
@@ -42,6 +45,7 @@ class ExpertService:
         """
         self.query: str = query
         self.agent: str = agent
+        self.description: str = None
         self.role: str = role
         self.cfg = Config(config_path)
         self.context = context
@@ -60,4 +64,11 @@ class ExpertService:
     async def find_expert(self):
         result = await choose_agent(query=self.query, cfg=self.cfg)
         print(result)
-        return result
+        self.agent = result[0]
+        self.description = result[1]
+        agent = self.agent
+        description = self.description 
+        return Expert(agent=self.agent,description=self.description)
+    
+    def get_expert():
+        return Expert(agent=agent,description=description)
