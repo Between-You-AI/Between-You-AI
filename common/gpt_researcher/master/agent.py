@@ -250,10 +250,9 @@ class GPTResearcher:
                         "answer_type_code": "TEXT" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
                         "prefix": Answer Prefix if there is anything defaultValue or options list,
                         "suffix": Answer Suffix if there is anything defaultValue or options list,
-                        "related_data": {
-                            "input_text": "Please provide your reason for wanting to invest in Apple.",
-                            "validation": "required"
-                        }
+                        "options": [],
+                        "input_text": "Please enter the amount you are planning to invest in Apple.",
+                        "validation": "required|min:1"
                     },
                     {
                         "question": "How much are you planning to invest in Apple?",
@@ -261,10 +260,9 @@ class GPTResearcher:
                         "answer_type_code": "INT" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
                         "prefix": Answer Prefix if there is anything defaultValue or options list,
                         "suffix": Answer Suffix if there is anything defaultValue or options list,
-                        "related_data": {
-                            "input_text": "Please enter the amount you are planning to invest in Apple.",
-                            "validation": "required|min:1"
-                        }
+                        "options": [],
+                        "input_text": "Please enter the amount you are planning to invest in Apple.",
+                        "validation": "required|min:1"
                     },
                     {
                         "question": "What is your investment horizon?",
@@ -272,10 +270,8 @@ class GPTResearcher:
                         "answer_type_code": "MULTI_CHOICE" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
                         "prefix": Answer Prefix if there is anything defaultValue or options list,
                         "suffix": Answer Suffix if there is anything defaultValue or options list,
-                        "related_data": {
-                            "options": ["Short-term (less than 1 year)", "Medium-term (1-5 years)", "Long-term (more than 5 years)"],
-                            "other": "Please select one of the options that best describes your investment horizon."
-                        }
+                        "options": ["Short-term (less than 1 year)", "Medium-term (1-5 years)", "Long-term (more than 5 years)"],
+                        "other": "Please select one of the options that best describes your investment horizon."
                     },
                     {
                         "question": "What is your risk tolerance?",
@@ -283,10 +279,8 @@ class GPTResearcher:
                         "answer_type_code": "MULTI_CHOICE" # List of types[ INT, FLOAT, TEXT, STRING, BOOLEAN, SINGLE_CHOICE, MULTI_CHOCIE ]
                         "prefix": Answer Prefix if there is anything defaultValue or options list,
                         "suffix": Answer Suffix if there is anything defaultValue or options list,
-                        "related_data": {
-                            "options": ["Low", "Moderate", "High"],
-                            "other": "Please select your risk tolerance level."
-                        }
+                        "options": ["Low", "Moderate", "High"],
+                        "other": "Please select your risk tolerance level."
                     }
                 ]
             }
@@ -299,19 +293,15 @@ class GPTResearcher:
                         "question": "Why do you want to buy a house in San Francisco?",
                         "answer": "string",
                         "answer_type_code": "input based",
-                        "related_data": {
-                            "input_text": "Please provide your reason for wanting to buy a house in San Francisco.",
-                            "validation": "required"
-                        }
+                        "input_text": "Please provide your reason for wanting to buy a house in San Francisco.",
+                        "validation": "required"
                     },
                     {
                         "question": "What is your budget for buying a house?",
                         "answer": "number",
                         "answer_type_code": "input based",
-                        "related_data": {
-                            "input_text": "Please enter your budget for buying a house in San Francisco.",
-                            "validation": "required|min:1"
-                        }
+                        "input_text": "Please enter your budget for buying a house in San Francisco.",
+                        "validation": "required|min:1"
                     },
                     {
                         "question": "What type of property are you looking for?",
@@ -319,10 +309,8 @@ class GPTResearcher:
                         "answer_type_code": "option based",
                         "prefix": Answer Prefix if there is anything defaultValue or options list,
                         "suffix": Answer Suffix if there is anything defaultValue or options list,
-                        "related_data": {
-                            "options": ["Condo", "Single Family Home", "Townhouse", "Multi-Family Home"],
-                            "other": "Please select the type of property you are interested in."
-                        }
+                        "options": ["Condo", "Single Family Home", "Townhouse", "Multi-Family Home"],
+                        "other": "Please select the type of property you are interested in."
                     },
                     {
                         "question": "What is your timeline for purchasing?",
@@ -330,10 +318,18 @@ class GPTResearcher:
                         "answer_type_code": "option based",
                         "prefix": Answer Prefix if there is anything defaultValue or options list,
                         "suffix": Answer Suffix if there is anything defaultValue or options list,
-                        "related_data": {
-                            "options": ["Immediately", "Within 6 months", "Within 1 year", "More than 1 year"],
-                            "other": "Please select your purchasing timeline."
-                        }
+                        "options": ["Immediately", "Within 6 months", "Within 1 year", "More than 1 year"],
+                        "other": "Please select your purchasing timeline."
+                    }
+                    {
+                        
+                        "question": "What is your timeline for purchasing?",
+                        "answer": "BOOLEAN",
+                        "answer_type_code": "option based",
+                        "prefix": Answer Prefix if there is anything defaultValue or options list,
+                        "suffix": Answer Suffix if there is anything defaultValue or options list,
+                        "options": ["True","False"],
+                        "other": "Please select your purchasing timeline."
                     }
                 ]
             }
