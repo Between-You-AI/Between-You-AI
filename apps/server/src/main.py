@@ -18,7 +18,6 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from .utils.websocket_manager import WebSocketManager
 from common.gpt_researcher.master.agent import GPTResearcher
 from common.experts.service import ExpertService
-from .objectives.objective_service import ObjectiveService
 from fastapi.middleware.cors import CORSMiddleware
 
 from .objectives.router import router as ObjectiveRouter

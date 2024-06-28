@@ -13,12 +13,12 @@ class ObjectiveService:
   @staticmethod
   async def create_objective_plan(task_query: str):
     res = await GPTResearcher(task_query).get_objective()
-    title = res.get("title")
-    description = res.get("description")
-    id = uuid.uuid4()
+    title: str = res.get("title")
+    description: str = res.get("description")
+    id = 3
     
     
-    finalresult = Objective(id = id, title = title, description = description, clarity = 30, completion_date = date.today(), created_at = date.today(), Owner = newUser, Collaborators=[], Permissions=[], Phases=[]) 
+    finalresult = Objective(id = id, title = title, description = description, clarity = 30, completion_date = date.today().isoformat(), created_at = date.today().isoformat(), Owner = newUser, Collaborators=[], Permissions=[], Phases=[]) 
     return finalresult
     
   @staticmethod
@@ -26,7 +26,7 @@ class ObjectiveService:
     # create a query for objectives
 
     
-    finalresult = Objective(id = ObjectiveId, title = 'Buy a house', description = 'Buy a $15,000 house', clarity = 30, completion_date = date.today(), created_at = date.today(), Owner = newUser, Collaborators=[], Permissions=[], Phases=[]) 
+    finalresult = Objective(id = ObjectiveId, title = 'Buy a house', description = 'Buy a $15,000 house', clarity = 30, completion_date = date.today().isoformat(), created_at = date.today().isoformat(), Owner = newUser, Collaborators=[], Permissions=[], Phases=[]) 
     print(finalresult)   
     return finalresult
   

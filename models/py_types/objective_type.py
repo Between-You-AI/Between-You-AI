@@ -1,6 +1,5 @@
 from typing import List, Optional, Union, Literal
-from pydantic import BaseModel, Field
-import datetime
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class FetchGPTObjectivePlan(BaseModel):
@@ -17,7 +16,6 @@ class FetchGPTObjectivePlan(BaseModel):
     activity_duration: int
     activity_cost: float
 
-
 class User(BaseModel):
     id: int
     name: str
@@ -29,12 +27,12 @@ class Objective(BaseModel):
     title: str
     description: str
     clarity: int
-    created_at: datetime
+    created_at: str = None
     Owner: User #Backend
     Collaborators: Optional[List[User]] # backend
     Permissions: Optional[List["UserPermission"]] # backend
     Phases: Optional[List["Phase"]]
-    completion_date: datetime
+    completion_date: str = None
 
 class UserPermission(BaseModel):
     id: int
@@ -50,8 +48,8 @@ class Activity(BaseModel):
     cost: float
     duration: int
     AssignedBy: User
-    start_date: datetime
-    completion_date: datetime
+    start_date: str
+    completion_date: str
     order: int
 
 class Dependency(BaseModel):
@@ -66,8 +64,8 @@ class Task(BaseModel):
     name: str
     description: str
     duration: int
-    start_time: datetime
-    end_time: datetime
+    start_time: str
+    end_time: str
     Budget: float
     order: int
     relatedTo: Relation
@@ -79,8 +77,8 @@ class Step(BaseModel):
     assignedTo: User
     assignedBy: User
     duration: int
-    start_time: datetime
-    end_time: datetime
+    start_time: str
+    end_time: str
     order: int
     Tasks: List[Task]
 
@@ -90,12 +88,16 @@ class Phase(BaseModel):
     PhaseBefore: Optional["Phase"]
     PhaseAfter: Optional["Phase"]
     duration: int
-    start_time: datetime
-    end_time: datetime
+    start_time: str
+    end_time: str
     Steps: List[Step]
 
 # Updating forward references
 Objective.update_forward_refs()
 UserPermission.update_forward_refs()
-Phase.update_forward_refs()
+Dependency.update_forward_refs()
+Activity.update_forward_refs()
 Relation.update_forward_refs()
+Task.update_forward_refs()
+Step.update_forward_refs()
+Phase.update_forward_refs()
