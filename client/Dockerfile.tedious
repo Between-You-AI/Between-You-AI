@@ -1,0 +1,44 @@
+# Exemplar of tedious efforts to minimize rebuilding of layers -- an
+# effort that's thwarted due to Dockerfile's unusual semantics for
+# COPY of directories.
+
+
+# Builds the clientside of the website
+# Installs it where nginx serves from
+# Puts in an nginx configuration
+
+
+# We endeavor to split up the work to minimize, where possible, unnecessary rebuilding.
+# Once development has slowed, we may rework this towards having fewer filesystem layers...
+
+# This has the platform resources we need (Node, Nginx, Python 3, etc)
+FROM hughsw/gsbase
+
+CMD ["nginx", "-g", "daemon off;"]
+
+RUN ln -s /etc/nginx/sites-available/kira /etc/nginx/sites-enabled
+
+
+WORKDIR /kira
+
+# build libraries
+COPY package.json package-lock.json ./
+RUN npm install
+
+# Dockerfile COPY semantics are a PITA vis-a-vis directories.  It does
+# the unexpected when copying named directories to a target directory,
+# so you cannot finese things.  We delay this blanket copy until after
+# the above npm install, but any change to any file (including this
+# Dockerfile) affects this copy and triggers the `npm run build`...
+COPY . ./
+
+# Build libraries and web bundles, move bundle to where nginx serves from
+RUN npm run build
+# note: does not copy dot files
+RUN cp -a dist/* /var/www/html/
+
+# Nginx config to serve up files (and redirect api calls to the service);
+# also satisfies the symlink above
+RUN mv nginx.conf /etc/nginx/sites-available/kira
+
+WORKDIR /var/log

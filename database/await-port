@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Wait for a host:port to become active, or fail after timeout
+# Used e.g. CICD to wait for services to be listening
+
+# usage: await-port <host> <port> [<timoutSec>]
+
+# Yell on unexepected pain
+set -euo pipefail
+trap 'rc=$?;set +ex;if [[ $rc -ne 0 ]];then trap - ERR EXIT;echo 1>&2;echo "*** fail *** : code $rc : $DIR/$SCRIPT $ARGS" 1>&2;echo 1>&2;exit $rc;fi' ERR EXIT
+ARGS="$*"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT="$(basename "${BASH_SOURCE[0]}")"
+
+HOST=$1
+PORT=$2
+TIMEOUT=${3:-100}
+
+# The polling delay, a human moment
+DELAY=3
+
+# Make sure ncat is available
+ncat --version > /dev/null 2>&1
+
+# Is the port listening?  Returns 'yes' or 'no', ncat messages to stderr
+isListening () {
+    if ncat -z $HOST $PORT 1>&2 ; then echo yes ; else echo no ; fi
+}
+
+# Timing support
+getSec () {
+    date '+%s'
+}
+START=$(getSec)
+getElapsed () {
+    echo $(($(getSec) - $START))
+}
+
+# Run in a subshell that merges stdout and stderr to prevent
+# interleaving issues with our stdout and stderr being handled by
+# separate paths in the Docker engine that's running our container...
+(
+    echo $SCRIPT: $HOST:$PORT starting
+
+    # Main waiting loop
+    dots="."
+    while [[ $(getElapsed) -lt $TIMEOUT && $(isListening) != yes ]] ; do
+        echo $HOST:$PORT $dots
+        dots="$dots."
+        sleep $DELAY
+    done
+
+    # Final check -- yes, we have seen services that fail after one
+    # successful connection, so this step also verifies that the service
+    # can handle at least two connections
+    isAlive=$(isListening)
+    sleep 1
+    echo $SCRIPT: $HOST:$PORT $dots listening=$isAlive
+
+    # A bit subtle: Final command to determine exit code, relies on trap logic to exit with it
+    [[ "$isAlive" == yes ]]
+
+) 2>&1

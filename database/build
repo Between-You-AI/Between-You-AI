@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Yell on unexepected pain
+set -euo pipefail
+trap 'rc=$?;set +ex;if [[ $rc -ne 0 ]];then trap - ERR EXIT INT;echo;echo;echo "*** fail *** : code $rc : $0 $@";echo;exit $rc;fi' ERR EXIT INT
+
+imageTag=${1:-kiradatabase}
+branchName=${2:-<na/>}
+droneBuildUrl=${3:-<na/>}
+
+# Capture info about current commit, status
+../tools/commit_info.sh KiraDatabase "$branchName" "$imageTag" "$droneBuildUrl" >commit_info.json
+../tools/commit_info.py commit_info.json >commit_info.html
+echo Created: commit_info.json, commit_info.html
+
+# Assumes only one SQL file
+devDB="../DigitalOcean/database/${branchName}.sql"
+(cp "$devDB" kiradatabase.sql && echo DevDB: "$devDB") || (cat initdb/*.sql >kiradatabase.sql && echo DevDB: initdb/*.sql)
+
+docker build -t $imageTag .

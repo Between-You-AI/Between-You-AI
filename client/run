@@ -1,0 +1,19 @@
+#!/bin/bash -eu
+
+# shellcheck source=/dev/null
+# Fail on any problem
+set -euo pipefail
+trap 'set +e;echo;echo fail script: $script $@;echo;echo "*** fail ***";echo;exit 1' ERR
+script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
+
+source "../DigitalOcean/infra/dev/configs/hosts.sh"
+source "../DigitalOcean/infra/dev/configs/images.sh"
+source "../DigitalOcean/infra/common/configs/ports.sh"
+source "../DigitalOcean/infra/common/configs/environments.sh"
+source "../DigitalOcean/infra/dev/configs/network.sh"
+
+docker run -i --rm \
+       -p "$KIRA_CLIENT_PORT2":"$KIRA_CLIENT_PORT2" \
+       --network="$KIRA_NETWORK" \
+       --name="$CLIENT_HOST" \
+       "$CLIENT_IMAGE" "$@"

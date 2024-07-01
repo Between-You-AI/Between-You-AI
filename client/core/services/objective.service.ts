@@ -8,6 +8,7 @@ export const fetchObjectives = async (): Promise<Objective[]> => {
 }
 
 export const getObjectiveById = async (id: string): Promise<Objective> => {
+  console.log('🚀 ~ getObjectiveById ~ `/${API_URI}/${id}`:', `/${API_URI}/${id}`)
   const response = await APIService.get(`/${API_URI}/${id}`)
   return response.data
 }

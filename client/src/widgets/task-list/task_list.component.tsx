@@ -9,10 +9,7 @@ const TaskList = () => {
   const router = useRouter()
 
   const taskId = router.query.taskId as unknown as string
-  console.log('🚀 ~ TaskComponent ~ taskId:', taskId)
-
   const { data, error } = getObjective(taskId?.toString())
-  console.log('🚀 ~ TaskComponent ~ data:', data)
 
   const [openProjects, setOpenProjects] = React.useState(true)
   const [openTasks, setOpenTasks] = React.useState(true)

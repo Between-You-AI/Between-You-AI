@@ -1,19 +1,29 @@
-interface QuestionTask<T> {
-  question: string;
-  Answer: Answer<T>;
+export interface QuestionTask<T> {
+  question: string
+  Answer: Answer<T>
 }
 
-interface Answer<T> {
-  AnswerTypeCode: typeof AnswerTypes;
-  prefix?: AnswerPrefixOrSuffix<T>;
-  suffix?: AnswerPrefixOrSuffix<T>;
-  options?: Array<T>;
-  validation?: string;
+export interface Answer<T> {
+  AnswerTypeCode: string
+  prefix?: AnswerPrefixOrSuffix<T>
+  suffix?: AnswerPrefixOrSuffix<T>
+  options?: Array<T>
+  validation?: string
 }
 
-interface AnswerPrefixOrSuffix<T> {
-  defaultValue: T;
-  options: Array<T>;
+export interface AnswerPrefixOrSuffix<T> {
+  defaultValue: T
+  options: Array<T>
+}
+
+export enum QuestionType {
+  INT = 'INT',
+  FLOAT = 'FLOAT',
+  TEXT = 'TEXT',
+  STRING = 'STRING',
+  BOOLEAN = 'BOOLEAN',
+  SINGLE_CHOICE = 'SINGLE_CHOICE',
+  MULTI_CHOICE = 'MULTI_CHOICE'
 }
 
 const AnswerTypes = {
@@ -23,5 +33,5 @@ const AnswerTypes = {
   STRING: {},
   BOOLEAN: {},
   SINGLE_CHOICE: {},
-  MULTI_CHOCIE: {},
-};
+  MULTI_CHOCIE: {}
+}

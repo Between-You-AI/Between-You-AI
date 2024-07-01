@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS goal_tables;
+CREATE DATABASE goal_tables;
+
+GRANT ALL PRIVILEGES ON DATABASE goal_tables TO system_user;
+GRANT CONNECT ON DATABASE goal_tables TO system_user;
+\connect goal_tables
+GRANT ALL ON SCHEMA public TO system_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO system_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO system_user;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO system_user;

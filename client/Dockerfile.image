@@ -1,0 +1,21 @@
+FROM nginx:1.22-alpine
+
+WORKDIR /kira
+
+# build and copy dist to public html folder for nginx
+COPY --from=builder /kira/dist/* /var/www/html/
+COPY --from=builder /kira/dist/assets/ /var/www/html/assets/
+
+# TODO: change so that nginx becomes a separate top-level directory
+# and we sort out how to put resources for it to server,
+# e.g. kiraclient is one, but a tree of attachment files is another...
+
+# Non-standard pid location due to not knowing if/where Alpine does this
+CMD ["nginx", "-g", "daemon off;"]
+
+# Nginx configuration: serve up files (and redirect api calls to the service)
+COPY nginx.conf /etc/nginx/conf.d/kiraclient.conf
+
+
+# Add in commit info
+COPY commit_info.json commit_info.html /var/www/html/

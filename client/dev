@@ -1,0 +1,42 @@
+#!/bin/bash -eu
+
+# shellcheck source=/dev/null
+# Build and run a Docker image that relies on mounting source files into the image so that nodemon works
+
+# Fail loudly
+set -euo pipefail
+trap 'rc=$?;set +ex;if [[ $rc -ne 0 ]];then trap - ERR EXIT;echo 1>&2;echo "*** fail *** : code $rc : $DIR/$SCRIPT $ARGS" 1>&2;echo 1>&2;exit $rc;fi' ERR EXIT
+ARGS="$*"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT="$(basename "${BASH_SOURCE[0]}")"
+
+source "../DigitalOcean/infra/dev/configs/hosts.sh"
+source "../DigitalOcean/infra/dev/configs/images.sh"
+source "../DigitalOcean/infra/common/configs/ports.sh"
+source "../DigitalOcean/infra/common/configs/environments.sh"
+source "../DigitalOcean/infra/common/configs/libraries.sh"
+source "../DigitalOcean/infra/common/configs/dirs.sh"
+source "../DigitalOcean/infra/dev/configs/network.sh"
+source "../DigitalOcean/infra/common/configs/paths.sh"
+
+set -x
+
+## For now we copy a version of the kiracommons directory locally so that Docker can work with it
+##rsync --archive --delete --delete-excluded --exclude node_modules --exclude build --exclude '*~' ../kiracommons/ ./kiracommons
+
+docker build --tag "$CLIENT_IMAGE" --file Dockerfile.dev .
+
+DIR_DD=$(cd "$DIR/.." && pwd)
+
+# Note: mounting the shared stuff under /kira/src means: we're overlaying mounts on mounts, and it means that the first mount has to be rw
+docker run --init -it --rm \
+       -p "$KIRA_CLIENT_PORT":"$KIRA_CLIENT_PORT" \
+       --network="$KIRA_NETWORK" \
+       -v "$DIR/src":/kira/src \
+       -v "$DIR_DD/$COMMON_LIB_PATH":"/$KIRA_CLIENT_DIR/src/$LIB_PATH/$COMMON_LIB_PATH":ro \
+       --name="$CLIENT_HOST" \
+       "$CLIENT_IMAGE" "$@"
+
+#       -v $DIR_DD/kiracommons/src:/kira/shared/kiracommons/src:ro \
+
+#       -v $DIR_DD/kiracommons-node/src:/kira/shared/kiracommons-node/src:ro \

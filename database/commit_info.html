@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>KiraDatabase Commit Info</title>
+  </head>
+  <body style="font-family: sans-serif">
+
+    <svg style="display: none;">
+
+      <symbol id="linkAwayIcon" viewbox="0 0 24 24">
+        <path d="
+                 M19 19
+                 H5
+                 V5
+                 h7
+                 V3
+                 H5
+                 c-1.11 0-2 .9-2 2
+                 v14
+                 c0 1.1.89 2 2 2
+                 h14
+                 c1.1 0 2-.9 2-2
+                 v-7
+                 h-2
+                 v7
+                 z
+
+                 M14 3
+                 v2h3.59
+                 l-9.83 9.83 1.41 1.41
+                 L19 6.41
+                 V10
+                 h2
+                 V3
+                 h-7
+                 z
+                 ">
+        </path>
+      </symbol>
+
+      <symbol id="commitIcon" viewBox="0 0 24 24">
+        <path d="M17,12C17,14.42 15.28,16.44 13,16.9V21H11V16.9C8.72,16.44 7,14.42 7,12C7,9.58 8.72,7.56 11,7.1V3H13V7.1C15.28,7.56 17,9.58 17,12M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"></path>
+      </symbol>
+
+      <symbol id="branchIcon" viewBox="0 0 24 24">
+        <path d="M6,2A3,3 0 0,1 9,5C9,6.28 8.19,7.38 7.06,7.81C7.15,8.27 7.39,8.83 8,9.63C9,10.92 11,12.83 12,14.17C13,12.83 15,10.92 16,9.63C16.61,8.83 16.85,8.27 16.94,7.81C15.81,7.38 15,6.28 15,5A3,3 0 0,1 18,2A3,3 0 0,1 21,5C21,6.32 20.14,7.45 18.95,7.85C18.87,8.37 18.64,9 18,9.83C17,11.17 15,13.08 14,14.38C13.39,15.17 13.15,15.73 13.06,16.19C14.19,16.62 15,17.72 15,19A3,3 0 0,1 12,22A3,3 0 0,1 9,19C9,17.72 9.81,16.62 10.94,16.19C10.85,15.73 10.61,15.17 10,14.38C9,13.08 7,11.17 6,9.83C5.36,9 5.13,8.37 5.05,7.85C3.86,7.45 3,6.32 3,5A3,3 0 0,1 6,2M6,4A1,1 0 0,0 5,5A1,1 0 0,0 6,6A1,1 0 0,0 7,5A1,1 0 0,0 6,4M18,4A1,1 0 0,0 17,5A1,1 0 0,0 18,6A1,1 0 0,0 19,5A1,1 0 0,0 18,4M12,18A1,1 0 0,0 11,19A1,1 0 0,0 12,20A1,1 0 0,0 13,19A1,1 0 0,0 12,18Z"></path>
+      </symbol>
+
+      <symbol id="folderIcon" viewBox="0 0 24 24"
+              style="fill:none;stroke:#000000">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+      </symbol>
+
+      <symbol id="dockerIcon" viewBox="0 0 24 24"
+              style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round" >
+        <g>
+          <path d="
+                   M23.5,11.5
+                   s-1.75-1.12-3-.5
+                   A3.45,3.45,0,0,0,19,8.5
+                   a3.64,3.64,0,0,0-.58,2.88,1,1,0,0,1-1,1.12
+                   H.5
+                   c0,6.25,3.83,8,7.5,8
+                   a13.76,13.76,0,0,0,12.06-7
+                   A4.68,4.68,0,0,0,23.5,11.5
+                   Z
+                   "></path>
+          <circle cx="5" cy="16" r="0.6" style="fill:#000000;"></circle>
+
+          <rect height="3" width="3" x="1.5" y="9.5"></rect>
+          <rect height="3" width="3" x="4.5" y="9.5"></rect>
+          <rect height="3" width="3" x="7.5" y="9.5"></rect>
+          <rect height="3" width="3" x="10.5" y="9.5"></rect>
+          <rect height="3" width="3" x="4.5" y="6.5"></rect>
+          <rect height="3" width="3" x="7.5" y="6.5"></rect>
+          <rect height="3" width="3" x="10.5" y="6.5"></rect>
+          <rect height="3" width="3" x="10.5" y="3.5"></rect>
+          <rect height="3" width="3" x="13.5" y="9.5"></rect>
+        </g>
+      </symbol>
+
+      <symbol id="dateTimeIcon" viewBox="0 0 1000 1000">
+        <g transform="translate(0,511) scale(0.1,-0.1)">
+          <path d="M2011,4577c-90-42-110-130-110-470v-325h-900H100V1193v-2588h1600h1600v200v200H1901H500V505v1500h3001h3001v888v888H5603h-900v325c0,185-12,350-27,385c-65,137-280,137-345,0c-15-35-27-200-27-385v-325H3301H2301v325c0,347-20,427-117,472C2111,4612,2081,4612,2011,4577z M1901,3069c0-327,2-342,62-400c37-40,90-62,137-62c47,0,100,22,137,62c60,57,62,72,62,400v337h1000h1000v-337c0-327,2-342,62-400c80-82,195-82,275,0c60,57,62,72,62,400v337h700h700v-500v-500H3301H500v500v500h700H1901V3069z"></path>
+          <path d="M2011,1678c-110-150-325-335-520-445l-140-80v-147c0-147,0-147,60-125c117,45,302,147,427,235l125,90l7-1000l5-1000h162h162V505v1300h-97C2113,1806,2096,1793,2011,1678z"></path>
+          <path d="M3702,1766c-150-40-225-82-332-182c-95-85-190-275-207-412l-15-110l142-17c155-20,187-2,187,110c0,100,105,252,220,320c150,90,375,92,527,5c125-70,227-225,227-345c0-100,7-95,172,52l132,117l-72,130C4519,1738,4112,1876,3702,1766z"></path>
+          <path d="M6340,1771c-472-77-923-257-1305-520C4650,988,4247,523,4032,92c-422-850-432-1863-30-2706c165-350,345-602,612-870c430-432,965-717,1588-852c292-62,905-62,1200-2c1095,232,1953,978,2321,2023c327,928,190,1963-375,2789c-262,385-725,787-1158,1003c-205,102-545,220-780,267C7148,1798,6596,1813,6340,1771z M7466,1321c295-75,727-282,965-462C9455,82,9792-1310,9235-2458c-660-1355-2256-1918-3594-1268C4272-3061,3717-1453,4387-107c162,325,322,542,567,775c387,365,873,610,1393,702C6646,1423,7156,1401,7466,1321z"></path>
+          <path d="M7699,375c-22-17-245-342-495-720c-252-377-460-690-462-695c-2-2-460,207-1015,470C5170-309,4687-94,4650-94c-160,0-247-190-142-307c37-42,420-235,1058-535c550-257,1025-495,1055-525c142-142,377-80,422,110c7,40,227,390,487,782c507,765,527,812,415,920C7881,410,7761,423,7699,375z"></path>
+          <path d="M3614,57c-337-295-537-590-537-795c0-60,2-60,230-52l230,7l30,145c22,117,22,142-5,142c-50,0-42,37,25,117c32,37,67,97,77,132c10,35,62,162,115,285c55,122,95,225,90,230C3867,272,3752,177,3614,57z"></path>
+        </g>
+      </symbol>
+
+    </svg>
+
+    <h3>KiraDatabase Commit Info</h3>
+
+    <dl>
+
+      <dt>Repository</dt>
+
+      <dd>
+        <code>git@github.com:GSAssociates/kira.git</code>
+        <a href="git@github.com:GSAssociates/kira.git" target="_blank"><svg width="16" height="16"><use href="#linkAwayIcon"/></svg></a>
+      </dd>
+
+      <dd>
+        <code>46a906a1cf7de3105bfe56a3ecdb99b89563af40</code>
+        <a href="git@github.com:GSAssociates/kira/commit/46a906a1cf7de3105bfe56a3ecdb99b89563af40" target="_blank"><svg width="16" height="16"><use href="#linkAwayIcon"/></svg></a>
+      </dd>
+
+
+      <dt>Drone</dt>
+
+      <dd>
+        <svg width="20" height="20"><use href="#commitIcon"/></svg>
+        <code>46a906a1cf</code>
+        <a href="&lt;na/&gt;" target="_blank"><svg width="16" height="16"><use href="#linkAwayIcon"/></svg></a>
+      </dd>
+
+      <dd>
+        <svg width="20" height="20"><use href="#branchIcon"/></svg>
+        <code>&lt;na/&gt;</code>
+      </dd>
+
+      <dd>
+        <svg width="20" height="20"><use href="#folderIcon"/></svg>
+        <code>kiradatabase/</code>
+      </dd>
+
+      <dd>
+        <svg width="20" height="20"><use href="#dockerIcon"/></svg>
+        <code>kiradatabase</code>
+      </dd>
+
+      <dd>
+        <svg width="20" height="20"><use href="#dateTimeIcon"/></svg>
+        <code>2023-05-May-01-Mon-0938-59-IST</code>
+      </dd>
+
+      <br />
+      <dt>Working Tree</dt>
+
+      <dd>
+        <pre><code>M  adminportal/clean
+ M adminportal/dev
+ M adminportal/docker-compose.yml
+M  adminportal/local
+ D env/aws-dev.sh
+ D env/aws-prod.sh
+ M kirabackup/.gitignore
+ M kirabackup/src/dobackup.sh
+ M kiracommons/src/lib/models/attachmentContent.ts
+M  kiradatabase/initdb/create-gsakira.sql
+M  kiradatabase/initdb/kiradatabase.sql
+ M kiradatabase/run
+ M kiraorm/.gitignore
+ M kiraorm/Dockerfile
+ M kiraorm/Dockerfile.dev
+ M kiraredis/run
+ M kirarenderer/run
+ D kiraservice/app/core/utils/extractRequestParamsWithHostBaseUrlInfo.ts
+ M kiraservice/app/core/utils/index.ts
+ M kiraservice/app/models/dormapi/constants/attachment.constant.ts
+ M kiraservice/app/models/sequelize.ts
+ M kiraservice/dev
+ M kiraservice/local-dev
+ M kiraservice2/dev
+ M kiraworker/dev
+ M kiraworker/package-lock.json
+?? infra/
+?? kiraservice/app/core/utils/extract-request-params.util.ts
+</code></pre>
+      </dd>
+
+    </dl>
+
+  </body>
+</html>
+

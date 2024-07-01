@@ -1,0 +1,13 @@
+.git
+dist
+**/node_modules*
+
+mariadb
+sandbox
+
+npm-debug.log
+.commit.msg
+.devjunk
+
+**/.DS_Store
+**/*~

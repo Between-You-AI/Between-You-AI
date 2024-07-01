@@ -14,7 +14,7 @@ class CreateObjectiveResponseBody(BaseModel):
 async def read_objectives():
     return await ObjectiveService.get_all_objectives()
   
-@router.get("/{objectId}", response_model=Objective)
+@router.get("/{objectiveId}", response_model=Objective)
 async def read_objectives(objectiveId: str):
     return await ObjectiveService.get_objective_plan(objectiveId)
 
