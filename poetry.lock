@@ -597,7 +597,8 @@ files = [
 ]
 
 [package.dependencies]
-colorama = {version = "*", markers = "platform_system == \"Windows\""}
+colorama = {version = "*", markers = "platform_system == 'Windows' or platform_system == 'Darwin'"}
+
 
 [[package]]
 name = "cohere"
