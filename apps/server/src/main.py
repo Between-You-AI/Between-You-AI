@@ -38,10 +38,10 @@ app.add_middleware(
 
 manager = WebSocketManager()
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
@@ -61,9 +61,7 @@ async def get_chat(request: ResearchRequest):
 
 @app.post("/objective")
 async def get_obj(request: ResearchRequest):
-    results = await GPTResearcher(request).get_objective()
-    title = results.get("title")
-    description = results.get("description")
+    results = await GPTResearcher(request).get_objectives()
     return results
 @app.post("/estimates")
 async def get_obj(request: ResearchRequest):
@@ -75,7 +73,7 @@ async def get_phasess(request: ResearchRequest):
     results = await GPTResearcher(request).get_phases()
     return results
 
-app.include_router(ObjectiveRouter, prefix='/objectives', tags=['objectives'])
+#app.include_router(ObjectiveRouter, prefix='/objectives', tags=['objectives'])
 app.include_router(ExpertRouter, prefix='/experts')
 app.include_router(QuestionsRouter, prefix='/questions')
 # @app.post("/objectives")

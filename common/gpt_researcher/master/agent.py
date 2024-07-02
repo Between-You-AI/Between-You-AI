@@ -33,8 +33,6 @@ class GPTResearcher:
         if self.agent == None:
             self.agent = await ExpertService(self.query,self.cfg).find_expert()
         response = await self.get_gpt_response(self.query, self.context)
-        print(await self.get_objective())
-        await self.get_estimate()
         return response
     
     async def researcher_openai(self):
@@ -154,7 +152,7 @@ class GPTResearcher:
                 llm_kwargs=self.cfg.llm_kwargs
             )
             response_data = json.loads(response)
-            return response_data["Objectives"]
+            return response_data
         except json.JSONDecodeError as e:
             print(f"JSON decoding error: {e} - Response received: '{response}'")
             return {}
@@ -211,16 +209,17 @@ class GPTResearcher:
             },   
         }
         """
-
+    
+    def get_objective_p(self):
+        prompt = f"Query : {self.query}\n\n.You are a Expert - {self.agent[0]}.Generate the Objective based on the User Query. And after getting the answers you can refine it as well. In the output the clarity is based on user query and answers rate the clarity out of 100."
+        return prompt
 
     def generate_response_prompt(self, query, context):
         context_str = "\n".join(context)
         prompt = f"Query: {query}\n\nContext:\n{context_str}\n\n. You are a Expert - {self.agent[0]}, Provide a detailed response including tasks, objectives, task updates, task types, milestones, and estimates."
         return prompt
     
-    def get_objective_p(self):
-        prompt = f"Query : {self.query}\n\n.You are a Expert - {self.agent[0]}.Generate the Objective based on the User Query. And after getting the answers you can refine it as well. In the output the clarity is based on user query and answers rate the clarity out of 100."
-        return prompt
+    
         
     
     def objectives_p(self):
@@ -384,159 +383,148 @@ class GPTResearcher:
     
     def objectives_prompt(self):
         return """
-        Your task is to generate objectives based on user query to get more details from User.
-        task: "Increase Market Share"
-        response:
-        {
-            "Objectives": {
-                "title": "Increase Market Share",
-                "description": "The primary goal is to increase market share by 20% in the next fiscal year.",
-                "collaborators": [2, 3]
-            },
+        Your Task is to generate the Objective based on the User Query.
+        examples:
+        task : "should I invest in apple stocks?"
+        {    
+            "Main title": "Buy an Apple Stock",
+            "description": "A comprehensive guide to purchasing Apple stock.",
             "phases": [
                 {
-                    "name": "Market Research",
-                    "description": "Conduct thorough market research to identify opportunities.",
-                    "phase_before": None,
-                    "phase_after": None,
-                    "duration": 30
-                }
-            ],
-            "steps": [
+                    "phase_name": "Research Phase",
+                    "phase_description": "Gathering necessary information and understanding the market.",
+                    "steps": [
+                        {
+                            "step_name": "Market Analysis",
+                            "step_description": "Analyze current market trends and Apple's stock performance.",
+                            "tasks": [
+                                {
+                                    "task_name": "Gather Market Data",
+                                    "task_description": "Collect data on market trends and stock performance.",
+                                    "activities": [
+                                        {
+                                            "activity_name": "Read Financial Reports",
+                                            "activity_description": "Review Apple's quarterly and annual financial reports.",
+                                            "activity_duration": 3,
+                                            "activity_cost": 0.0
+                                        },
+                                        {
+                                            "activity_name": "Analyze Market Trends",
+                                            "activity_description": "Use financial tools to analyze market trends.",
+                                            "activity_duration": 2,
+                                            "activity_cost": 0.0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "task_name": "Evaluate Apple Stock",
+                                    "task_description": "Assess the value and performance of Apple stock.",
+                                    "activities": [
+                                        {
+                                            "activity_name": "Check Stock Performance",
+                                            "activity_description": "Review historical stock performance.",
+                                            "activity_duration": 2,
+                                            "activity_cost": 0.0
+                                        },
+                                        {
+                                            "activity_name": "Consult Analysts",
+                                            "activity_description": "Read opinions and forecasts from stock market analysts.",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
-                    "name": "Initial Research",
-                    "description": "Conduct initial market research and gather relevant data.",
-                    "assigned_to": 2,
-                    "assigned_by": 1,
-                    "duration": 7,
-                    "order": 1
-                }
-            ],
-            "tasks": [
-                {
-                    "id": 1,
-                    "name": "Research Market Trends",
-                    "description": "Research and analyze the latest market trends for better investment strategies.",
-                    "duration": 5,
-                    "budget": 100.0,
-                    "order": 1
-                }
-            ],
-            "activities": [
-                {
-                    "name": "Compile Market Report",
-                    "description": "Compile a detailed market report based on the research conducted.",
-                    "assigned_to": 2,
-                    "activity_type": "InApp Task",
-                    "cost": 50.0,
-                    "duration": 3,
-                    "assigned_by": 1,
-                    "order": 1
+                    "phase_name": "Purchase Phase",
+                    "phase_description": "Executing the purchase of Apple stock.",
+                    "steps": [
+                        {
+                            "step_name": "Select Brokerage",
+                            "step_description": "Choose a brokerage platform to purchase the stock.",
+                            "tasks": [
+                                {
+                                    "task_name": "Compare Brokers",
+                                    "task_description": "Evaluate different brokerage platforms based on fees and services.",
+                                    "activities": [
+                                        {
+                                            "activity_name": "Read Reviews",
+                                            "activity_description": "Review user experiences and ratings for different brokers.",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        },
+                                        {
+                                            "activity_name": "Check Fees",
+                                            "activity_description": "Compare transaction and account fees.",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "task_name": "Open Account",
+                                    "task_description": "Open an account with the selected brokerage.",
+                                    "activities": [
+                                        {
+                                            "activity_name": "Submit Application",
+                                            "activity_description": "Fill out and submit the account application form.",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        },
+                                        {
+                                            "activity_name": "Verify Identity",
+                                            "activity_description": "Provide identification documents for verification.",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "step_name": "Execute Purchase",
+                            "step_description": "Buy the desired amount of Apple stock.",
+                            "tasks": [
+                                {
+                                    "task_name": "Fund Account",
+                                    "task_description": "Deposit funds into the brokerage account.",
+                                    "activities": [
+                                        {
+                                            "activity_name": "Transfer Funds",
+                                            "activity_description": "Transfer money from a bank account to the brokerage account.",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "task_name": "Place Order",
+                                    "task_description": "Place a buy order for Apple stock.",
+                                    "activities": [
+                                        {
+                                            "activity_name": "Choose Order Type",
+                                            "activity_description": "Select order type (market or limit).",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        },
+                                        {
+                                            "activity_name": "Execute Order",
+                                            "activity_description": "Confirm and execute the purchase order.",
+                                            "activity_duration": 1,
+                                            "activity_cost": 0.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
 
-        task: "Improve Customer Satisfaction"
-        response:
-        {
-            "Objectives": {
-                "title": "Improve Customer Satisfaction",
-                "description": "The primary goal is to improve customer satisfaction by 15% over the next six months.",
-                "collaborators": [4, 5]
-            },
-            "phases": [
-                {
-                    "name": "Customer Feedback",
-                    "description": "Collect and analyze customer feedback to identify pain points.",
-                    "phase_before": None,
-                    "phase_after": None,
-                    "duration": 20
-                }
-            ],
-            "steps": [
-                {
-                    "name": "Survey Design",
-                    "description": "Design surveys to gather customer feedback.",
-                    "assigned_to": 4,
-                    "assigned_by": 1,
-                    "duration": 5,
-                    "order": 1
-                }
-            ],
-            "tasks": [
-                {
-                    "id": 2,
-                    "name": "Create Survey Questions",
-                    "description": "Create relevant survey questions to understand customer needs.",
-                    "duration": 3,
-                    "budget": 200.0,
-                    "order": 1
-                }
-            ],
-            "activities": [
-                {
-                    "name": "Analyze Survey Results",
-                    "description": "Analyze the results of the customer survey.",
-                    "assigned_to": 5,
-                    "activity_type": "InApp Task",
-                    "cost": 100.0,
-                    "duration": 4,
-                    "assigned_by": 4,
-                    "order": 1
-                }
-            ]
-        }
-
-        task: "Launch New Product Line"
-        response:
-        {
-            "Objectives": {
-                "title": "Launch New Product Line",
-                "description": "The primary goal is to launch a new product line by Q4 2024.",
-                "collaborators": [6, 7]
-            },
-            "phases": [
-                {
-                    "name": "Product Development",
-                    "description": "Develop new products and prepare for launch.",
-                    "phase_before": None,
-                    "phase_after": None,
-                    "duration": 45
-                }
-            ],
-            "steps": [
-                {
-                    "name": "Concept Development",
-                    "description": "Develop concepts for the new product line.",
-                    "assigned_to": 6,
-                    "assigned_by": 1,
-                    "duration": 10,
-                    "order": 1
-                }
-            ],
-            "tasks": [
-                {
-                    "id": 3,
-                    "name": "Prototype Creation",
-                    "description": "Create prototypes for the new products.",
-                    "duration": 15,
-                    "budget": 500.0,
-                    "order": 1
-                }
-            ],
-            "activities": [
-                {
-                    "name": "Market Testing",
-                    "description": "Conduct market testing for the new product prototypes.",
-                    "assigned_to": 7,
-                    "activity_type": "InApp Task",
-                    "cost": 300.0,
-                    "duration": 20,
-                    "assigned_by": 6,
-                    "order": 1
-                }
-            ]
-        }
         """
 
 
