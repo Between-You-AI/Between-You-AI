@@ -35,9 +35,10 @@ RUN useradd -ms /bin/bash backend \
 
 USER backend
 
-COPY --chown=backend:backend ./apps/ .apps/
-COPY --chown=backend:backend ./common/ .common/
+COPY --chown=backend:backend ./apps/ ./apps/
+COPY --chown=backend:backend ./common/ ./common/
+COPY --chown=backend:backend ./models/ ./models/
 
 
 EXPOSE 8000
-CMD ["uvicorn", "apps.server.src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "apps.server.src.app-2:app", "--host", "0.0.0.0", "--port", "8000"]
